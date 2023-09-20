@@ -4,12 +4,12 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
   // ui.uri() возвращает текущий адрес страницы
   // используем его в конструкции с if для постройки страницы
@@ -19,30 +19,30 @@ void build() {
   // страница с формой
   // ВАЖНО: url страницы должен совпадать с именем формы!
   // чтобы форма отображалась в браузере после Submit
-  GP.NAV_TABS_LINKS("/,/save,/clicks,/updates", "Home,Form,Clicks,Updates");
+  GP::GP.NAV_TABS_LINKS("/,/save,/clicks,/updates", "Home,Form,Clicks,Updates");
   
   if (ui.uri("/save")) {
-    GP.FORM_BEGIN("/save");
-    GP.TEXT("txt", "text", ""); GP.BREAK();
-    GP.SUBMIT("Submit");
-    GP.FORM_END();
+    GP::GP.FORM_BEGIN("/save");
+    GP::GP.TEXT("txt", "text", ""); GP::GP.BREAK();
+    GP::GP.SUBMIT("Submit");
+    GP::GP.FORM_END();
 
     // страница с кнопкой, на которую можно кликнуть
   } else if (ui.uri("/clicks")) {
-    GP.BUTTON("btn", "Button");
+    GP::GP.BUTTON("btn", "Button");
 
     // страница с лампочкой, которая сама переключается
   } else if (ui.uri("/updates")) {
-    GP.UPDATE("led");
-    GP.LABEL("LED: ");
-    GP.LED_RED("led", 0);
+    GP::GP.UPDATE("led");
+    GP::GP.LABEL("LED: ");
+    GP::GP.LED_RED("led", 0);
 
     // главная страница, корень, "/"
   } else {
-    GP.LABEL("Home");
+    GP::GP.LABEL("Home");
   }
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

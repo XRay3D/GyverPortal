@@ -5,7 +5,7 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void setup() {
   Serial.begin(115200);
@@ -24,9 +24,9 @@ void setup() {
 }
 
 void build() {
-  GP.BUILD_BEGIN(GP_DARK);
+  GP::GP.BUILD_BEGIN( GP::DARK);
   GP_TEXT_HREF("/", "Home");
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void action() {

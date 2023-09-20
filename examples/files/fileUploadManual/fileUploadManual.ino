@@ -4,23 +4,23 @@
 #define AP_SSID ""
 #define AP_PASS ""
 
-// подключить библиотеку файловой системы (до #include GyverPortal)
+// подключить библиотеку файловой системы (до #include GP::GyverPortal)
 #include <LittleFS.h>
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
-  GP.FILE_UPLOAD("my_file.txt"); // кнопка загрузки
-  GP.FILE_UPLOAD("file_upl");    // кнопка загрузки
+  GP::GP.FILE_UPLOAD("my_file.txt"); // кнопка загрузки
+  GP::GP.FILE_UPLOAD("file_upl");    // кнопка загрузки
   
-  GP.FILE_MANAGER(&LittleFS);    // файловый менеджер
+  GP::GP.FILE_MANAGER(&LittleFS);    // файловый менеджер
   
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

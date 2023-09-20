@@ -7,21 +7,21 @@
 #define FLASH_PIN 4
 
 #include "camera.h"
-#include <CamStream.h>  // входит в GyverPortal
+#include <CamStream.h>  // входит в GP::GyverPortal
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void build() {
   // ширина колонки 500 пикс
-  GP.BUILD_BEGIN(GP_DARK, 500);
+  GP::GP.BUILD_BEGIN( GP::DARK, 500);
   
   // вывести окно стрима шириной 500 пикс
-  GP.CAM_STREAM(500);
+  GP::GP.CAM_STREAM(500);
   
-  GP.LABEL("Flash:");
-  GP.SWITCH("flash");
-  GP.BUILD_END();
+  GP::GP.LABEL("Flash:");
+  GP::GP.SWITCH("flash");
+  GP::GP.BUILD_END();
 }
 
 void action() {

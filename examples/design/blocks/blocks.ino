@@ -4,26 +4,26 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void build() {
-  GP.BUILD_BEGIN(600);
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN(600);
+  GP::GP.THEME( GP::DARK);
 
   // создаём блок вручную
-  GP.BLOCK_TAB_BEGIN("MOTOR CONFIG");
-  M_BOX(GP.LABEL("Velocity"); GP.SLIDER("vel"););
-  M_BOX(GP.LABEL("Accel."); GP.SLIDER("acc"););
-  GP.BLOCK_END();
+  GP::GP.BLOCK_TAB_BEGIN("MOTOR CONFIG");
+  M_BOX(GP.LABEL("Velocity"); GP::GP.SLIDER("vel"););
+  M_BOX(GP.LABEL("Accel."); GP::GP.SLIDER("acc"););
+  GP::GP.BLOCK_END();
 
   // через макрос
   M_BLOCK_TAB(
     "MANUAL",
-    M_BOX(GP.LABEL("Duty"); GP.SLIDER("spd"););
-    M_BOX(GP.BUTTON("bkw", "◄"); GP.BUTTON("frw", "►"););
+    M_BOX(GP.LABEL("Duty"); GP::GP.SLIDER("spd"););
+    M_BOX(GP.BUTTON("bkw", "◄"); GP::GP.BUTTON("frw", "►"););
   );
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

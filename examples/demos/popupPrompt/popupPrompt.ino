@@ -7,24 +7,24 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 int val;
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
   // запрос на обновление каждую секунду
-  GP.UPDATE("prm");
-  GP.PROMPT("prm", "Random number");
+  GP::GP.UPDATE("prm");
+  GP::GP.PROMPT("prm", "Random number");
 
   // вызов по кнопке
-  GP.PROMPT("prmT", "val variable:");
-  GP.BUTTON("btnP", "Prompt");
-  GP.UPDATE_CLICK("prmT", "btnP");
+  GP::GP.PROMPT("prmT", "val variable:");
+  GP::GP.BUTTON("btnP", "Prompt");
+  GP::GP.UPDATE_CLICK("prmT", "btnP");
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 bool flag;

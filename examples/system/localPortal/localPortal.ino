@@ -7,12 +7,12 @@
 
 // конструктор страницы
 void build(GyverPortal& p) {
-  GP.BUILD_BEGIN(GP_DARK);
+  GP::GP.BUILD_BEGIN( GP::DARK);
 
-  GP.BUTTON("clk", "Click");  GP.BREAK();
-  GP.BUTTON("ext", "Exit");   GP.BREAK();
+  GP::GP.BUTTON("clk", "Click");  GP::GP.BREAK();
+  GP::GP.BUTTON("ext", "Exit");   GP::GP.BREAK();
   //GP.FILE_UPLOAD("test.txt"); Требует предварительного монтирования файловой системы
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 //Обработчик событий
@@ -34,7 +34,7 @@ void setup() {
   }
   Serial.println(WiFi.localIP());
 
-  GyverPortal ui;
+  GP:: GP::GyverPortal ui;
   ui.attachBuild(build);
   ui.attach(action);
   ui.start();

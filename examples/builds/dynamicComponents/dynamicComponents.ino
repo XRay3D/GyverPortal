@@ -4,11 +4,11 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
   // ОБНОВЛЕНИЯ
   String s;
@@ -19,26 +19,26 @@ void build() {
     s += i;
     s += ',';
   }
-  GP.UPDATE(s);
+  GP::GP.UPDATE(s);
 
   // создаём лейблы с именами lbl/0,lbl/1...
   for (int i = 0; i < 5; i++) {
-    GP.LABEL_BLOCK("", String("lbl/") + i);
-    GP.BREAK();
+    GP::GP.LABEL_BLOCK("", String("lbl/") + i);
+    GP::GP.BREAK();
   }
 
   // КЛИКИ
   // создём слайдеры с именами sld/0, sld/1 ...
   for (int i = 0; i < 5; i++) {
-    GP.SLIDER(String("sld/") + i);
+    GP::GP.SLIDER(String("sld/") + i);
   }
 
   // создём кнопки с именами btn/0, btn/1 ...
   for (int i = 0; i < 5; i++) {
-    GP.BUTTON(String("btn/") + i, String("Button ") + i);
+    GP::GP.BUTTON(String("btn/") + i, String("Button ") + i);
   }
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void action() {

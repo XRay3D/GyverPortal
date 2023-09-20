@@ -4,33 +4,33 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
   M_BLOCK(
     M_BOX(
-      GP.LABEL("Velocity");
+      GP::GP.LABEL("Velocity");
       M_BOX(
-        GP_RIGHT,
+        Align::RIGHT,
         "220px",
-        GP.SLIDER("vel");
+        GP::GP.SLIDER("vel");
       );
     );
 
     M_BOX(
-      GP.LABEL("Accel.");
+      GP::GP.LABEL("Accel.");
       M_BOX(
-        GP_RIGHT,
+        Align::RIGHT,
         "220px",
-        GP.SLIDER("acc");
+        GP::GP.SLIDER("acc");
       );
     );
   );
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

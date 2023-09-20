@@ -2,50 +2,52 @@
 
 // GP Parsers
 
-#include <Arduino.h>
-#include "utils.h"
 #include "objects.h"
+#include "utils.h"
+#include <Arduino.h>
+
+namespace GP {
 
 class ArgParser {
 public:
-    virtual const String arg(const String& n) = 0;    // value from name
-    virtual int args() = 0;                     // amount
-    virtual bool hasArg(const String& n) = 0;   // check
-    virtual bool clickF() = 0;
-    
-    const String& arg() {                   // value from 0
+    virtual const String arg(const String& n) = 0; // value from name
+    virtual int args() = 0;                        // amount
+    virtual bool hasArg(const String& n) = 0;      // check
+    virtual bool hasClick() = 0;
+
+    const String& arg() { // value from 0
         return _argValPtr ? (*_argValPtr) : _GP_empty_str;
     }
-    const String& argName() {               // name from 0
+    const String& argName() { // name from 0
         return _argNamePtr ? (*_argNamePtr) : _GP_empty_str;
     }
-    
+
     // ==================== HOLD ===================
     // вернёт true, если статус удержания кнопки изменился (нажата/отпущена)
     bool hold() {
         return _holdF && args();
     }
-    
+
     // вернёт true, если кнопка удерживается
     bool hold(const String& name) {
         return _hold.length() ? _hold.equals(name) : 0;
     }
-    
+
     // вернёт имя удерживаемой кнопки
     String holdName() {
         return _hold.length() ? _hold : _GP_empty_str;
     }
-    
+
     // вернёт часть имени hold компонента, находящейся под номером idx после разделителя /
     String holdNameSub(int idx = 1) {
-        return _hold.length() ? (GPlistIdx(_hold, idx, '/')) : _GP_empty_str;
+        return _hold.length() ? (listIdx(_hold, idx, '/')) : _GP_empty_str;
     }
-    
+
     // вернёт true, если кнопка удерживается и имя компонента начинается с указанного
     bool holdSub(const String& name) {
         return _hold.length() ? _hold.startsWith(name) : 0;
     }
-    
+
     // вернёт true, если кнопка была нажата
     bool clickDown(const String& name) {
         return hold() ? (_holdF == 1 && argName().equals(name)) : 0;
@@ -54,7 +56,7 @@ public:
     bool clickDownSub(const String& name) {
         return hold() ? (_holdF == 1 && argName().startsWith(name)) : 0;
     }
-    
+
     // вернёт true, если кнопка была отпущена
     bool clickUp(const String& name) {
         return hold() ? (_holdF == 2 && argName().equals(name)) : 0;
@@ -64,51 +66,49 @@ public:
         return hold() ? (_holdF == 2 && argName().startsWith(name)) : 0;
     }
 
-    
     // ===================== CLICK OBJ ======================
-    bool clickDown(GP_BUTTON& btn) {
+    bool clickDown(GP::BUTTON& btn) {
         return clickDown(btn.name);
     }
-    
-    bool clickUp(GP_BUTTON& btn) {
+
+    bool clickUp(GP::BUTTON& btn) {
         return clickUp(btn.name);
     }
-    
-    bool clickDown(GP_BUTTON_MINI& btn) {
+
+    bool clickDown(GP::BUTTON_MINI& btn) {
         return clickDown(btn.name);
     }
-    
-    bool clickUp(GP_BUTTON_MINI& btn) {
+
+    bool clickUp(GP::BUTTON_MINI& btn) {
         return clickUp(btn.name);
     }
-    
-    
+
     // ===================== CLICK =====================
     // вернёт true, если был клик по (кнопка, чекбокс, свитч, слайдер, селектор)
     bool click() {
-        return clickF() && args();
+        return hasClick() && args();
     }
-    
+
     // вернёт true, если был клик по указанному элементу (кнопка, чекбокс, свитч, слайдер, селектор)
     bool click(const String& name) {
         return click() ? (argName().equals(name) && args() == 1) : 0;
     }
-    
+
     // вернёт true, если имя кликнутого компонента начинается с name
     bool clickSub(const String& name) {
         return click() ? (argName().startsWith(name) && args() == 1) : 0;
     }
-    
+
     // вернёт имя теукщего кликнутого компонента
     String clickName() {
         return click() ? argName() : _GP_empty_str;
     }
-    
+
     // вернёт часть имени кликнутого компонента, находящейся под номером idx после разделителя /
     String clickNameSub(int idx = 1) {
-        return click() ? (GPlistIdx(argName(), idx, '/')) : _GP_empty_str;
+        return click() ? (listIdx(argName(), idx, '/')) : _GP_empty_str;
     }
-    
+
     // ===================== CLICK AUTO =====================
     // нулевой аргумент (для вызова в условии)
     bool clickStr(char* t, uint16_t len = 0) {
@@ -144,7 +144,7 @@ public:
     bool clickColor(GPcolor& t) {
         return click() ? copyColor(t) : 0;
     }
-    
+
     // с указанием имени компонента
     bool clickStr(const String& n, char* t, uint16_t len = 0) {
         return click() ? copyStr(n, t, len) : 0;
@@ -179,7 +179,7 @@ public:
     bool clickColor(const String& n, GPcolor& t) {
         return click() ? copyColor(n, t) : 0;
     }
-    
+
     // ======================= ПАРСЕРЫ =======================
     // ОПАСНЫЕ ФУНКЦИИ (не проверяют есть ли запрос). Конвертируют и возвращают значение
     // получить String строку с компонента
@@ -197,7 +197,7 @@ public:
     int getInt() {
         return getIntUniv(arg());
     }
-    
+
     // получить float с компонента
     float getFloat(const String& n) {
         return arg(n).toFloat();
@@ -214,7 +214,7 @@ public:
     bool getBool() {
         return (arg()[0] == '1' || arg()[0] == 'o' || arg()[0] == 't');
     }
-    
+
     // получить дату с компонента
     GPdate getDate(const String& n) {
         return GPdate(arg(n));
@@ -230,7 +230,7 @@ public:
     GPtime getTime() {
         return GPtime(arg());
     }
-    
+
     // получить неделю с компонента
     GPweek getWeek(const String& n) {
         return GPweek(arg(n));
@@ -238,7 +238,7 @@ public:
     GPweek getWeek() {
         return GPweek(arg());
     }
-    
+
     // получить флаги с компонента
     GPflags getFlags(const String& n) {
         return GPflags(arg(n));
@@ -254,13 +254,13 @@ public:
     GPcolor getColor() {
         return GPcolor(arg());
     }
-    
+
     // ===================== COPY-ПАРСЕРЫ =====================
     // ОПАСНЫЕ парсеры (не проверяют запрос). Использовать только в условии!
     bool copyStr(char* t, uint16_t len = 0) {
-        //return (args() && (!len || arg().length() < len)) ? (strcpy(t, arg().c_str()), 1) : 0;
-        if (!args()) return 0;
-        if (!len || arg().length() < len) strcpy(t, arg().c_str());
+        // return (args() && (!len || arg().length() < len)) ? (strcpy(t, arg().c_str()), 1) : 0;
+        if(!args()) return 0;
+        if(!len || arg().length() < len) strcpy(t, arg().c_str());
         else {
             strncpy(t, arg().c_str(), len - 1);
             t[len - 1] = '\0';
@@ -297,7 +297,7 @@ public:
     bool copyColor(GPcolor& t) {
         return args() ? (t = getColor(), 1) : 0;
     }
-    
+
     // БЕЗОПАСНЫЕ парсеры (проверяют запрос). Копируют данные из запроса в переменную
     bool copyStr(const String& n, char* t, uint16_t len = 0) {
         return (hasArg(n) && (!len || arg(n).length() < len)) ? (strcpy(t, arg(n).c_str()), 1) : 0;
@@ -332,120 +332,118 @@ public:
     bool copyColor(const String& n, GPcolor& t) {
         return hasArg(n) ? (t = getColor(n), 1) : 0;
     }
-    
-    
+
     // ===================== COPY OBJ =====================
-    bool copy(GP_NUMBER& num) {
+    bool copy(GP::NUMBER& num) {
         return copyInt(num.name, num.value);
     }
-    bool copy(GP_NUMBER_F& num) {
+    bool copy(GP::NUMBER_F& num) {
         return copyFloat(num.name, num.value);
     }
-    
-    bool copy(GP_TEXT& txt) {
+
+    bool copy(GP::TEXT& txt) {
         return copyString(txt.name, txt.text);
     }
-    bool copy(GP_PASS& pas) {
+    bool copy(GP::PASS& pas) {
         return copyString(pas.name, pas.text);
     }
-    
-    bool copy(GP_AREA& ar) {
+
+    bool copy(GP::AREA& ar) {
         return copyString(ar.name, ar.text);
     }
-    
-    bool copy(GP_CHECK& ch) {
+
+    bool copy(GP::CHECK& ch) {
         return copyBool(ch.name, ch.state);
     }
-    bool copy(GP_SWITCH& sw) {
+    bool copy(GP::SWITCH& sw) {
         return copyBool(sw.name, sw.state);
     }
-    
-    bool copy(GP_DATE& d) {
+
+    bool copy(GP::DATE& d) {
         return copyDate(d.name, d.date);
     }
-    bool copy(GP_TIME& t) {
+    bool copy(GP::TIME& t) {
         return copyTime(t.name, t.time);
     }
-    bool copy(GP_COLOR& c) {
+    bool copy(GP::COLOR& c) {
         return copyColor(c.name, c.color);
     }
-    
-    bool copy(GP_SPINNER& s) {
+
+    bool copy(GP::SPINNER& s) {
         return copyFloat(s.name, s.value);
     }
-    bool copy(GP_SLIDER& s) {
+    bool copy(GP::SLIDER& s) {
         return copyFloat(s.name, s.value);
     }
-    
-    bool copy(GP_SELECT& s) {
+
+    bool copy(GP::SELECT& s) {
         return copyInt(s.name, s.selected);
     }
-    
-    
+
     // ===================== CLICK OBJ =====================
-    bool click(GP_BUTTON& btn) {
+    bool click(GP::BUTTON& btn) {
         return click(btn.name);
     }
-    bool click(GP_BUTTON_MINI& btn) {
+    bool click(GP::BUTTON_MINI& btn) {
         return click(btn.name);
     }
-    
-    bool click(GP_NUMBER& num) {
+
+    bool click(GP::NUMBER& num) {
         return click() ? copy(num) : 0;
     }
-    bool click(GP_NUMBER_F& num) {
+    bool click(GP::NUMBER_F& num) {
         return click() ? copy(num) : 0;
     }
-    
-    bool click(GP_TEXT& txt) {
+
+    bool click(GP::TEXT& txt) {
         return click() ? copy(txt) : 0;
     }
-    bool click(GP_PASS& pas) {
+    bool click(GP::PASS& pas) {
         return click() ? copy(pas) : 0;
     }
-    
-    bool click(GP_AREA& ar) {
+
+    bool click(GP::AREA& ar) {
         return click() ? copy(ar) : 0;
     }
-    
-    bool click(GP_CHECK& ch) {
+
+    bool click(GP::CHECK& ch) {
         return click() ? copy(ch) : 0;
     }
-    bool click(GP_SWITCH& sw) {
+    bool click(GP::SWITCH& sw) {
         return click() ? copy(sw) : 0;
     }
-    
-    bool click(GP_DATE& d) {
+
+    bool click(GP::DATE& d) {
         return click() ? copy(d) : 0;
     }
-    bool click(GP_TIME& t) {
+    bool click(GP::TIME& t) {
         return click() ? copy(t) : 0;
     }
-    bool click(GP_COLOR& c) {
+    bool click(GP::COLOR& c) {
         return click() ? copy(c) : 0;
     }
-    
-    bool click(GP_SPINNER& s) {
+
+    bool click(GP::SPINNER& s) {
         return click() ? copy(s) : 0;
     }
-    bool click(GP_SLIDER& s) {
+    bool click(GP::SLIDER& s) {
         return click() ? copy(s) : 0;
     }
-    
-    bool click(GP_SELECT& s) {
+
+    bool click(GP::SELECT& s) {
         return click() ? copy(s) : 0;
     }
-    
+
     // отправить ответ на обновление
     bool answer(const String& s) {
-        if (_answPtr) *_answPtr += s;
+        if(_answPtr) *_answPtr += s;
         return (bool)_answPtr;
     }
     bool answer(int v) {
-        if (_answPtr) *_answPtr += v;
+        if(_answPtr) *_answPtr += v;
         return (bool)_answPtr;
     }
-    
+
     // для float/double
     template <typename T>
     bool answer(T v, uint8_t dec) {
@@ -454,14 +452,14 @@ public:
     bool answer(int* v, int am, int dec = 0) {
         String s;
         s.reserve(am * 4);
-        for (int i = 0; i < am; i++) {
-            if (dec) s += (float)v[i] / dec;
+        for(int i = 0; i < am; i++) {
+            if(dec) s += (float)v[i] / dec;
             else s += v[i];
-            if (i != am - 1) s += ',';
+            if(i != am - 1) s += ',';
         }
         return answer(s);
     }
-    
+
     bool answer(GPcolor col) {
         return answer(col.encode());
     }
@@ -480,7 +478,7 @@ public:
     bool answer(GPcanvas& cv) {
         return answer(cv._read());
     }
-    
+
     // ==================== UPDATE AUTO =====================
     // автоматическое обновление. Отправит значение из указанной переменной
     // Вернёт true в момент обновления
@@ -513,112 +511,113 @@ public:
     bool updateColor(const String& n, GPcolor f) {
         return update(n) ? (answer(f), 1) : 0;
     }
-    
+
     bool updateLog(GPlog& log) {
         return update(log.name) ? (answer(log.read()), 1) : 0;
     }
-    
-    
+
     // ================== UPDATE AUTO OBJ ===================
-    bool update(GP_TITLE& title) {
+    bool update(GP::TITLE& title) {
         return (update(title.name) ? answer(title.text) : 0);
     }
-    bool update(GP_LABEL& label) {
+    bool update(GP::LABEL& label) {
         return (update(label.name) ? answer(label.text) : 0);
     }
-    bool update(GP_LABEL_BLOCK& label) {
+    bool update(GP::LABEL_BLOCK& label) {
         return (update(label.name) ? answer(label.text) : 0);
     }
-    
-    bool update(GP_LED& led) {
+
+    bool update(GP::LED& led) {
         return (update(led.name) ? answer(led.state) : 0);
     }
-    bool update(GP_LED_RED& led) {
+    bool update(GP::LED_RED& led) {
         return (update(led.name) ? answer(led.state) : 0);
     }
-    bool update(GP_LED_GREEN& led) {
+    bool update(GP::LED_GREEN& led) {
         return (update(led.name) ? answer(led.state) : 0);
     }
-    
-    bool update(GP_NUMBER& num) {
+
+    bool update(GP::NUMBER& num) {
         return (update(num.name) ? answer(num.value) : 0);
     }
-    bool update(GP_NUMBER_F& num) {
+    bool update(GP::NUMBER_F& num) {
         return (update(num.name) ? answer(num.value, num.decimals) : 0);
     }
-    
-    bool update(GP_TEXT& txt) {
+
+    bool update(GP::TEXT& txt) {
         return (update(txt.name) ? answer(txt.text) : 0);
     }
-    bool update(GP_PASS& pas) {
+    bool update(GP::PASS& pas) {
         return (update(pas.name) ? answer(pas.text) : 0);
     }
-    
-    bool update(GP_AREA& ar) {
+
+    bool update(GP::AREA& ar) {
         return (update(ar.name) ? answer(ar.text) : 0);
     }
-    
-    bool update(GP_CHECK& ch) {
+
+    bool update(GP::CHECK& ch) {
         return (update(ch.name) ? answer(ch.state) : 0);
     }
-    bool update(GP_SWITCH& sw) {
+    bool update(GP::SWITCH& sw) {
         return (update(sw.name) ? answer(sw.state) : 0);
     }
-    
-    bool update(GP_DATE& d) {
+
+    bool update(GP::DATE& d) {
         return (update(d.name) ? answer(d.date) : 0);
     }
-    bool update(GP_TIME& t) {
+    bool update(GP::TIME& t) {
         return (update(t.name) ? answer(t.time) : 0);
     }
-    bool update(GP_COLOR& c) {
+    bool update(GP::COLOR& c) {
         return (update(c.name) ? answer(c.color) : 0);
     }
-    
-    bool update(GP_SPINNER& s) {
+
+    bool update(GP::SPINNER& s) {
         return (update(s.name) ? answer(s.value, s.decimals) : 0);
     }
-    bool update(GP_SLIDER& s) {
+    bool update(GP::SLIDER& s) {
         return (update(s.name) ? answer(s.value, s.decimals) : 0);
     }
-    
+
     // вернёт true, если было обновление
     bool update() {
         return (bool)_updPtr;
     }
-    
+
     // вернёт true, если было update с указанного компонента
     bool update(const String& name) {
         return update() ? _updPtr->equals(name) : 0;
     }
-    
+
     // вернёт true, если имя обновляемого компонента НАЧИНАЕТСЯ с указанного
     bool updateSub(const String& name) {
         return update() ? _updPtr->startsWith(name) : 0;
     }
-    
+
     // вернёт имя обновлённого компонента
     String updateName() {
         return update() ? (*_updPtr) : _GP_empty_str;
     }
-    
+
     // вернёт часть имени обновляемого компонента, находящейся под номером idx после разделителя /
     String updateNameSub(int idx = 1) {
-        return update() ? (GPlistIdx(*_updPtr, idx, '/')) : _GP_empty_str;
+        return update() ? (listIdx(*_updPtr, idx, '/')) : _GP_empty_str;
     }
-    
-    String *_answPtr = nullptr;
-    String *_updPtr = nullptr;
-    const String *_argValPtr = nullptr;
-    const String *_argNamePtr = nullptr;
+
+    String* _answPtr = nullptr;
+    String* _updPtr = nullptr;
+    const String* _argValPtr = nullptr;
+    const String* _argNamePtr = nullptr;
     String _hold;
     uint8_t _holdF = 0;
-    
+
 private:
     int getIntUniv(const String& s) {
-        if (s[0] == '#') {
+        if(s[0] == '#') {
             GPcolor col(s);
             return col.getHEX();
         } else return s.toInt();
     }
 };
+
+} // namespace GP

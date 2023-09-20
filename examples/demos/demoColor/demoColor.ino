@@ -4,31 +4,31 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
   // доступ к каналам цвета
-  GPcolor color1(255, 0, 0);
-  GP.COLOR("c1", color1);
+  GP::GPcolor color1(255, 0, 0);
+  GP::GP.COLOR("c1", color1);
   
   color1.r = 0;
   color1.g = 255;
   color1.b = 255;
-  GP.COLOR("c2", color1);
+  GP::GP.COLOR("c2", color1);
 
   // HEX
-  GPcolor color2;
+  GP::GPcolor color2;
   color2 = 0x00ff00;
-  GP.COLOR("c3", color2);
+  GP::GP.COLOR("c3", color2);
 
   // WEB HEX
-  GPcolor color3("#ffff00");
-  GP.COLOR("c4", color3);
+  GP::GPcolor color3("#ffff00");
+  GP::GP.COLOR("c4", color3);
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void action() {
@@ -37,7 +37,7 @@ void action() {
     if (ui.click("c1")) Serial.println(ui.getString());
 
     // второй перепишем в буфер и выведем каналами
-    GPcolor buf;
+    GP::GPcolor buf;
     if (ui.copyColor("c2", buf)) {
       Serial.print(buf.r);
       Serial.print(',');

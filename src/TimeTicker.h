@@ -1,6 +1,7 @@
 #pragma once
 
 // GP Time module
+namespace GP {
 
 struct TimeTicker {
     void setUnix(uint32_t unixx) {
@@ -10,12 +11,12 @@ struct TimeTicker {
     void setGMT(int16_t gmt) {
         _gmt = gmt;
     }
-    
+
     uint32_t getUnix() {
-        if (_unix) {
+        if(_unix) {
             // защита от переполнения разности через 50 суток
             uint32_t diff = millis() - _unixTmr;
-            if (diff > 86400000ul) {
+            if(diff > 86400000ul) {
                 _unix += diff / 1000ul;
                 _unixTmr = millis() - diff % 1000ul;
             }
@@ -23,7 +24,7 @@ struct TimeTicker {
         }
         return 0;
     }
-    
+
     int16_t getGMT() {
         return _gmt;
     }
@@ -31,8 +32,10 @@ struct TimeTicker {
     bool timeSynced() {
         return (bool)_unix;
     }
-    
+
     int16_t _gmt;
     uint32_t _unix = 0;
     uint32_t _unixTmr = 0;
 };
+
+} // namespace GP

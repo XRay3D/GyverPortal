@@ -4,20 +4,20 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
   // однократно изменить название окна
   //GP.PAGE_TITLE("MyPortal");
 
   // изменить и подключить обновление (1 в сек)
-  GP.PAGE_TITLE("MyPortal", "tit");
-  GP.UPDATE("tit");
+  GP::GP.PAGE_TITLE("MyPortal", "tit");
+  GP::GP.UPDATE("tit");
   
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void action() {

@@ -21,15 +21,15 @@ const char *names[] = {"Random", "Counter"};
 #include "time.h"
 #include <EEPROM.h>
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
-  GP.PLOT_STOCK_DARK<2, PLOT_SIZE>("plot", names, data.unix, data.vals);
-  GP.BUILD_END();
+  GP::GP.PLOT_STOCK_DARK<2, PLOT_SIZE>("plot", names, data.unix, data.vals);
+  GP::GP.BUILD_END();
 }
 
 void setup() {

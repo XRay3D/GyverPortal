@@ -4,24 +4,24 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
-  GP.JQ_SUPPORT();
-  GP.JQ_UPDATE_BEGIN(2000);
-  GP.LED("L0", random(2));
-  GP.LED("L1", random(2));
-  GP.LED("L2", random(2));
-  GP.LED("L3", random(2));
-  GP.LED("L4", random(2));
-  GP.LED("L6", random(2));
-  GP.JQ_UPDATE_END();
+  GP::GP.JQ_SUPPORT();
+  GP::GP.JQ_UPDATE_BEGIN(2000);
+  GP::GP.LED("L0", random(2));
+  GP::GP.LED("L1", random(2));
+  GP::GP.LED("L2", random(2));
+  GP::GP.LED("L3", random(2));
+  GP::GP.LED("L4", random(2));
+  GP::GP.LED("L6", random(2));
+  GP::GP.JQ_UPDATE_END();
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

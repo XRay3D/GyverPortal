@@ -8,14 +8,14 @@
 #include <LittleFS.h>
 
 #include <GyverPortal.h>
-GyverPortal ui(&LittleFS); // для проверки файлов
+ GP::GyverPortal ui(&LittleFS); // для проверки файлов
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
-  GP.TITLE("Welcome! v3");
-  GP.BUILD_END();
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
+  GP::GP.TITLE("Welcome! v3");
+  GP::GP.BUILD_END();
 }
 
 void setup() {

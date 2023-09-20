@@ -4,7 +4,7 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void setup() {
   Serial.begin(115200);
@@ -23,28 +23,28 @@ void setup() {
 }
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
   // поддержка канваса
-  GP.CANVAS_SUPPORT();
+  GP::GP.CANVAS_SUPPORT();
 
   // создать канвас и сразу вывести графику
-  GP.CANVAS_BEGIN("cnv", 350, 350);
+  GP::GP.CANVAS_BEGIN("cnv", 350, 350);
   GPcanvas cv;                // начать рисовать (после вызова begin)
   cv.background("white");
-  GP.CANVAS_END();            // закончить рисовать и отправить результат
+  GP::GP.CANVAS_END();            // закончить рисовать и отправить результат
 
   // обновлять канвас по таймеру
-  GP.UPDATE("cnv", 300);
+  GP::GP.UPDATE("cnv", 300);
 
   // создать "пустой" канвас
-  GP.CANVAS("cnv2", 350, 350);
+  GP::GP.CANVAS("cnv2", 350, 350);
 
-  GP.BUTTON_MINI("btn", "Draw!");   // кнопка
-  GP.REDRAW_CLICK("cnv2", "btn");   // которая обновляет канвас
+  GP::GP.BUTTON_MINI("btn", "Draw!");   // кнопка
+  GP::GP.REDRAW_CLICK("cnv2", "btn");   // которая обновляет канвас
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void action() {

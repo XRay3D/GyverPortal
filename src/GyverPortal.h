@@ -30,34 +30,37 @@
 #define _GyverPortal_h
 #include <Arduino.h>
 
-#define GP_CACHE_PRD "max-age=86400"        // таймаут кеширования (умолч. 86400 - сутки)
+#define GP_CACHE_PRD "max-age=86400" // таймаут кеширования (умолч. 86400 - сутки)
 
 #ifndef GP_NO_DNS
 #include <DNSServer.h>
 #endif
 
 #ifdef ESP8266
-#include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
+#include <ESP8266WiFi.h>
 #ifndef GP_NO_MDNS
 #include <ESP8266mDNS.h>
 #endif
+using WebServer__ = ESP8266WebServer;
 #else
 
-#include <WiFi.h>
 #include <WebServer.h>
+#include <WiFi.h>
 #ifndef GP_NO_MDNS
 #include <ESPmDNS.h>
 #endif
+using WebServer__ = WebServer;
+
 #endif
 
-#include "themes.h"
+#include "buildMacro.h"
+#include "builder.h"
+#include "canvas.h"
 #include "log.h"
 #include "objects.h"
 #include "portal.h"
-#include "builder.h"
-#include "canvas.h"
-#include "buildMacro.h"
+#include "themes.h"
 #include "version.h"
 
 #ifndef GP_NO_OTA

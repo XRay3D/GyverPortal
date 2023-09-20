@@ -7,18 +7,18 @@
 #include <LittleFS.h>
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
  
-  GP.EMBED("/test.txt");
-  GP.BUTTON_LINK("/test.txt", "Открыть");
-  GP.BUTTON_DOWNLOAD("/test.txt", "Скачать");
+  GP::GP.EMBED("/test.txt");
+  GP::GP.BUTTON_LINK("/test.txt", "Открыть");
+  GP::GP.BUTTON_DOWNLOAD("/test.txt", "Скачать");
   
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

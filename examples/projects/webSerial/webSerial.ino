@@ -4,21 +4,21 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
   // кнопка отправляет текст из поля txt
-  GP.TEXT("txt", "");
-  GP.BUTTON_MINI("btn", "Send", "txt");
-  GP.BREAK();
+  GP::GP.TEXT("txt", "");
+  GP::GP.BUTTON_MINI("btn", "Send", "txt");
+  GP::GP.BREAK();
 
-  GP.AREA_LOG(5);
+  GP::GP.AREA_LOG(5);
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

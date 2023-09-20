@@ -6,19 +6,19 @@
 #include <LittleFS.h>
 
 #include <GyverPortal.h>
-GyverPortal ui(&LittleFS);
+ GP::GyverPortal ui(&LittleFS);
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
   
-  GP.IMAGE("/test.png");  GP.BREAK();
-  GP.IMAGE("/test.gif");  GP.BREAK();
-  GP.EMBED("/test.txt");  GP.BREAK();
-  GP.VIDEO("/test.mp4");
+  GP::GP.IMAGE("/test.png");  GP::GP.BREAK();
+  GP::GP.IMAGE("/test.gif");  GP::GP.BREAK();
+  GP::GP.EMBED("/test.txt");  GP::GP.BREAK();
+  GP::GP.VIDEO("/test.mp4");
   
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

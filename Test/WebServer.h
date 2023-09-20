@@ -110,7 +110,7 @@ struct WebServer {
     std::unordered_map<QByteArray, std::function<void(void)>> map;
     MultiMap<QByteArray, QByteArray> parameterMap;
     String uri_;
-
+    HttpListener* httpListener;
     void
     begin(uint16_t port) {
         // qWarning() << port;
@@ -129,7 +129,7 @@ struct WebServer {
         // settings->setValue("sslCertFile","ssl/my.cert");
 
         // Configure and start the TCP listener
-        new HttpListener(settings, &requestHandler, qApp);
+        httpListener = new HttpListener(settings, &requestHandler, qApp);
     }
 
     void stop() {
@@ -137,6 +137,8 @@ struct WebServer {
     }
 
     void handleClient() { /*//qWarning("");*/
+        if(!httpListener->isListening())
+            httpListener->listen();
     }
 
     void sendContent(String content) {
@@ -211,12 +213,12 @@ struct WebServer {
     }
 
     int args() const {
-        qWarning("");
+        //  qWarning("");
         return static_cast<int>(parameterMap.data_.size());
     }
 
     String arg(String name) const {
-        qWarning() << name;
+        //  qWarning() << name;
         return parameterMap.value(QByteArray{name});
     }
 
@@ -226,17 +228,17 @@ struct WebServer {
             arg = parameterMap.value(i);
         } catch(...) {
         }
-        qWarning() << i << arg;
+        //  qWarning() << i << arg;
         return arg;
     }
 
     bool hasArg(int i) const {
-        qWarning() << i;
+        //  qWarning() << i;
         return parameterMap.data_.size() > i;
     }
 
     bool hasArg(String name) const {
-        qWarning() << name;
+        //  qWarning() << name;
         return parameterMap.contains(QByteArray{name});
     }
 

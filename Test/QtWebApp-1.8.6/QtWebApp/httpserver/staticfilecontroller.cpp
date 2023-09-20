@@ -29,12 +29,12 @@ StaticFileController::StaticFileController(const QSettings *settings, QObject* p
             docroot=QFileInfo(configFile.absolutePath(),docroot).absoluteFilePath();
         }
     }
-    qDebug("StaticFileController: docroot=%s, encoding=%s, maxAge=%i",qPrintable(docroot),qPrintable(encoding),maxAge);
+    ////qDebug("StaticFileController: docroot=%s, encoding=%s, maxAge=%i",qPrintable(docroot),qPrintable(encoding),maxAge);
     maxCachedFileSize=settings->value("maxCachedFileSize","65536").toInt();
     cache.setMaxCost(settings->value("cacheSize","1000000").toInt());
     cacheTimeout=settings->value("cacheTime","60000").toInt();
     long int cacheMaxCost=(long int)cache.maxCost();
-    qDebug("StaticFileController: cache timeout=%i, size=%li",cacheTimeout,cacheMaxCost);
+    ////qDebug("StaticFileController: cache timeout=%i, size=%li",cacheTimeout,cacheMaxCost);
 }
 
 
@@ -50,7 +50,7 @@ void StaticFileController::service(HttpRequest &request, HttpResponse &response)
         QByteArray document=entry->document; //copy the cached document, because other threads may destroy the cached entry immediately after mutex unlock.
         QByteArray filename=entry->filename;
         mutex.unlock();
-        qDebug("StaticFileController: Cache hit for %s",path.data());
+        ////qDebug("StaticFileController: Cache hit for %s",path.data());
         setContentType(filename,response);
         response.setHeader("Cache-Control","max-age="+QByteArray::number(maxAge/1000));
         response.write(document,true);
@@ -59,7 +59,7 @@ void StaticFileController::service(HttpRequest &request, HttpResponse &response)
     {
         mutex.unlock();
         // The file is not in cache.
-        qDebug("StaticFileController: Cache miss for %s",path.data());
+        ////qDebug("StaticFileController: Cache miss for %s",path.data());
         // Forbid access to files outside the docroot directory
         if (path.contains("/.."))
         {
@@ -75,7 +75,7 @@ void StaticFileController::service(HttpRequest &request, HttpResponse &response)
         }
         // Try to open the file
         QFile file(docroot+path);
-        qDebug("StaticFileController: Open file %s",qPrintable(file.fileName()));
+        ////qDebug("StaticFileController: Open file %s",qPrintable(file.fileName()));
         if (file.open(QIODevice::ReadOnly))
         {
             setContentType(path,response);
@@ -192,6 +192,6 @@ void StaticFileController::setContentType(const QString fileName, HttpResponse &
     // Todo: add all of your content types
     else
     {
-        qDebug("StaticFileController: unknown MIME type for filename '%s'", qPrintable(fileName));
+        ////qDebug("StaticFileController: unknown MIME type for filename '%s'", qPrintable(fileName));
     }
 }

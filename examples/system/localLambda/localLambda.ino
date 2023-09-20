@@ -16,16 +16,16 @@ void setup() {
   }
   Serial.println(WiFi.localIP());
 
-  GyverPortal ui;
+  GP:: GP::GyverPortal ui;
   ui.start();
   ui.attachBuild([]() {
-    GP.BUILD_BEGIN();
-    GP.THEME(GP_DARK);
+    GP::GP.BUILD_BEGIN();
+    GP::GP.THEME( GP::DARK);
 
-    GP.BUTTON("clk", "Click");
-    GP.BUTTON("ext", "Exit");
+    GP::GP.BUTTON("clk", "Click");
+    GP::GP.BUTTON("ext", "Exit");
 
-    GP.BUILD_END();
+    GP::GP.BUILD_END();
   });
 
   ui.attach([](GyverPortal& p) {

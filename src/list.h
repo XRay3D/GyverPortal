@@ -1,6 +1,7 @@
 #pragma once
 
 // GP Update List module
+namespace GP {
 
 enum GPtype {
     T_CSTR,
@@ -67,3 +68,5 @@ struct GPlist {
     GPtype* types = nullptr;
     bool* skips = nullptr;
 };
+
+}

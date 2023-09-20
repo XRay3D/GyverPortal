@@ -4,7 +4,7 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 // адрес сети
 IPAddress net_ip = IPAddress(192, 168, 1, 1);
@@ -12,15 +12,15 @@ IPAddress net_ip = IPAddress(192, 168, 1, 1);
 // конструктор страницы
 void build() {
   if (ui.clientFromNet(net_ip, 24)) {
-    GP.BUILD_BEGIN(GP_DARK);
-    GP.TITLE("Welcome!");
-    GP.LABEL("Your IP: " + ui.clientIP().toString());
-    GP.BUILD_END();
+    GP::GP.BUILD_BEGIN( GP::DARK);
+    GP::GP.TITLE("Welcome!");
+    GP::GP.LABEL("Your IP: " + ui.clientIP().toString());
+    GP::GP.BUILD_END();
   } else {
-    GP.BUILD_BEGIN(GP_DARK);
-    GP.TITLE("Access Denied");
-    GP.LABEL("Your IP: " + ui.clientIP().toString());
-    GP.BUILD_END();
+    GP::GP.BUILD_BEGIN( GP::DARK);
+    GP::GP.TITLE("Access Denied");
+    GP::GP.LABEL("Your IP: " + ui.clientIP().toString());
+    GP::GP.BUILD_END();
   }
 }
 

@@ -4,73 +4,73 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
   M_BOX(
-    GP_JUSTIFY,
-    GP.LABEL("Switch");
+    Align::JUSTIFY,
+    GP::GP.LABEL("Switch");
     M_BOX(
-      GP_RIGHT,
-      GP.LED("");
-      GP.SWITCH("");
-      GP.LED("");
+      Align::RIGHT,
+      GP::GP.LED("");
+      GP::GP.SWITCH("");
+      GP::GP.LED("");
     );
   );
 
-  GP.HR();
+  GP::GP.HR();
 
   M_BOX(
-    GP_CENTER,
-    GP.SPINNER("sp1");
-    GP.SPINNER("sp2");
+    Align::CENTER,
+    GP::GP.SPINNER("sp1");
+    GP::GP.SPINNER("sp2");
   );
 
-  GP.HR();
+  GP::GP.HR();
 
   M_BOX(
-    GP_JUSTIFY,
-    GP.LABEL("Slider");
-    GP.SLIDER("sld");
+    Align::JUSTIFY,
+    GP::GP.LABEL("Slider");
+    GP::GP.SLIDER("sld");
   );
 
-  GP.HR();
+  GP::GP.HR();
 
   M_BOX(
-    GP_JUSTIFY,
-    GP.LABEL("Setting");
+    Align::JUSTIFY,
+    GP::GP.LABEL("Setting");
     M_BOX(
-      GP_RIGHT,
-      GP.CHECK("ch1");
-      GP.CHECK("ch2");
-      GP.CHECK("ch3");
+      Align::RIGHT,
+      GP::GP.CHECK("ch1");
+      GP::GP.CHECK("ch2");
+      GP::GP.CHECK("ch3");
     );
   );
 
-  GP.HR();
+  GP::GP.HR();
 
   M_BOX(
-    GP_JUSTIFY,
-    GP.LABEL("Buttons");
+    Align::JUSTIFY,
+    GP::GP.LABEL("Buttons");
     M_BOX(
-      GP_RIGHT,
-      GP.BUTTON_MINI("b1", "Kek", "", GP_RED);
-      GP.BUTTON_MINI("b1", "Puk");
+      Align::RIGHT,
+      GP::GP.BUTTON_MINI("b1", "Kek", "", GP_RED);
+      GP::GP.BUTTON_MINI("b1", "Puk");
     );
   );
 
-  GP.HR();
+  GP::GP.HR();
 
   M_BOX(
-    GP_JUSTIFY,
-    GP.LABEL("Upload settings");
-    GP.FILE_UPLOAD("file");
+    Align::JUSTIFY,
+    GP::GP.LABEL("Upload settings");
+    GP::GP.FILE_UPLOAD("file");
   );
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

@@ -5,22 +5,22 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
   // запрос на обновление каждую секунду
-  GP.UPDATE("alt");
-  GP.ALERT("alt");
+  GP::GP.UPDATE("alt");
+  GP::GP.ALERT("alt");
 
   // вызов алерта по кнопке
-  GP.ALERT("altT", "Alert Text");
-  GP.BUTTON("btnA", "Alert");
-  GP.UPDATE_CLICK("altT", "btnA");
+  GP::GP.ALERT("altT", "Alert Text");
+  GP::GP.BUTTON("btnA", "Alert");
+  GP::GP.UPDATE_CLICK("altT", "btnA");
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 bool flag;

@@ -4,7 +4,7 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void startup();
 void build();
@@ -21,12 +21,12 @@ void setup() {
 }
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
-  GP.BUTTON_MINI("btn1", "Button 1");
-  GP.BUTTON_MINI("btn2", "Button 2");
-  GP.BUTTON_MINI("btn3", "Button 3");
-  GP.BUILD_END();
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
+  GP::GP.BUTTON_MINI("btn1", "Button 1");
+  GP::GP.BUTTON_MINI("btn2", "Button 2");
+  GP::GP.BUTTON_MINI("btn3", "Button 3");
+  GP::GP.BUILD_END();
 }
 
 bool holdFlag2;  // флаг удержания второй кнопки

@@ -4,19 +4,19 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
   // проверять статус платы
   // зажми reset и смотри на название вкладки браузера
-  GP.ONLINE_CHECK();
+  GP::GP.ONLINE_CHECK();
   
-  GP.TITLE("MyPortal");
+  GP::GP.TITLE("MyPortal");
   
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void action() {

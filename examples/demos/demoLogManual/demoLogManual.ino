@@ -4,20 +4,20 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 GPlog glog1("log1");
 GPlog glog2("log2");
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
-  GP.AREA_LOG(glog1);
-  GP.AREA_LOG(glog2);
+  GP::GP.AREA_LOG(glog1);
+  GP::GP.AREA_LOG(glog2);
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void action() {

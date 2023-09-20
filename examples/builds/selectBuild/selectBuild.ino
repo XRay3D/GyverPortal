@@ -5,24 +5,24 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 int idx;
 char dates[10][10];
 char times[10][10];
 
 void build() {
-  GP.BUILD_BEGIN(GP_DARK);
+  GP::GP.BUILD_BEGIN( GP::DARK);
 
-  GP.SELECT("idx", "1,2,3,4,5", idx);
-  GP.RELOAD_CLICK("idx");
-  GP.BREAK();
+  GP::GP.SELECT("idx", "1,2,3,4,5", idx);
+  GP::GP.RELOAD_CLICK("idx");
+  GP::GP.BREAK();
 
-  GP.TEXT(String("date/") + idx, "", dates[idx]);
-  GP.BREAK();
-  GP.TEXT(String("time/") + idx, "", times[idx]);
+  GP::GP.TEXT(String("date/") + idx, "", dates[idx]);
+  GP::GP.BREAK();
+  GP::GP.TEXT(String("time/") + idx, "", times[idx]);
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void action() {

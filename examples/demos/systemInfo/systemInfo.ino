@@ -4,15 +4,15 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void build() {
-  GP.BUILD_BEGIN(GP_LIGHT);
+  GP::GP.BUILD_BEGIN(GP_LIGHT);
 
   //GP.SYSTEM_INFO();
-  GP.SYSTEM_INFO("1.0");
+  GP::GP.SYSTEM_INFO("1.0");
   
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

@@ -16,7 +16,7 @@ Data data;
 EEManager memory(data);
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void setup() {
   startup();
@@ -29,14 +29,14 @@ void setup() {
 }
 
 void build() {
-  GP.BUILD_BEGIN(GP_DARK);
+  GP::GP.BUILD_BEGIN( GP::DARK);
   // выводим на страницу из переменных
-  GP.SWITCH("sw", data.sw);
-  GP.BREAK();
-  GP.SLIDER("sld", data.sld);
-  GP.BREAK();
-  GP.TEXT("txt", "", data.str);
-  GP.BUILD_END();
+  GP::GP.SWITCH("sw", data.sw);
+  GP::GP.BREAK();
+  GP::GP.SLIDER("sld", data.sld);
+  GP::GP.BREAK();
+  GP::GP.TEXT("txt", "", data.str);
+  GP::GP.BUILD_END();
 }
 
 void action() {

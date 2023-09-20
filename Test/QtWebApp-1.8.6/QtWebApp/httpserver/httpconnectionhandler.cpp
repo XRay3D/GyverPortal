@@ -22,7 +22,7 @@ HttpConnectionHandler::HttpConnectionHandler(const QSettings *settings, HttpRequ
     // execute signals in a new thread
     thread = new QThread();
     thread->start();
-    qDebug("HttpConnectionHandler (%p): thread started", static_cast<void*>(this));
+    ////qDebug("HttpConnectionHandler (%p): thread started", static_cast<void*>(this));
     moveToThread(thread);
     readTimer.moveToThread(thread);
     readTimer.setSingleShot(true);
@@ -37,7 +37,7 @@ HttpConnectionHandler::HttpConnectionHandler(const QSettings *settings, HttpRequ
     connect(&readTimer, SIGNAL(timeout()), SLOT(readTimeout()));
     connect(thread, SIGNAL(finished()), this, SLOT(thread_done()));
 
-    qDebug("HttpConnectionHandler (%p): constructed", static_cast<void*>(this));
+    ////qDebug("HttpConnectionHandler (%p): constructed", static_cast<void*>(this));
 }
 
 
@@ -46,7 +46,7 @@ void HttpConnectionHandler::thread_done()
     readTimer.stop();
     socket->close();
     delete socket;
-    qDebug("HttpConnectionHandler (%p): thread stopped", static_cast<void*>(this));
+    ////qDebug("HttpConnectionHandler (%p): thread stopped", static_cast<void*>(this));
 }
 
 
@@ -55,7 +55,7 @@ HttpConnectionHandler::~HttpConnectionHandler()
     thread->quit();
     thread->wait();
     thread->deleteLater();
-    qDebug("HttpConnectionHandler (%p): destroyed", static_cast<void*>(this));
+    ////qDebug("HttpConnectionHandler (%p): destroyed", static_cast<void*>(this));
 }
 
 
@@ -68,7 +68,7 @@ void HttpConnectionHandler::createSocket()
             QSslSocket* sslSocket=new QSslSocket();
             sslSocket->setSslConfiguration(*sslConfiguration);
             socket=sslSocket;
-            qDebug("HttpConnectionHandler (%p): SSL is enabled", static_cast<void*>(this));
+            ////qDebug("HttpConnectionHandler (%p): SSL is enabled", static_cast<void*>(this));
             return;
         }
     #endif
@@ -79,7 +79,7 @@ void HttpConnectionHandler::createSocket()
 
 void HttpConnectionHandler::handleConnection(tSocketDescriptor socketDescriptor)
 {
-    qDebug("HttpConnectionHandler (%p): handle new connection", static_cast<void*>(this));
+    ////qDebug("HttpConnectionHandler (%p): handle new connection", static_cast<void*>(this));
     busy = true;
     Q_ASSERT(socket->isOpen()==false); // if not, then the handler is already busy
 
@@ -99,7 +99,7 @@ void HttpConnectionHandler::handleConnection(tSocketDescriptor socketDescriptor)
         // Switch on encryption, if SSL is configured
         if (sslConfiguration)
         {
-            qDebug("HttpConnectionHandler (%p): Starting encryption", static_cast<void*>(this));
+            ////qDebug("HttpConnectionHandler (%p): Starting encryption", static_cast<void*>(this));
             (static_cast<QSslSocket*>(socket))->startServerEncryption();
         }
     #endif
@@ -126,7 +126,7 @@ void HttpConnectionHandler::setBusy()
 
 void HttpConnectionHandler::readTimeout()
 {
-    qDebug("HttpConnectionHandler (%p): read timeout occured",static_cast<void*>(this));
+    ////qDebug("HttpConnectionHandler (%p): read timeout occured",static_cast<void*>(this));
 
     //Commented out because QWebView cannot handle this.
     //socket->write("HTTP/1.1 408 request timeout\r\nConnection: close\r\n\r\n408 request timeout\r\n");
@@ -140,7 +140,7 @@ void HttpConnectionHandler::readTimeout()
 
 void HttpConnectionHandler::disconnected()
 {
-    qDebug("HttpConnectionHandler (%p): disconnected", static_cast<void*>(this));
+    ////qDebug("HttpConnectionHandler (%p): disconnected", static_cast<void*>(this));
     socket->close();
     readTimer.stop();
     busy = false;
@@ -152,7 +152,7 @@ void HttpConnectionHandler::read()
     while (socket->bytesAvailable())
     {
         #ifdef SUPERVERBOSE
-            qDebug("HttpConnectionHandler (%p): read input",static_cast<void*>(this));
+            ////qDebug("HttpConnectionHandler (%p): read input",static_cast<void*>(this));
         #endif
 
         // Create new HttpRequest object if necessary
@@ -189,7 +189,7 @@ void HttpConnectionHandler::read()
         if (currentRequest->getStatus()==HttpRequest::complete)
         {
             readTimer.stop();
-            qDebug("HttpConnectionHandler (%p): received request",static_cast<void*>(this));
+            ////qDebug("HttpConnectionHandler (%p): received request",static_cast<void*>(this));
 
             // Copy the Connection:close header to the response
             HttpResponse response(socket);
@@ -228,7 +228,7 @@ void HttpConnectionHandler::read()
                 response.write(QByteArray(),true);
             }
 
-            qDebug("HttpConnectionHandler (%p): finished request",static_cast<void*>(this));
+            ////qDebug("HttpConnectionHandler (%p): finished request",static_cast<void*>(this));
 
             // Find out whether the connection must be closed
             if (!closeConnection)

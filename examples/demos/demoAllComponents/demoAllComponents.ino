@@ -4,68 +4,68 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void action();
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
   //GP.THEME(GP_LIGHT);
 
-  GP.TITLE("GyverPortal");
-  GP.HR();
+  GP::GP.TITLE("GyverPortal");
+  GP::GP.HR();
 
-  GP.NAV_TABS_LINKS("/,/home,/sett,/kek", "Home,Settings,Kek");
+  GP::GP.NAV_TABS_LINKS("/,/home,/sett,/kek", "Home,Settings,Kek");
   
   M_SPOILER(
     "Spoiler",
-    GP.LABEL("Hello!");
+    GP::GP.LABEL("Hello!");
   );
 
   M_BLOCK(
-    GP.LABEL("Checks & LED");
-    GP.BREAK();
-    GP.LABEL_BLOCK("label block");
-    GP.LED("");
-    GP.CHECK("");
-    GP.SWITCH("");
+    GP::GP.LABEL("Checks & LED");
+    GP::GP.BREAK();
+    GP::GP.LABEL_BLOCK("label block");
+    GP::GP.LED("");
+    GP::GP.CHECK("");
+    GP::GP.SWITCH("");
   );
 
   M_BLOCK_TAB(
     "Block Tab",
-    GP.LABEL("Inputs");
-    M_BOX(GP.LABEL("Number");   GP.NUMBER("", "", 123);     );
-    M_BOX(GP.LABEL("Float");    GP.NUMBER_F("", "", 3.14);  );
-    M_BOX(GP.LABEL("Text");     GP.TEXT("", "", "Hello");   );
-    M_BOX(GP.LABEL("Password"); GP.PASS("", "", "Pass");    );
-    GP.AREA("", 3, "Text area");
+    GP::GP.LABEL("Inputs");
+    M_BOX(GP.LABEL("Number");   GP::GP.NUMBER("", "", 123);     );
+    M_BOX(GP.LABEL("Float");    GP::GP.NUMBER_F("", "", 3.14);  );
+    M_BOX(GP.LABEL("Text");     GP::GP.TEXT("", "", "Hello");   );
+    M_BOX(GP.LABEL("Password"); GP::GP.PASS("", "", "Pass");    );
+    GP::GP.AREA("", 3, "Text area");
   );
 
   M_BLOCK_THIN(
-    M_BOX(GP.LABEL("Date");   GP.DATE("");  );
-    M_BOX(GP.LABEL("Time");   GP.TIME("");  );
-    M_BOX(GP.LABEL("Color");  GP.COLOR(""); );
+    M_BOX(GP.LABEL("Date");   GP::GP.DATE("");  );
+    M_BOX(GP.LABEL("Time");   GP::GP.TIME("");  );
+    M_BOX(GP.LABEL("Color");  GP::GP.COLOR(""); );
   );
 
   M_BLOCK_THIN_TAB(
     "Thin Tab",
-    GP.LABEL("Upload File/Folder");
+    GP::GP.LABEL("Upload File/Folder");
     M_BOX(
-      GP_CENTER,
-      GP.FILE_UPLOAD("");
-      GP.FOLDER_UPLOAD("");
+      Align::CENTER,
+      GP::GP.FILE_UPLOAD("");
+      GP::GP.FOLDER_UPLOAD("");
     );
   );
 
-  M_BOX(GP.LABEL("Select");   GP.SELECT("", "Some,Drop,List");  );
-  M_BOX(GP.LABEL("Slider");   GP.SLIDER("");  );
-  M_BOX(GP.LABEL("Spinner");  GP.SPINNER(""); );
+  M_BOX(GP.LABEL("Select");   GP::GP.SELECT("", "Some,Drop,List");  );
+  M_BOX(GP.LABEL("Slider");   GP::GP.SLIDER("");  );
+  M_BOX(GP.LABEL("Spinner");  GP::GP.SPINNER(""); );
 
-  GP.BUTTON("", "Button");
-  GP.BUTTON_MINI("", "Btn Mini");
+  GP::GP.BUTTON("", "Button");
+  GP::GP.BUTTON_MINI("", "Btn Mini");
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

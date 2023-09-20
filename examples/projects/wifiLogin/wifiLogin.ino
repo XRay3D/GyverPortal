@@ -14,17 +14,17 @@ struct LoginPass {
 LoginPass lp;
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
-  GP.FORM_BEGIN("/login");
-  GP.TEXT("lg", "Login", lp.ssid);
-  GP.BREAK();
-  GP.TEXT("ps", "Password", lp.pass);
-  GP.SUBMIT("Submit");
-  GP.FORM_END();
+  GP::GP.FORM_BEGIN("/login");
+  GP::GP.TEXT("lg", "Login", lp.ssid);
+  GP::GP.BREAK();
+  GP::GP.TEXT("ps", "Password", lp.pass);
+  GP::GP.SUBMIT("Submit");
+  GP::GP.FORM_END();
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {
@@ -63,7 +63,7 @@ void loginPortal() {
   WiFi.softAP("WiFi Config");
 
   // запускаем портал
-  GyverPortal ui;
+  GP:: GP::GyverPortal ui;
   ui.attachBuild(build);
   ui.start();
   ui.attach(action);

@@ -4,7 +4,7 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 const char *names[] = {
   "temp", "humidity", "kek"
@@ -12,11 +12,11 @@ const char *names[] = {
 
 // конструктор
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
-  GP.AJAX_PLOT("plot1", 1, 20, 1000);
-  GP.AJAX_PLOT_DARK("plot3", names, 3, 20, 1000);
-  GP.BUILD_END();
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
+  GP::GP.AJAX_PLOT("plot1", 1, 20, 1000);
+  GP::GP.AJAX_PLOT_DARK("plot3", names, 3, 20, 1000);
+  GP::GP.BUILD_END();
 }
 
 void setup() {

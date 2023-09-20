@@ -15,6 +15,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Network
     WebEngineCore
     WebEngineWidgets
+    Xml
 )
 
 add_definitions(
@@ -87,6 +88,9 @@ set(PROJECT_SOURCES
     mainwindow.ui
 
     GP_JS_TOP.js
+    DARK.css
+    LIGHT.css
+
 
     ${QtWebApp}
     ${GPortal}
@@ -120,6 +124,7 @@ target_link_libraries(Test PRIVATE
     Qt${QT_VERSION_MAJOR}::WebEngineCore
     Qt${QT_VERSION_MAJOR}::WebEngineWidgets
     Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Xml
 )
 
 set_target_properties(Test PROPERTIES

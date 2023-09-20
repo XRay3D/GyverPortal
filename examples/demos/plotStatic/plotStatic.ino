@@ -4,7 +4,7 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 #define PLOT_SIZE 10
 int16_t arr[2][PLOT_SIZE];
@@ -12,13 +12,13 @@ const char *names[] = {"kek", "puk",};
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_LIGHT);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME(GP_LIGHT);
 
   //GP.PLOT_DARK<2, PLOT_SIZE>("table", names, arr);
-  GP.PLOT<2, PLOT_SIZE>("table", names, arr);
+  GP::GP.PLOT<2, PLOT_SIZE>("table", names, arr);
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

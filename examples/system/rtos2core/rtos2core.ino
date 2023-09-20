@@ -16,11 +16,11 @@ TaskHandle_t Task1, Task2;    //Определяем задачи
 
 //Конструктор WEB страницы
 void build(GyverPortal& portal) {
-  GP.BUILD_BEGIN(GP_DARK);
-  GP.TITLE("BlinkDelayTime", "t1");
-  GP.HR();
-  GP.SLIDER("sld", LedPause, 100, 2500);
-  GP.BUILD_END();
+  GP::GP.BUILD_BEGIN( GP::DARK);
+  GP::GP.TITLE("BlinkDelayTime", "t1");
+  GP::GP.HR();
+  GP::GP.SLIDER("sld", LedPause, 100, 2500);
+  GP::GP.BUILD_END();
 }
 
 //Обработчик событий
@@ -42,10 +42,10 @@ void taskCore0(void * pvParameters) {
   }
 }
 
-//Функция для запуска на ядре 1 (Запускаем GyverPortal локально)
+//Функция для запуска на ядре 1 (Запускаем GP::GyverPortal локально)
 void taskCore1(void * pvParameters) {
   for(;;){
-    GyverPortal ui;
+    GP:: GP::GyverPortal ui;
     ui.attachBuild(build);
     ui.attach(action);
     ui.start();

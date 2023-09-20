@@ -17,7 +17,7 @@ HttpSessionStore::HttpSessionStore(const QSettings *settings, QObject* parent)
     cleanupTimer.start(60000);
     cookieName=settings->value("cookieName","sessionid").toByteArray();
     expirationTime=settings->value("expirationTime",3600000).toInt();
-    qDebug("HttpSessionStore: Sessions expire after %i milliseconds",expirationTime);
+    ////qDebug("HttpSessionStore: Sessions expire after %i milliseconds",expirationTime);
 }
 
 HttpSessionStore::~HttpSessionStore()
@@ -41,7 +41,7 @@ QByteArray HttpSessionStore::getSessionId(HttpRequest& request, HttpResponse& re
     {
         if (!sessions.contains(sessionId))
         {
-            qDebug("HttpSessionStore: received invalid session cookie with ID %s",sessionId.data());
+            ////qDebug("HttpSessionStore: received invalid session cookie with ID %s",sessionId.data());
             sessionId.clear();
         }
     }
@@ -78,7 +78,7 @@ HttpSession HttpSessionStore::getSession(HttpRequest& request, HttpResponse& res
         QByteArray cookieComment=settings->value("cookieComment").toByteArray();
         QByteArray cookieDomain=settings->value("cookieDomain").toByteArray();
         HttpSession session(true);
-        qDebug("HttpSessionStore: create new session with ID %s",session.getId().data());
+        ////qDebug("HttpSessionStore: create new session with ID %s",session.getId().data());
         sessions.insert(session.getId(),session);
         response.setCookie(HttpCookie(cookieName,session.getId(),expirationTime/1000,
                                       cookiePath,cookieComment,cookieDomain,false,false,"Lax"));
@@ -112,7 +112,7 @@ void HttpSessionStore::sessionTimerEvent()
         qint64 lastAccess=session.getLastAccess();
         if (now-lastAccess>expirationTime)
         {
-            qDebug("HttpSessionStore: session %s expired",session.getId().data());
+            ////qDebug("HttpSessionStore: session %s expired",session.getId().data());
             emit sessionDeleted(session.getId());
             sessions.erase(prev);
         }

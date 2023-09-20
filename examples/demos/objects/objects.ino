@@ -5,72 +5,74 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+GP::GyverPortal ui;
 
-GP_LABEL_BLOCK lbl("lbl");
-GP_BUTTON btn("btn", "Button");
-GP_TEXT txt("txt");
-GP_SELECT sel("sel");
+GP::LABEL_BLOCK lbl("lbl");
+GP::BUTTON btn("btn", "Button");
+GP::TEXT txt("txt");
+GP::SELECT sel("selo");
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN(GP_DARK);
+    GP::GP.BUILD_BEGIN(GP::DARK);
 
-  GP.LABEL("Random text:");
+    GP::GP.LABEL("Random text:");
 
-  // лейбл с апдейтом
-  GP.UPDATE(lbl.name);
-  GP.LABEL_BLOCK(lbl);
-  GP.BREAK();
+    // лейбл с апдейтом
+    GP::GP.UPDATE(lbl.name);
+    GP::GP.LABEL_BLOCK(lbl);
+    GP::GP.BREAK();
 
-  GP.BUTTON(btn);
-  GP.TEXT(txt);
-  GP.SELECT(sel);
-  
-  GP.BUILD_END();
+    GP::GP.BUTTON(btn);
+    GP::GP.BREAK();
+    txt.width = GP::getAlign(GP::Align::JUSTIFY);
+    GP::GP.TEXT(txt);
+    GP::GP.BREAK();
+    GP::GP.SELECT("sel", "Sel 1,Sel 2,Sel 3,Sel 4");
+    GP::GP.SELECT(sel);
+
+    GP::GP.BUILD_END();
 }
 
 void setup() {
-  Serial.begin(115200);
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(AP_SSID, AP_PASS);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println(WiFi.localIP());
+    Serial.begin(115200);
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(AP_SSID, AP_PASS);
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println(WiFi.localIP());
 
-  // подключаем конструктор и запускаем
-  ui.attachBuild(build);
-  ui.attach(action);
-  ui.start();
+    // подключаем конструктор и запускаем
+    ui.attachBuild(build);
+    ui.attach(action);
+    ui.start();
 
-  // настройка селекта
-  sel.list = F("Sel 1,Sel2,Sel 3, Sel 4");
-  sel.numbers = true;
+    // настройка селекта
+    sel.list = F("Sel 1,Sel 2,Sel 3,Sel 4");
+    sel.numbers = true;
 }
 
 void action() {
-  if (ui.update()) {
-    ui.update(lbl);   // автоматически обновить лейбл на странице
-  }
-  
-  if (ui.click()) {
-    if (ui.click(btn)) Serial.println("Click");
-    if (ui.click(txt)) Serial.println(txt.text);
-    if (ui.click(sel)) Serial.println(sel.getValue());
-  }
+    if (ui.update())
+        ui.update(lbl); // автоматически обновить лейбл на странице
+
+    if (ui.click()) {
+        if (ui.click(btn)) Serial.println("Click");
+        if (ui.click(txt)) Serial.println(txt.text);
+        if (ui.click(sel)) Serial.println(sel.getValue());
+    }
 }
 
 void loop() {
-  ui.tick();
+    ui.tick();
 
-  // имитируем изменение строки в программе
-  static uint32_t tmr;
-  if (millis() - tmr >= 500) {
-    tmr = millis();
-    lbl.text = "";
-    for (int i = 0; i < 5; i++) lbl.text += (char)random(48, 126);
-  }
-  
+    // имитируем изменение строки в программе
+    static uint32_t tmr;
+    if (millis() - tmr >= 500) {
+        tmr = millis();
+        lbl.text = "";
+        for (int i = 0; i < 5; i++) lbl.text += (char)random(48, 126);
+    }
 }

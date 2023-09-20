@@ -3,23 +3,23 @@
 #define AP_SSID ""
 #define AP_PASS ""
 
-// подключить библиотеку файловой системы (до #include GyverPortal)
+// подключить библиотеку файловой системы (до #include GP::GyverPortal)
 #include <LittleFS.h>
 
 #include <GyverPortal.h>
-GyverPortal ui(&LittleFS);  // передать ссылку на fs (SPIFFS/LittleFS)
+ GP::GyverPortal ui(&LittleFS);  // передать ссылку на fs (SPIFFS/LittleFS)
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
-  GP.LABEL("v1");
+  GP::GP.LABEL("v1");
 
-  GP.OTA_FIRMWARE();
-  GP.OTA_FILESYSTEM();
+  GP::GP.OTA_FIRMWARE();
+  GP::GP.OTA_FILESYSTEM();
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

@@ -4,57 +4,57 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 // переменные
 int valNum;
 String valPass;
 int valSlider;
 float valSpin;
-GPdate valDate;
-GPtime valTime;
-GPcolor valCol;
+GP::GPdate valDate;
+GP::GPtime valTime;
+GP::GPcolor valCol;
 int valSelect;
 int valRad;
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
 
   // список имён компонентов на обновление
-  GP.UPDATE("t1,lb,lbb,ch,led,sw,txt,num,pass,sld,date,time,spn,col,sel,rad");
+  GP::GP.UPDATE("t1,lb,lbb,ch,led,sw,txt,num,pass,sld,date,time,spn,col,sel,rad");
 
   // обновление случайным числом
-  GP.TITLE("Title", "t1");
-  GP.HR();
-  GP.LABEL("Label: ");
-  GP.LABEL("NAN", "lb");        GP.BREAK();
-  GP.LABEL("Label Block: ");
-  GP.LABEL_BLOCK("NAN", "lbb"); GP.BREAK();
-  GP.LABEL("Check: ");
-  GP.CHECK("ch");         GP.BREAK();
-  GP.LABEL("Led: ");
-  GP.LED("led");          GP.BREAK();
-  GP.LABEL("Switch: ");
-  GP.SWITCH("sw");        GP.BREAK();
-  GP.TEXT("txt", "text"); GP.BREAK();
+  GP::GP.TITLE("Title", "t1");
+  GP::GP.HR();
+  GP::GP.LABEL("Label: ");
+  GP::GP.LABEL("NAN", "lb");        GP::GP.BREAK();
+  GP::GP.LABEL("Label Block: ");
+  GP::GP.LABEL_BLOCK("NAN", "lbb"); GP::GP.BREAK();
+  GP::GP.LABEL("Check: ");
+  GP::GP.CHECK("ch");         GP::GP.BREAK();
+  GP::GP.LABEL("Led: ");
+  GP::GP.LED("led");          GP::GP.BREAK();
+  GP::GP.LABEL("Switch: ");
+  GP::GP.SWITCH("sw");        GP::GP.BREAK();
+  GP::GP.TEXT("txt", "text"); GP::GP.BREAK();
 
   // обновление из переменной (храним значение)
-  GP.NUMBER("num", "number", valNum);   GP.BREAK();
-  GP.PASS("pass", "pass", valPass);     GP.BREAK();
-  GP.SPINNER("spn");
-  GP.SLIDER("sld", valSlider, 0, 10);   GP.BREAK();
-  GP.DATE("date", valDate);             GP.BREAK();
-  GP.TIME("time", valTime);             GP.BREAK();
-  GP.COLOR("col", valCol);              GP.BREAK();
-  GP.SELECT("sel", "val 1,val 2,val 3", valSelect);  GP.BREAK();
-  GP.RADIO("rad", 0, valRad); GP.LABEL("Value 0"); GP.BREAK();
-  GP.RADIO("rad", 1, valRad); GP.LABEL("Value 1"); GP.BREAK();
-  GP.RADIO("rad", 2, valRad); GP.LABEL("Value 2"); GP.BREAK();
-  GP.RADIO("rad", 3, valRad); GP.LABEL("Value 3"); GP.BREAK();
-  GP.BREAK();
-  GP.BUILD_END();
+  GP::GP.NUMBER("num", "number", valNum);   GP::GP.BREAK();
+  GP::GP.PASS("pass", "pass", valPass);     GP::GP.BREAK();
+  GP::GP.SPINNER("spn");
+  GP::GP.SLIDER("sld", valSlider, 0, 10);   GP::GP.BREAK();
+  GP::GP.DATE("date", valDate);             GP::GP.BREAK();
+  GP::GP.TIME("time", valTime);             GP::GP.BREAK();
+  GP::GP.COLOR("col", valCol);              GP::GP.BREAK();
+  GP::GP.SELECT("sel", "val 1,val 2,val 3", valSelect);  GP::GP.BREAK();
+  GP::GP.RADIO("rad", 0, valRad); GP::GP.LABEL("Value 0"); GP::GP.BREAK();
+  GP::GP.RADIO("rad", 1, valRad); GP::GP.LABEL("Value 1"); GP::GP.BREAK();
+  GP::GP.RADIO("rad", 2, valRad); GP::GP.LABEL("Value 2"); GP::GP.BREAK();
+  GP::GP.RADIO("rad", 3, valRad); GP::GP.LABEL("Value 3"); GP::GP.BREAK();
+  GP::GP.BREAK();
+  GP::GP.BUILD_END();
 }
 
 void setup() {

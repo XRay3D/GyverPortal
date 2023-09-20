@@ -4,14 +4,14 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 // конструктор страницы
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
-  GP.TITLE("Welcome!");
-  GP.BUILD_END();
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
+  GP::GP.TITLE("Welcome!");
+  GP::GP.BUILD_END();
 }
 
 void setup() {

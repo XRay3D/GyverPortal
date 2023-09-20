@@ -4,42 +4,42 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GyverPortal ui;
+ GP::GyverPortal ui;
 
 void build() {
-  GP.BUILD_BEGIN();
-  GP.THEME(GP_DARK);
+  GP::GP.BUILD_BEGIN();
+  GP::GP.THEME( GP::DARK);
   //GP.THEME(GP_LIGHT);
 
-  GP.TITLE("Mobile App Style");
-  GP.HR();
+  GP::GP.TITLE("Mobile App Style");
+  GP::GP.HR();
 
   M_BLOCK(
-    M_BOX(GP.LABEL("Some check 1"); GP.CHECK("");   );
-    M_BOX(GP.LABEL("Some check 2"); GP.CHECK("");   );
-    M_BOX(GP.LABEL("Some Switch 1"); GP.SWITCH(""); );
-    M_BOX(GP.LABEL("Some Switch 2"); GP.SWITCH(""); );
+    M_BOX(GP.LABEL("Some check 1"); GP::GP.CHECK("");   );
+    M_BOX(GP.LABEL("Some check 2"); GP::GP.CHECK("");   );
+    M_BOX(GP.LABEL("Some Switch 1"); GP::GP.SWITCH(""); );
+    M_BOX(GP.LABEL("Some Switch 2"); GP::GP.SWITCH(""); );
   );
 
   M_BLOCK(
-    M_BOX(GP.LABEL("SSID");     GP.TEXT("");  );
-    M_BOX(GP.LABEL("Password"); GP.TEXT("");  );
-    M_BOX(GP.LABEL("Host");     GP.TEXT("");  );
+    M_BOX(GP.LABEL("SSID");     GP::GP.TEXT("");  );
+    M_BOX(GP.LABEL("Password"); GP::GP.TEXT("");  );
+    M_BOX(GP.LABEL("Host");     GP::GP.TEXT("");  );
   );
 
   M_BLOCK(
-    M_BOX(GP.LABEL("Upload settings");  GP.FILE_UPLOAD(""); );
-    M_BOX(GP.LABEL("Upload photo");     GP.FILE_UPLOAD(""); );
-    M_BOX(GP.LABEL("Upload data");      GP.FILE_UPLOAD(""); );
+    M_BOX(GP.LABEL("Upload settings");  GP::GP.FILE_UPLOAD(""); );
+    M_BOX(GP.LABEL("Upload photo");     GP::GP.FILE_UPLOAD(""); );
+    M_BOX(GP.LABEL("Upload data");      GP::GP.FILE_UPLOAD(""); );
   );
 
   M_BLOCK(
-    M_BOX(GP.LABEL("Color 1");  GP.SLIDER("");  );
-    M_BOX(GP.LABEL("Color 2");  GP.SLIDER("");  );
-    M_BOX(GP.LABEL("Color 3");  GP.SLIDER("");  );
+    M_BOX(GP.LABEL("Color 1");  GP::GP.SLIDER("");  );
+    M_BOX(GP.LABEL("Color 2");  GP::GP.SLIDER("");  );
+    M_BOX(GP.LABEL("Color 3");  GP::GP.SLIDER("");  );
   );
 
-  GP.BUILD_END();
+  GP::GP.BUILD_END();
 }
 
 void setup() {
