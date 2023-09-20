@@ -7,8 +7,8 @@
 #define FILEUPLOADCONTROLLER_H
 
 #include "httprequest.h"
-#include "httpresponse.h"
 #include "httprequesthandler.h"
+#include "httpresponse.h"
 
 using namespace stefanfrings;
 
@@ -16,12 +16,10 @@ using namespace stefanfrings;
   This controller displays a HTML form for file upload and recieved the file.
 */
 
-
 class FileUploadController : public HttpRequestHandler {
     Q_OBJECT
     Q_DISABLE_COPY(FileUploadController)
 public:
-
     /** Constructor */
     FileUploadController();
 

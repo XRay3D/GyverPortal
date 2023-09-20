@@ -4,7 +4,7 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GP:: GP::GyverPortal ui;
+GP::GP::GyverPortal ui;
 
 GP::TITLE tit("t1");
 GP::LABEL lab("l1");

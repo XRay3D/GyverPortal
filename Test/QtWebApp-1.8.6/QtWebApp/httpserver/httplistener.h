@@ -6,13 +6,13 @@
 #ifndef HTTPLISTENER_H
 #define HTTPLISTENER_H
 
-#include <QTcpServer>
-#include <QSettings>
-#include <QBasicTimer>
-#include "httpglobal.h"
 #include "httpconnectionhandler.h"
 #include "httpconnectionhandlerpool.h"
+#include "httpglobal.h"
 #include "httprequesthandler.h"
+#include <QBasicTimer>
+#include <QSettings>
+#include <QTcpServer>
 
 namespace stefanfrings {
 
@@ -58,7 +58,6 @@ class DECLSPEC HttpListener : public QTcpServer {
     Q_OBJECT
     Q_DISABLE_COPY(HttpListener)
 public:
-
     /**
       Constructor.
       Creates a connection pool and starts listening on the configured host and port.
@@ -72,7 +71,7 @@ public:
       @param parent Parent object.
       @warning Ensure to close or delete the listener before deleting the request handler.
     */
-    HttpListener(const QSettings* settings, HttpRequestHandler* requestHandler, QObject* parent=nullptr);
+    HttpListener(const QSettings* settings, HttpRequestHandler* requestHandler, QObject* parent = nullptr);
 
     /** Destructor */
     virtual ~HttpListener();
@@ -89,12 +88,10 @@ public:
     void close();
 
 protected:
-
     /** Serves new incoming connection requests */
     void incomingConnection(tSocketDescriptor socketDescriptor);
 
 private:
-
     /** Configuration settings for the HTTP server */
     const QSettings* settings;
 
@@ -112,9 +109,8 @@ signals:
     */
 
     void handleConnection(tSocketDescriptor socketDescriptor);
-
 };
 
-} // end of namespace
+} // namespace stefanfrings
 
 #endif // HTTPLISTENER_H

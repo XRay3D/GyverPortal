@@ -6,12 +6,11 @@
 #ifndef TEMPLATE_H
 #define TEMPLATE_H
 
-#include <QString>
-#include <QIODevice>
-#include <QTextCodec>
-#include <QFile>
-#include <QString>
 #include "templateglobal.h"
+#include <QFile>
+#include <QIODevice>
+#include <QString>
+#include <QTextCodec>
 
 namespace stefanfrings {
 
@@ -90,7 +89,6 @@ namespace stefanfrings {
 
 class DECLSPEC Template : public QString {
 public:
-
     /**
       Constructor that reads the template from a string.
       @param source The template source text
@@ -107,7 +105,7 @@ public:
       @see TemplateLoader
       @see TemplateCache
     */
-    Template(QFile &file, const QTextCodec* textCodec);
+    Template(QFile& file, const QTextCodec* textCodec);
 
     /**
       Replace a variable by the given value.
@@ -155,10 +153,9 @@ public:
      Enable warnings for missing tags
      @param enable Warnings are enabled, if true
     */
-    void enableWarnings(const bool enable=true);
+    void enableWarnings(const bool enable = true);
 
 private:
-
     /** Name of the source file */
     QString sourceName;
 
@@ -166,6 +163,6 @@ private:
     bool warnings;
 };
 
-} // end of namespace
+} // namespace stefanfrings
 
 #endif // TEMPLATE_H

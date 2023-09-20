@@ -2,7 +2,7 @@
 
 namespace GP {
 
-String _GP_empty_str;
+String __empty_str__;
 
 // ================== FILE TYPES ====================
 GP_PGM(_gp_types, "image,text,audio,video,application");
@@ -104,7 +104,7 @@ String listIdx(const String& li, int idx, char div) {
     while(1) {
         if(li[i] == div || !li[i]) {
             if(cnt == idx) return li.substring(p, i);
-            if(!li[i]) return _GP_empty_str;
+            if(!li[i]) return __empty_str__;
             cnt++;
             p = i + 1;
         }

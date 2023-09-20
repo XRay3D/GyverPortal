@@ -17,7 +17,6 @@ struct Url {
 
 inline struct WiFi_ {
 
-
     WiFi_() { qDebug(""); }
     E getMode() {
         qDebug("");

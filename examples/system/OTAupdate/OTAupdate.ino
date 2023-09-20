@@ -8,36 +8,36 @@
 #include <LittleFS.h>
 
 #include <GyverPortal.h>
- GP::GyverPortal ui(&LittleFS); // для проверки файлов
+GP::GyverPortal ui(&LittleFS); // для проверки файлов
 
 // конструктор страницы
 void build() {
-  GP::GP.BUILD_BEGIN();
-  GP::GP.THEME( GP::DARK);
-  GP::GP.TITLE("Welcome! v3");
-  GP::GP.BUILD_END();
+    GP::GP.BUILD_BEGIN();
+    GP::GP.THEME(GP::DARK);
+    GP::GP.TITLE("Welcome! v3");
+    GP::GP.BUILD_END();
 }
 
 void setup() {
-  Serial.begin(115200);
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(AP_SSID, AP_PASS);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println(WiFi.localIP());
+    Serial.begin(115200);
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(AP_SSID, AP_PASS);
+    while(WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println(WiFi.localIP());
 
-  // подключаем конструктор и запускаем
-  ui.attachBuild(build);
-  ui.start();
-  ui.enableOTA();   // без пароля
-  //ui.enableOTA("admin", "pass");  // с паролем
+    // подключаем конструктор и запускаем
+    ui.attachBuild(build);
+    ui.start();
+    ui.enableOTA(); // без пароля
+    // ui.enableOTA("admin", "pass");  // с паролем
 
-  if (!LittleFS.begin()) Serial.println("FS Error");
-  ui.downloadAuto(true);
+    if(!LittleFS.begin()) Serial.println("FS Error");
+    ui.downloadAuto(true);
 }
 
 void loop() {
-  ui.tick();
+    ui.tick();
 }

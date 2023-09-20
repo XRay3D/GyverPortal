@@ -9,6 +9,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+message(${CMAKE_CURRENT_SOURCE_DIR})
+
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Widgets
@@ -27,6 +29,7 @@ add_definitions(
     -DGP_NO_DNS
     -DGP_NO_OTA
     -Dstrlen_P=strlen
+    -DSOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}"
 )
 
 include_directories(
@@ -94,6 +97,67 @@ set(PROJECT_SOURCES
 
     ${QtWebApp}
     ${GPortal}
+
+    ../examples/system/accessNetIp/accessNetIp.ino
+    ../examples/demos/actionClick/actionClick.ino
+    ../examples/demos/actionForm/actionForm.ino
+    ../examples/demos/actionUpdate/actionUpdate.ino
+    ../examples/design/blocks/blocks.ino
+    ../examples/design/blocks2/blocks2.ino
+    ../examples/design/boxes/boxes.ino
+    ../examples/design/boxesMacro/boxesMacro.ino
+    ../examples/demos/buttonHold/buttonHold.ino
+    ../examples/demos/canvas/canvas.ino
+    ../examples/customComponents/customComponents.ino
+    ../examples/demos/demoAllComponents/demoAllComponents.ino
+    ../examples/demos/demoAuth/demoAuth.ino
+    ../examples/demos/demoColor/demoColor.ino
+    ../examples/demos/demoLog/demoLog.ino
+    ../examples/demos/demoLogManual/demoLogManual.ino
+    ../examples/builds/dynamicComponents/dynamicComponents.ino
+    ../examples/projects/eepromLogPlot/eepromLogPlot.ino
+    ../examples/demos/esp32-stream/esp32-stream.ino
+    ../examples/files/fileDownloadAuto/fileDownloadAuto.ino
+    ../examples/files/fileDownloadManual/fileDownloadManual.ino
+    ../examples/files/fileEmbed/fileEmbed.ino
+    ../examples/files/fileUploadAuto/fileUploadAuto.ino
+    ../examples/files/fileUploadManual/fileUploadManual.ino
+    ../examples/design/GridAndBlocks/GridAndBlocks.ino
+    ../examples/design/icons/icons.ino
+    ../examples/demos/jQupdate/jQupdate.ino
+    ../examples/design/layoutApp/layoutApp.ino
+    ../examples/design/layoutDashboard/layoutDashboard.ino
+    ../examples/system/localLambda/localLambda.ino
+    ../examples/system/localPortal/localPortal.ino
+    ../examples/system/localPortal2/localPortal2.ino
+    ../examples/design/multiPageButtons/multiPageButtons.ino
+    ../examples/design/multiPageTabLinks/multiPageTabLinks.ino
+    ../examples/design/multiPageTabs/multiPageTabs.ino
+    ../examples/design/multiPageTabsManual/multiPageTabsManual.ino
+    ../examples/demos/objects/objects.ino
+    ../examples/demos/objTest/objTest.ino
+    ../examples/demos/onlineCheck/onlineCheck.ino
+    ../examples/system/OTAcustom/OTAcustom.ino
+    ../examples/system/OTAupdate/OTAupdate.ino
+    ../examples/demos/pageTitle/pageTitle.ino
+    ../examples/demos/plotAjax/plotAjax.ino
+    ../examples/demos/plotStatic/plotStatic.ino
+    ../examples/demos/plotStock/plotStock.ino
+    ../examples/demos/popupAlert/popupAlert.ino
+    ../examples/demos/popupConfirm/popupConfirm.ino
+    ../examples/demos/popupPrompt/popupPrompt.ino
+    ../examples/system/rtos2core/rtos2core.ino
+    ../examples/demos/saveSettings/saveSettings.ino
+    ../examples/builds/selectBuild/selectBuild.ino
+    ../examples/design/slidersEqual/slidersEqual.ino
+    ../examples/demos/systemInfo/systemInfo.ino
+    ../examples/design/tables/tables.ino
+    ../examples/demos/tableWrandom/tableWrandom.ino
+    ../examples/design/ui/ui.ino
+    ../examples/design/uiManual/uiManual.ino
+    ../examples/projects/webSerial/webSerial.ino
+    ../examples/projects/wifiLogin/wifiLogin.ino
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

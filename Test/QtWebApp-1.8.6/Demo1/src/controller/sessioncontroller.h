@@ -7,8 +7,8 @@
 #define SESSIONCONTROLLER_H
 
 #include "httprequest.h"
-#include "httpresponse.h"
 #include "httprequesthandler.h"
+#include "httpresponse.h"
 
 using namespace stefanfrings;
 
@@ -20,7 +20,6 @@ class SessionController : public HttpRequestHandler {
     Q_OBJECT
     Q_DISABLE_COPY(SessionController)
 public:
-
     /** Constructor */
     SessionController();
 

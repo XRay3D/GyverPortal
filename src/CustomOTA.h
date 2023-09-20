@@ -387,7 +387,7 @@ private:
         _server->send(200, "text/html");
 
         *_gp_uri = F("/ota_update");
-        _gp_s = _server;
+        __server__ = _server;
         String page;
         _gp_bufsize = 500;
         page.reserve(_gp_bufsize);

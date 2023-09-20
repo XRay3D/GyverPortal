@@ -84,8 +84,8 @@ struct WebServer {
             server.response = &response;
             server.parameterMap = request.getParameterMap();
             server.uri_ = path;
-            for(auto&& [key, func]: server.map) {
-                if(key == path) {
+            for (auto&& [key, func]: server.map) {
+                if (key == path) {
                     func();
                     return;
                 }
@@ -137,7 +137,7 @@ struct WebServer {
     }
 
     void handleClient() { /*//qWarning("");*/
-        if(!httpListener->isListening())
+        if (!httpListener->isListening())
             httpListener->listen();
     }
 
@@ -226,7 +226,7 @@ struct WebServer {
         String arg;
         try {
             arg = parameterMap.value(i);
-        } catch(...) {
+        } catch (...) {
         }
         //  qWarning() << i << arg;
         return arg;
@@ -246,7 +246,7 @@ struct WebServer {
         String argName;
         try {
             argName = parameterMap.data_.at(i).first;
-        } catch(...) {
+        } catch (...) {
         }
         // qWarning() << i << argName;
         return argName;

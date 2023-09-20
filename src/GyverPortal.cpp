@@ -2,7 +2,7 @@
 
 namespace GP {
 
-WebServer__* _gp_s;
+WebServer__* __server__;
 
 String* tmpPageBuf;
 String* _gp_uri;

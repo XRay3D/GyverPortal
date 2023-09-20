@@ -1,9 +1,9 @@
 #ifndef TEMPLATECACHE_H
 #define TEMPLATECACHE_H
 
-#include <QCache>
 #include "templateglobal.h"
 #include "templateloader.h"
+#include <QCache>
 
 namespace stefanfrings {
 
@@ -45,7 +45,6 @@ class DECLSPEC TemplateCache : public TemplateLoader {
     Q_OBJECT
     Q_DISABLE_COPY(TemplateCache)
 public:
-
     /**
       Constructor.
       @param settings Configuration settings, usually stored in an INI file. Must not be 0.
@@ -56,10 +55,9 @@ public:
       should destroy it during shutdown.
       @param parent Parent object
     */
-    TemplateCache(const QSettings* settings, QObject* parent=nullptr);
+    TemplateCache(const QSettings* settings, QObject* parent = nullptr);
 
 protected:
-
     /**
       Try to get a file from cache or filesystem.
       @param localizedName Name of the template with locale to find
@@ -68,7 +66,6 @@ protected:
     virtual QString tryFile(const QString localizedName);
 
 private:
-
     struct CacheEntry {
         QString document;
         qint64 created;
@@ -78,12 +75,12 @@ private:
     int cacheTimeout;
 
     /** Cache storage */
-    QCache<QString,CacheEntry> cache;
+    QCache<QString, CacheEntry> cache;
 
     /** Used to synchronize threads */
     QMutex mutex;
 };
 
-} // end of namespace
+} // namespace stefanfrings
 
 #endif // TEMPLATECACHE_H

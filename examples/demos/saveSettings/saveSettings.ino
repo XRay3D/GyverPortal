@@ -5,9 +5,9 @@
 
 // структура настроек
 struct Data {
-  int sld;
-  bool sw;
-  char str[20];
+    int sld;
+    bool sw;
+    char str[20];
 };
 Data data;
 
@@ -16,53 +16,53 @@ Data data;
 EEManager memory(data);
 
 #include <GyverPortal.h>
- GP::GyverPortal ui;
+GP::GyverPortal ui;
 
 void setup() {
-  startup();
-  EEPROM.begin(100);  // выделить память (больше или равно размеру даты)
-  memory.begin(0, 'a');
+    startup();
+    EEPROM.begin(100); // выделить память (больше или равно размеру даты)
+    memory.begin(0, 'a');
 
-  ui.start();
-  ui.attachBuild(build);
-  ui.attach(action);
+    ui.start();
+    ui.attachBuild(build);
+    ui.attach(action);
 }
 
 void build() {
-  GP::GP.BUILD_BEGIN( GP::DARK);
-  // выводим на страницу из переменных
-  GP::GP.SWITCH("sw", data.sw);
-  GP::GP.BREAK();
-  GP::GP.SLIDER("sld", data.sld);
-  GP::GP.BREAK();
-  GP::GP.TEXT("txt", "", data.str);
-  GP::GP.BUILD_END();
+    GP::GP.BUILD_BEGIN(GP::DARK);
+    // выводим на страницу из переменных
+    GP::GP.SWITCH("sw", data.sw);
+    GP::GP.BREAK();
+    GP::GP.SLIDER("sld", data.sld);
+    GP::GP.BREAK();
+    GP::GP.TEXT("txt", "", data.str);
+    GP::GP.BUILD_END();
 }
 
 void action() {
-  if (ui.click()) {
-    // по клику переписать пришедшие данные в переменные
-    ui.clickInt("sld", data.sld);
-    ui.clickBool("sw", data.sw);
-    ui.clickStr("txt", data.str);
+    if(ui.click()) {
+        // по клику переписать пришедшие данные в переменные
+        ui.clickInt("sld", data.sld);
+        ui.clickBool("sw", data.sw);
+        ui.clickStr("txt", data.str);
 
-    // запланировать обновление настроек в памяти
-    memory.update();
-  }
+        // запланировать обновление настроек в памяти
+        memory.update();
+    }
 }
 
 void loop() {
-  ui.tick();
-  memory.tick();
+    ui.tick();
+    memory.tick();
 }
 
 void startup() {
-  Serial.begin(115200);
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(AP_SSID, AP_PASS);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println(WiFi.localIP());
+    Serial.begin(115200);
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(AP_SSID, AP_PASS);
+    while(WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println(WiFi.localIP());
 }

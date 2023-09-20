@@ -27,7 +27,7 @@ void rndComp();
 // #include "../examples/demos/esp32-stream/esp32-stream.ino"
 // #include "../examples/demos/jQupdate/jQupdate.ino"
 // #include "../examples/demos/objTest/objTest.ino"
-#include "../examples/demos/objects/objects.ino"
+// #include "../examples/demos/objects/objects.ino"
 // #include "../examples/demos/onlineCheck/onlineCheck.ino"
 // #include "../examples/demos/pageTitle/pageTitle.ino"
 // #include "../examples/demos/plotAjax/plotAjax.ino"
@@ -39,8 +39,65 @@ void rndComp();
 // #include "../examples/demos/saveSettings/saveSettings.ino"
 // #include "../examples/demos/systemInfo/systemInfo.ino"
 // #include "../examples/demos/tableWrandom/tableWrandom.ino"
+#include "../examples/builds/dynamicComponents/dynamicComponents.ino"
 
-////////////////////////////////////
+/*
+#include <array>
+#include <format>
+#include <iostream>
+#include <map>
+#include <vector>
+
+using std::cout;
+using std::endl;
+// using namespace std;
+
+// std::array coil = {60, 126, 256, 375, 434, 1150, 2290, 1600};
+//std::array coil = {6, 13, 26, 38, 43, 115, 229, 160};
+ std::array coil = {
+     5,
+     12,
+     24,
+     36,
+     110,
+     220,
+     380,
+ };
+std::map<int, int> map;
+
+int main() {
+    cout << "Hello World!" << endl;
+
+    for (int i{coil.size() - 1}; i > 0; --i)
+        coil[i] -= coil[i - 1];
+
+    for (int val: coil)
+        cout << val << endl;
+
+    for (int i{}; i < (1 << coil.size() * 2); ++i) {
+        int k{};
+        for (int j{1}; int v: coil) {
+            k += (j & i) ? v : 0;
+            j <<= 1;
+        }
+        for (int j{(1 << coil.size())}; int v: coil) {
+            if (!(j >> 7 & i))
+                k -= (j & i) ? v : 0;
+            j <<= 1;
+        }
+        if (k > 0 && !map.contains(k))
+            map[k] = i;
+    }
+
+    for (int tmp{}; auto [val, i]: map) {
+        cout << std::format("{:3} : {:014b} D {:3}\n", val, i, tmp - val);
+        tmp = val;
+    }
+
+    return 0;
+}
+
+*/
 
 class XmlHighlighter : public QSyntaxHighlighter {
     // Q_OBJECT
@@ -78,9 +135,9 @@ public:
 
 protected:
     void highlightBlock(const QString& text) {
-        for (const auto& rule: highlightingRules) {
+        for(const auto& rule: highlightingRules) {
             auto globalMatch = rule.pattern.globalMatch(text);
-            while (globalMatch.hasNext()) {
+            while(globalMatch.hasNext()) {
                 auto match = globalMatch.next();
                 setFormat(match.capturedStart(), match.capturedLength(), rule.format);
             }
@@ -125,8 +182,6 @@ private:
     QTextCharFormat propertyFormat;
 };
 
-////////////////////////////////////
-
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow) {
@@ -139,6 +194,7 @@ MainWindow::MainWindow(QWidget* parent)
     auto textEdit = new QTextEdit{this};
     new XmlHighlighter{textEdit->document()};
     textEdit->setFontFamily("JetBrains Mono Light");
+    textEdit->setWordWrapMode(QTextOption::NoWrap);
     ui->splitter->addWidget(textEdit);
 
     //    ui->verticalLayout->setSpacing(6);
@@ -154,7 +210,7 @@ MainWindow::MainWindow(QWidget* parent)
     //    });
     connect(view->page(), &QWebEnginePage::loadFinished, [=](bool ok) {
         using std::placeholders::_1;
-        if (ok)
+        if(ok)
             //           view->page()->toHtml(std::bind(&QTextEdit::setPlainText, textEdit, _1));
             view->page()->toHtml([textEdit](const QString& xmlIn) {
                 QString xmlOut;
@@ -179,7 +235,7 @@ MainWindow::MainWindow(QWidget* parent)
                 QDomDocument output(input);
                 QTextStream stream(&xmlOut);
                 output.save(stream, QDomNode::EncodingFromTextStream);
-                textEdit->setPlainText(1 ? xmlIn : xmlOut);
+                textEdit->setPlainText(0 ? xmlIn : xmlOut);
             });
     });
 

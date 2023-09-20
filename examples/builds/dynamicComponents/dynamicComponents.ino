@@ -4,86 +4,83 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
- GP::GyverPortal ui;
+GP::GyverPortal ui;
 
 void build() {
-  GP::GP.BUILD_BEGIN();
-  GP::GP.THEME( GP::DARK);
+    GP::GP.BUILD_BEGIN();
+    GP::GP.THEME(GP::DARK);
 
-  // ОБНОВЛЕНИЯ
-  String s;
-  // формируем список для UPDATE
-  // вида "lbl/0,lbl/1..."
-  for (int i = 0; i < 5; i++) {
-    s += "lbl/";
-    s += i;
-    s += ',';
-  }
-  GP::GP.UPDATE(s);
+    // ОБНОВЛЕНИЯ
+    String s;
+    // формируем список для UPDATE
+    // вида "lbl/0,lbl/1..."
+    for(int i = 0; i < 5; i++) {
+        s += "lbl/";
+        s += i;
+        s += ',';
+    }
+    GP::GP.UPDATE(s);
 
-  // создаём лейблы с именами lbl/0,lbl/1...
-  for (int i = 0; i < 5; i++) {
-    GP::GP.LABEL_BLOCK("", String("lbl/") + i);
-    GP::GP.BREAK();
-  }
+    // создаём лейблы с именами lbl/0,lbl/1...
+    for(int i = 0; i < 5; i++) {
+        GP::GP.LABEL_BLOCK("", String("lbl/") + i);
+        GP::GP.BREAK();
+    }
 
-  // КЛИКИ
-  // создём слайдеры с именами sld/0, sld/1 ...
-  for (int i = 0; i < 5; i++) {
-    GP::GP.SLIDER(String("sld/") + i);
-  }
+    // КЛИКИ
+    // создём слайдеры с именами sld/0, sld/1 ...
+    for(int i = 0; i < 5; i++)
+        GP::GP.SLIDER(String("sld/") + i);
 
-  // создём кнопки с именами btn/0, btn/1 ...
-  for (int i = 0; i < 5; i++) {
-    GP::GP.BUTTON(String("btn/") + i, String("Button ") + i);
-  }
+    // создём кнопки с именами btn/0, btn/1 ...
+    for(int i = 0; i < 5; i++)
+        GP::GP.BUTTON(String("btn/") + i, String("Button ") + i);
 
-  GP::GP.BUILD_END();
+    GP::GP.BUILD_END();
 }
 
 void action() {
-  if (ui.click()) {
-    if (ui.clickSub("sld")) {   // начинается с sld
-      Serial.print("Slider ");
-      Serial.print(ui.clickNameSub(1)); // получаем цифру
-      Serial.print(": ");
-      Serial.println(ui.getInt());
+    if(ui.click()) {
+        if(ui.clickSub("sld")) { // начинается с sld
+            Serial.print("Slider ");
+            Serial.print(ui.clickNameSub(1)); // получаем цифру
+            Serial.print(": ");
+            Serial.println(ui.getInt());
+        }
+        if(ui.clickSub("btn")) { // начинается с btn
+            Serial.print("Click: ");
+            Serial.println(ui.clickNameSub(1)); // получаем цифру
+        }
+    }
 
+    if(ui.update()) {
+        if(ui.updateSub("lbl")) { // начинается с lbl
+            // формируем ответ вида "lbl #0: 123"
+            String s;
+            s += "lbl #";
+            s += ui.updateNameSub(1);
+            s += ":";
+            s += random(10);
+            ui.answer(s);
+        }
     }
-    if (ui.clickSub("btn")) {   // начинается с btn
-      Serial.print("Click: ");
-      Serial.println(ui.clickNameSub(1)); // получаем цифру
-    }
-  }
-
-  if (ui.update()) {
-    if (ui.updateSub("lbl")) {   // начинается с lbl
-      // формируем ответ вида "lbl #0: 123"
-      String s;
-      s += "lbl #";
-      s += ui.updateNameSub(1);
-      s += ":";
-      s += random(10);
-      ui.answer(s);
-    }
-  }
 }
 
 void setup() {
-  Serial.begin(115200);
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(AP_SSID, AP_PASS);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println(WiFi.localIP());
+    Serial.begin(115200);
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(AP_SSID, AP_PASS);
+    while(WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println(WiFi.localIP());
 
-  ui.attachBuild(build);
-  ui.attach(action);
-  ui.start();
+    ui.attachBuild(build);
+    ui.attach(action);
+    ui.start();
 }
 
 void loop() {
-  ui.tick();
+    ui.tick();
 }

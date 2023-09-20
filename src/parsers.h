@@ -16,10 +16,10 @@ public:
     virtual bool hasClick() = 0;
 
     const String& arg() { // value from 0
-        return _argValPtr ? (*_argValPtr) : _GP_empty_str;
+        return _argValPtr ? (*_argValPtr) : __empty_str__;
     }
     const String& argName() { // name from 0
-        return _argNamePtr ? (*_argNamePtr) : _GP_empty_str;
+        return _argNamePtr ? (*_argNamePtr) : __empty_str__;
     }
 
     // ==================== HOLD ===================
@@ -35,12 +35,12 @@ public:
 
     // вернёт имя удерживаемой кнопки
     String holdName() {
-        return _hold.length() ? _hold : _GP_empty_str;
+        return _hold.length() ? _hold : __empty_str__;
     }
 
     // вернёт часть имени hold компонента, находящейся под номером idx после разделителя /
     String holdNameSub(int idx = 1) {
-        return _hold.length() ? (listIdx(_hold, idx, '/')) : _GP_empty_str;
+        return _hold.length() ? (listIdx(_hold, idx, '/')) : __empty_str__;
     }
 
     // вернёт true, если кнопка удерживается и имя компонента начинается с указанного
@@ -101,12 +101,12 @@ public:
 
     // вернёт имя теукщего кликнутого компонента
     String clickName() {
-        return click() ? argName() : _GP_empty_str;
+        return click() ? argName() : __empty_str__;
     }
 
     // вернёт часть имени кликнутого компонента, находящейся под номером idx после разделителя /
     String clickNameSub(int idx = 1) {
-        return click() ? (listIdx(argName(), idx, '/')) : _GP_empty_str;
+        return click() ? (listIdx(argName(), idx, '/')) : __empty_str__;
     }
 
     // ===================== CLICK AUTO =====================
@@ -183,6 +183,19 @@ public:
     // ======================= ПАРСЕРЫ =======================
     // ОПАСНЫЕ ФУНКЦИИ (не проверяют есть ли запрос). Конвертируют и возвращают значение
     // получить String строку с компонента
+    //    template <typename T>
+    //    T get(const String& n) {
+    //        if constexpr (is_same_v<T, GPcolor>) return {};
+    //        if constexpr (is_same_v<T, GPdate>) return {};
+    //        if constexpr (is_same_v<T, GPtime>) return {};
+    //        if constexpr (is_same_v<T, String>) return arg(n);
+    //        if constexpr (is_same_v<T, bool>) return {};
+    //        if constexpr (is_same_v<T, char*>) return {};
+    //        if constexpr (is_same_v<T, float>) return {};
+    //        if constexpr (is_same_v<T, int8_t>) return {};
+    //        if constexpr (is_same_v<T, long>) return {};
+    //    }
+
     String getString(const String& n) {
         return arg(n);
     }
@@ -259,8 +272,8 @@ public:
     // ОПАСНЫЕ парсеры (не проверяют запрос). Использовать только в условии!
     bool copyStr(char* t, uint16_t len = 0) {
         // return (args() && (!len || arg().length() < len)) ? (strcpy(t, arg().c_str()), 1) : 0;
-        if(!args()) return 0;
-        if(!len || arg().length() < len) strcpy(t, arg().c_str());
+        if (!args()) return 0;
+        if (!len || arg().length() < len) strcpy(t, arg().c_str());
         else {
             strncpy(t, arg().c_str(), len - 1);
             t[len - 1] = '\0';
@@ -436,11 +449,11 @@ public:
 
     // отправить ответ на обновление
     bool answer(const String& s) {
-        if(_answPtr) *_answPtr += s;
+        if (_answPtr) *_answPtr += s;
         return (bool)_answPtr;
     }
     bool answer(int v) {
-        if(_answPtr) *_answPtr += v;
+        if (_answPtr) *_answPtr += v;
         return (bool)_answPtr;
     }
 
@@ -452,10 +465,10 @@ public:
     bool answer(int* v, int am, int dec = 0) {
         String s;
         s.reserve(am * 4);
-        for(int i = 0; i < am; i++) {
-            if(dec) s += (float)v[i] / dec;
+        for (int i = 0; i < am; i++) {
+            if (dec) s += (float)v[i] / dec;
             else s += v[i];
-            if(i != am - 1) s += ',';
+            if (i != am - 1) s += ',';
         }
         return answer(s);
     }
@@ -475,7 +488,7 @@ public:
     bool answer(GPflags flags) {
         return answer(flags.encode());
     }
-    bool answer(GPcanvas& cv) {
+    bool answer(Canvas& cv) {
         return answer(cv._read());
     }
 
@@ -596,12 +609,12 @@ public:
 
     // вернёт имя обновлённого компонента
     String updateName() {
-        return update() ? (*_updPtr) : _GP_empty_str;
+        return update() ? (*_updPtr) : __empty_str__;
     }
 
     // вернёт часть имени обновляемого компонента, находящейся под номером idx после разделителя /
     String updateNameSub(int idx = 1) {
-        return update() ? (listIdx(*_updPtr, idx, '/')) : _GP_empty_str;
+        return update() ? (listIdx(*_updPtr, idx, '/')) : __empty_str__;
     }
 
     String* _answPtr = nullptr;
@@ -613,7 +626,7 @@ public:
 
 private:
     int getIntUniv(const String& s) {
-        if(s[0] == '#') {
+        if (s[0] == '#') {
             GPcolor col(s);
             return col.getHEX();
         } else return s.toInt();

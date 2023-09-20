@@ -20,5 +20,5 @@ private:
 
     // QObject interface
 protected:
-    void timerEvent(QTimerEvent *event) override;
+    void timerEvent(QTimerEvent* event) override;
 };

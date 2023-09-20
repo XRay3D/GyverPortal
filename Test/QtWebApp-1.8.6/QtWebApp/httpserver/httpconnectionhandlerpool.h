@@ -1,12 +1,12 @@
 #ifndef HTTPCONNECTIONHANDLERPOOL_H
 #define HTTPCONNECTIONHANDLERPOOL_H
 
-#include <QList>
-#include <QTimer>
-#include <QObject>
-#include <QMutex>
-#include "httpglobal.h"
 #include "httpconnectionhandler.h"
+#include "httpglobal.h"
+#include <QList>
+#include <QMutex>
+#include <QObject>
+#include <QTimer>
 
 namespace stefanfrings {
 
@@ -22,7 +22,7 @@ namespace stefanfrings {
 
   minThreads=4
   maxThreads=100
-  cleanupInterval=60000  
+  cleanupInterval=60000
   </pre></code>
   <p>
   The readTimeout value defines the maximum time to wait for a complete HTTP request.
@@ -85,13 +85,12 @@ class DECLSPEC HttpConnectionHandlerPool : public QObject {
     Q_OBJECT
     Q_DISABLE_COPY(HttpConnectionHandlerPool)
 public:
-
     /**
       Constructor.
       @param settings Configuration settings for the HTTP server. Must not be 0.
       @param requestHandler The handler that will process each received HTTP request.
     */
-    HttpConnectionHandlerPool(const QSettings* settings, HttpRequestHandler *requestHandler);
+    HttpConnectionHandlerPool(const QSettings* settings, HttpRequestHandler* requestHandler);
 
     /** Destructor */
     virtual ~HttpConnectionHandlerPool();
@@ -100,7 +99,6 @@ public:
     HttpConnectionHandler* getConnectionHandler();
 
 private:
-
     /** Settings for this pool */
     const QSettings* settings;
 
@@ -126,9 +124,8 @@ private slots:
 
     /** Received from the clean-up timer.  */
     void cleanup();
-
 };
 
-} // end of namespace
+} // namespace stefanfrings
 
 #endif // HTTPCONNECTIONHANDLERPOOL_H

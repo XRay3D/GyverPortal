@@ -4,11 +4,11 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GP:: GP::GyverPortal ui;
+GP::GP::GyverPortal ui;
 
 void build() {
     GP::GP.BUILD_BEGIN(600);
-    //4GP::GP.THEME(GP::DARK);
+    // 4GP::GP.THEME(GP::DARK);
     static GP::Align arr[]{GP::Align::LEFT, GP::Align::LEFT};
     GP::GP.TABLE_BEGIN("", arr);
     //    GP::GP.TABLE_BORDER(true);
@@ -16,7 +16,7 @@ void build() {
     <th>First name</th>
     <th>Last name</th>
   </tr>)";
-    for (int i{}; i < 10; i++) {
+    for(int i{}; i < 10; i++) {
         GP::GP.TR();
         GP::GP.TD();
         rndLabel();
@@ -36,7 +36,7 @@ void build() {
 }
 
 void rndComp() {
-    switch (random(4)) {
+    switch(random(4)) {
     case 0: GP::GP.SLIDER("sld"); break;
     case 1: GP::GP.SPINNER("spn"); break;
     case 2: GP::GP.SELECT("sel", "1,2,3"); break;
@@ -47,9 +47,8 @@ void rndComp() {
 void rndLabel() {
     String s;
     int len = random(5, 15);
-    for (int i = 0; i < len; i++) {
+    for(int i = 0; i < len; i++)
         s += (char)random(40, 127);
-    }
     GP::GP.LABEL(s);
 }
 
@@ -57,7 +56,7 @@ void setup() {
     Serial.begin(115200);
     WiFi.mode(WIFI_STA);
     WiFi.begin(AP_SSID, AP_PASS);
-    while (WiFi.status() != WL_CONNECTED) {
+    while(WiFi.status() != WL_CONNECTED) {
         delay(500);
         Serial.print(".");
     }

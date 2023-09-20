@@ -38,7 +38,7 @@ void setup() {
     Serial.begin(115200);
     WiFi.mode(WIFI_STA);
     WiFi.begin(AP_SSID, AP_PASS);
-    while (WiFi.status() != WL_CONNECTED) {
+    while(WiFi.status() != WL_CONNECTED) {
         delay(500);
         Serial.print(".");
     }
@@ -55,13 +55,13 @@ void setup() {
 }
 
 void action() {
-    if (ui.update())
+    if(ui.update())
         ui.update(lbl); // автоматически обновить лейбл на странице
 
-    if (ui.click()) {
-        if (ui.click(btn)) Serial.println("Click");
-        if (ui.click(txt)) Serial.println(txt.text);
-        if (ui.click(sel)) Serial.println(sel.getValue());
+    if(ui.click()) {
+        if(ui.click(btn)) Serial.println("Click");
+        if(ui.click(txt)) Serial.println(txt.text);
+        if(ui.click(sel)) Serial.println(sel.getValue());
     }
 }
 
@@ -70,9 +70,9 @@ void loop() {
 
     // имитируем изменение строки в программе
     static uint32_t tmr;
-    if (millis() - tmr >= 500) {
+    if(millis() - tmr >= 500) {
         tmr = millis();
         lbl.text = "";
-        for (int i = 0; i < 5; i++) lbl.text += (char)random(48, 126);
+        for(int i = 0; i < 5; i++) lbl.text += (char)random(48, 126);
     }
 }

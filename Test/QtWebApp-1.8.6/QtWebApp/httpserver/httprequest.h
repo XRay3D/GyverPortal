@@ -26,29 +26,29 @@ struct MultiMap {
     }
 
     T value(const Key& key) const {
-        for (auto&& [key_, val_]: data_)
-            if (key_ == key)
+        for(auto&& [key_, val_]: data_)
+            if(key_ == key)
                 return val_;
         return {};
     }
 
     T value(size_t idx) const {
-        if (idx < data_.size())
+        if(idx < data_.size())
             return data_.at(idx).second;
         return {};
     }
 
     QList<T> values(const Key& key) const {
         QList<T> list;
-        for (auto&& [key_, val_]: data_)
-            if (key_ == key)
+        for(auto&& [key_, val_]: data_)
+            if(key_ == key)
                 list.append(val_);
         return list;
     }
 
     bool contains(const Key& key) const {
-        for (auto&& [key_, val_]: data_)
-            if (key_ == key)
+        for(auto&& [key_, val_]: data_)
+            if(key_ == key)
                 return true;
         return {};
     }

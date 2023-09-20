@@ -6,10 +6,10 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
-#include "templatecache.h"
+#include "filelogger.h"
 #include "httpsessionstore.h"
 #include "staticfilecontroller.h"
-#include "filelogger.h"
+#include "templatecache.h"
 
 using namespace stefanfrings;
 
@@ -22,12 +22,12 @@ using namespace stefanfrings;
 extern TemplateCache* templateCache;
 
 /** Storage for session cookies */
-extern  HttpSessionStore* sessionStore;
+extern HttpSessionStore* sessionStore;
 
 /** Controller for static files */
-extern  StaticFileController* staticFileController;
+extern StaticFileController* staticFileController;
 
 /** Redirects log messages to a file */
-extern  FileLogger* logger;
+extern FileLogger* logger;
 
 #endif // GLOBAL_H

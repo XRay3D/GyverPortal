@@ -53,12 +53,12 @@ enum GP_DrawMode {
     M_RADIUS,
 };
 
-struct GPcanvas {
-    GPcanvas(int sz = 500) {
-        if(tmpPageBuf) ps = tmpPageBuf; // внутри билдера
+struct Canvas {
+    Canvas(int sz = 500) {
+        if (tmpPageBuf) ps = tmpPageBuf; // внутри билдера
         else {
-            s.reserve(sz);
-            ps = &s; // в программе
+            str.reserve(sz);
+            ps = &str; // в программе
         }
     }
 
@@ -70,7 +70,7 @@ struct GPcanvas {
 
     // очистить буфер (для рисования снаружи билдера)
     void clearBuffer() {
-        if(!tmpPageBuf) s = "";
+        if (!tmpPageBuf) str = "";
     }
 
     // =====================================================
@@ -160,12 +160,12 @@ struct GPcanvas {
     // окружность
     void circle(int x, int y, int r) {
         beginPath();
-        switch(rMode) {
+        switch (rMode) {
         case M_CORNER: arc(x + r, y + r, r); break;
         default: arc(x, y, r); break;
         }
-        if(strokeF) stroke();
-        if(fillF) fill();
+        if (strokeF) stroke();
+        if (fillF) fill();
     }
 
     // линия
@@ -190,8 +190,8 @@ struct GPcanvas {
         lineTo(x3, y3);
         lineTo(x4, y4);
         closePath();
-        if(strokeF) stroke();
-        if(fillF) fill();
+        if (strokeF) stroke();
+        if (fillF) fill();
     }
 
     // треугольник
@@ -201,21 +201,21 @@ struct GPcanvas {
         lineTo(x2, y2);
         lineTo(x3, y3);
         closePath();
-        if(strokeF) stroke();
-        if(fillF) fill();
+        if (strokeF) stroke();
+        if (fillF) fill();
     }
 
     // прямоугольник
     void rect(int x, int y, int w, int h) {
         beginPath();
-        switch(rMode) {
+        switch (rMode) {
         case M_CORNER: _rect(x, y, w, h); break;
         case M_CORNERS: _rect(x, y, w - x, h - y); break;
         case M_CENTER: _rect(x - w / 2, y - h / 2, w, h); break;
         case M_RADIUS: _rect(x - w, y - h, w * 2, h * 2); break;
         }
-        if(strokeF) stroke();
-        if(fillF) fill();
+        if (strokeF) stroke();
+        if (fillF) fill();
     }
 
     // квадрат
@@ -236,20 +236,20 @@ struct GPcanvas {
     // ======================= TEXT ========================
     // шрифт
     void textFont(const char* name) {
-        fname = name;
+        fontName = name;
         _font();
     }
 
     // размер шрифта
     void textSize(int size) {
-        fsize = size;
+        fontSize = size;
         _font();
     }
 
     // вывести текст
     void text(const String& text, int x, int y, int w = 0) {
-        if(strokeF) strokeText(text, x, y, w);
-        if(fillF) fillText(text, x, y, w);
+        if (strokeF) strokeText(text, x, y, w);
+        if (fillF) fillText(text, x, y, w);
     }
 
     // выравнивание текста
@@ -534,7 +534,7 @@ struct GPcanvas {
         add((float)sa * DEG_TO_RAD);
         comma();
         add((float)ea * DEG_TO_RAD);
-        if(ccw) add(",true");
+        if (ccw) add(",true");
         semi();
     }
 
@@ -578,7 +578,7 @@ struct GPcanvas {
         quote();
         comma();
         params(2, x, y);
-        if(w) {
+        if (w) {
             comma();
             add(w);
         }
@@ -593,7 +593,7 @@ struct GPcanvas {
         quote();
         comma();
         params(2, x, y);
-        if(w) {
+        if (w) {
             comma();
             add(w);
         }
@@ -653,9 +653,9 @@ struct GPcanvas {
     void params(int num, ...) {
         va_list valist;
         va_start(valist, num);
-        for(int i = 0; i < num; i++) {
+        for (int i = 0; i < num; i++) {
             add(va_arg(valist, int));
-            if(i < num - 1) comma();
+            if (i < num - 1) comma();
         }
         va_end(valist);
     }
@@ -679,14 +679,14 @@ struct GPcanvas {
     }
     void color(uint8_t r, uint8_t g, uint8_t b, uint8_t a = 255) {
         add(F("'rgb"));
-        if(a != 255) add('a');
+        if (a != 255) add('a');
         add('(');
         add(r);
         comma();
         add(g);
         comma();
         add(b);
-        if(a != 255) {
+        if (a != 255) {
             comma();
             add((float)a / 255.0);
         }
@@ -695,7 +695,7 @@ struct GPcanvas {
     void color(uint32_t hex) {
         quote();
         add('#');
-        for(uint8_t i = 0; i < 6; i++) {
+        for (uint8_t i = 0; i < 6; i++) {
             char p = ((uint32_t)hex >> (5 - i) * 4) & 0xF;
             p += (p > 9) ? 87 : 48;
             add(p);
@@ -703,30 +703,30 @@ struct GPcanvas {
         quote();
     }
     void _font() {
-        String f(fsize);
+        String f(fontSize);
         f += F("px ");
-        f += fname;
+        f += fontName;
         font(f);
     }
 
     String& _read() {
         sent = 1;
-        return s;
+        return str;
     }
     void _check() {
-        if(sent) {
+        if (sent) {
             clearBuffer();
             sent = 0;
         }
     }
 
-    String s;
+    String str;
     String* ps;
     bool strokeF = 1;
     bool fillF = 1;
     bool sent = 0;
-    const char* fname = "Arial";
-    int fsize = 20;
+    const char* fontName = "Arial";
+    int fontSize = 20;
     GP_DrawMode eMode = M_RADIUS;
     GP_DrawMode rMode = M_CORNER;
 };

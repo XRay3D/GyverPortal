@@ -9,7 +9,31 @@
 
 namespace GP {
 
-extern String _GP_empty_str;
+template <class T, T v>
+struct integral_constant;
+
+template <bool B>
+using bool_constant = integral_constant<bool, B>;
+
+template <class T, T v>
+struct integral_constant {
+    static constexpr T value = v;
+    using value_type = T;
+    using type = integral_constant; // using injected-class-name
+    constexpr operator value_type() const noexcept { return value; }
+    constexpr value_type operator()() const noexcept { return value; } // since c++14
+};
+
+template <class T, class U>
+struct is_same : std::false_type { };
+
+template <class T>
+struct is_same<T, T> : std::true_type { };
+
+template <class T, class U>
+inline constexpr bool is_same_v = is_same<T, U>::value;
+
+extern String __empty_str__;
 
 // ==================== COLORS =====================
 [[maybe_unused]] GP_PGM(RED, "#bf1e1e");
@@ -73,12 +97,12 @@ struct Parser {
     }
     bool parse() {
         int slen = strp->length();
-        if(idx > slen - 1) return 0;
+        if (idx > slen - 1) return 0;
         idx = strp->indexOf(',', from);
-        if(idx < 0) idx = slen;
+        if (idx < 0) idx = slen;
         int to = idx;
-        if(strp->charAt(to - 1) == ' ') to--;
-        if(strp->charAt(from) == ' ') from++;
+        if (strp->charAt(to - 1) == ' ') to--;
+        if (strp->charAt(from) == ' ') from++;
         str = strp->substring(from, to);
         from = idx + 1;
         count++;
@@ -137,7 +161,7 @@ struct GPcolor {
         uint32_t color = getHEX();
         String s('#');
         s.reserve(7 + 1);
-        for(uint8_t i = 0; i < 6; i++) {
+        for (uint8_t i = 0; i < 6; i++) {
             char p = ((uint32_t)color >> (5 - i) * 4) & 0xF;
             p += (p > 9) ? 87 : 48;
             s += p;
@@ -145,10 +169,10 @@ struct GPcolor {
         return s;
     }
     void decode(const String& hex) {
-        if(hex.length() < 6) return;
+        if (hex.length() < 6) return;
         uint32_t val = 0;
         uint8_t i = (hex[0] == '#') ? 1 : 0;
-        for(; i < hex.length(); i++) {
+        for (; i < hex.length(); i++) {
             val <<= 4;
             uint8_t d = hex[i];
             d -= (d <= '9') ? 48 : ((d <= 'F') ? 55 : 87);
@@ -193,7 +217,7 @@ struct GPdate {
     String encode() {
         String s;
         s.reserve(10 + 1);
-        if(!year) s += F("0000");
+        if (!year) s += F("0000");
         else s += year;
         s += '-';
         s += month / 10;
@@ -205,7 +229,7 @@ struct GPdate {
     }
     String encodeDMY() {
         String s;
-        if(year < 2000) s = F("unset");
+        if (year < 2000) s = F("unset");
         else {
             s.reserve(10 + 1);
             s += day / 10;
@@ -214,20 +238,20 @@ struct GPdate {
             s += month / 10;
             s += month % 10;
             s += '.';
-            if(!year) s += F("0000");
+            if (!year) s += F("0000");
             else s += year;
         }
         return s;
     }
     void decode(const String& str) {
-        if(str.length() > 10) return;
+        if (str.length() > 10) return;
         const char* s = str.c_str();
         year = atoi(s);
         s = strchr(s, '-');
-        if(!s) return;
+        if (!s) return;
         month = atoi(++s);
         s = strchr(s, '-');
-        if(!s) return;
+        if (!s) return;
         day = atoi(++s);
     }
 };
@@ -272,14 +296,14 @@ struct GPtime {
         return s;
     }
     void decode(const String& str) {
-        if(str.length() > 8) return;
+        if (str.length() > 8) return;
         const char* s = str.c_str();
         hour = atoi(s);
         s = strchr(s, ':');
-        if(!s) return;
+        if (!s) return;
         minute = atoi(++s);
         s = strchr(s, ':');
-        if(!s) return;
+        if (!s) return;
         second = atoi(++s);
     }
 };
@@ -297,17 +321,17 @@ struct GPweek {
     }
 
     void set(uint8_t idx, uint8_t val) {
-        if(idx < 8) bitWrite(week, idx, val);
+        if (idx < 8) bitWrite(week, idx, val);
     }
     uint8_t get(uint8_t idx) {
-        if(idx < 8) return bitRead(week, idx);
+        if (idx < 8) return bitRead(week, idx);
         else return 0;
     }
 
     void decode(const String& s) {
-        if(s.length() != 7) return;
+        if (s.length() != 7) return;
         week = 0;
-        for(int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++) {
             week |= s[6 - i] - '0';
             week <<= 1;
         }
@@ -315,7 +339,7 @@ struct GPweek {
     String encode() {
         String s;
         s.reserve(7);
-        for(int i = 1; i < 8; i++) s += get(i);
+        for (int i = 1; i < 8; i++) s += get(i);
         return s;
     }
 };
@@ -345,18 +369,18 @@ struct GPflags {
     }
 
     void set(uint8_t idx, uint8_t val) {
-        if(idx < 16) bitWrite(flags, idx, val);
+        if (idx < 16) bitWrite(flags, idx, val);
     }
     uint8_t get(uint8_t idx) {
-        if(idx < 16) return bitRead(flags, idx);
+        if (idx < 16) return bitRead(flags, idx);
         else return 0;
     }
 
     void decode(const String& s) {
-        if(s.length() > 16) return;
+        if (s.length() > 16) return;
         len = s.length();
         flags = 0;
-        for(int i = 0; i < len; i++) {
+        for (int i = 0; i < len; i++) {
             flags <<= 1;
             flags |= s[len - 1 - i] - '0';
         }
@@ -364,7 +388,7 @@ struct GPflags {
     String encode() {
         String s;
         s.reserve(len);
-        for(int i = 0; i < len; i++) s += get(i);
+        for (int i = 0; i < len; i++) s += get(i);
         return s;
     }
 };

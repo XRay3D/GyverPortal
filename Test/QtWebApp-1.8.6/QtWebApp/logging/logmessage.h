@@ -6,10 +6,10 @@
 #ifndef LOGMESSAGE_H
 #define LOGMESSAGE_H
 
-#include <QtGlobal>
+#include "logglobal.h"
 #include <QDateTime>
 #include <QHash>
-#include "logglobal.h"
+#include <QtGlobal>
 
 namespace stefanfrings {
 
@@ -33,11 +33,9 @@ namespace stefanfrings {
   - {line}      Line number where the message was generated
 */
 
-class DECLSPEC LogMessage
-{
+class DECLSPEC LogMessage {
     Q_DISABLE_COPY(LogMessage)
 public:
-
     /**
       Constructor. All parameters are copied, so that later changes to them do not
       affect this object.
@@ -48,8 +46,8 @@ public:
       @param function Name of the function where the message was generated
       @param line Line Number of the source file, where the message was generated
     */
-    LogMessage(const QtMsgType type, const QString& message, const QHash<QString,QString>* logVars,
-               const QString &file, const QString &function, const int line);
+    LogMessage(const QtMsgType type, const QString& message, const QHash<QString, QString>* logVars,
+        const QString& file, const QString& function, const int line);
 
     /**
       Returns the log message as decorated string.
@@ -66,9 +64,8 @@ public:
     QtMsgType getType() const;
 
 private:
-
     /** Logger variables */
-    QHash<QString,QString> logVars;
+    QHash<QString, QString> logVars;
 
     /** Date and time of creation */
     QDateTime timestamp;
@@ -90,9 +87,8 @@ private:
 
     /** Line number where the message was generated */
     int line;
-
 };
 
-} // end of namespace
+} // namespace stefanfrings
 
 #endif // LOGMESSAGE_H

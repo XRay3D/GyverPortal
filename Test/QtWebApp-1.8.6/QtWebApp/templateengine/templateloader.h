@@ -6,12 +6,12 @@
 #ifndef TEMPLATELOADER_H
 #define TEMPLATELOADER_H
 
-#include <QString>
-#include <QSettings>
-#include <QMutex>
-#include <QTextCodec>
-#include "templateglobal.h"
 #include "template.h"
+#include "templateglobal.h"
+#include <QMutex>
+#include <QSettings>
+#include <QString>
+#include <QTextCodec>
 
 namespace stefanfrings {
 
@@ -41,13 +41,12 @@ class DECLSPEC TemplateLoader : public QObject {
     Q_OBJECT
     Q_DISABLE_COPY(TemplateLoader)
 public:
-
     /**
       Constructor.
       @param settings configurations settings
       @param parent parent object
     */
-    TemplateLoader(const QSettings* settings, QObject* parent=nullptr);
+    TemplateLoader(const QSettings* settings, QObject* parent = nullptr);
 
     /** Destructor */
     virtual ~TemplateLoader();
@@ -61,10 +60,9 @@ public:
       ignored.
       @return If the template cannot be loaded, an error message is logged and an empty template is returned.
     */
-    Template getTemplate(const QString templateName, const QString locales=QString());
+    Template getTemplate(const QString templateName, const QString locales = QString());
 
 protected:
-
     /**
       Try to get a file from cache or filesystem.
       @param localizedName Name of the template with locale to find
@@ -82,6 +80,6 @@ protected:
     QTextCodec* textCodec;
 };
 
-} // end of namespace
+} // namespace stefanfrings
 
 #endif // TEMPLATELOADER_H

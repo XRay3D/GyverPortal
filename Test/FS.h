@@ -18,8 +18,7 @@ namespace fs {
 struct FS {
     FS() { }
 
-    File open(String str)
-    {
+    File open(String str) {
         File f;
         // File f(str);
         // f.open(QIODevice::ReadWrite);
@@ -27,4 +26,4 @@ struct FS {
     }
 };
 
-}
+} // namespace fs

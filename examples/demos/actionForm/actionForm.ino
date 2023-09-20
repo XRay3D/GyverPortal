@@ -4,7 +4,7 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GP:: GP::GyverPortal ui;
+GP::GP::GyverPortal ui;
 
 // переменные для получения данных с формы
 bool valCheck;
@@ -59,7 +59,7 @@ void setup() {
     Serial.begin(115200);
     WiFi.mode(WIFI_STA);
     WiFi.begin(AP_SSID, AP_PASS);
-    while (WiFi.status() != WL_CONNECTED) {
+    while(WiFi.status() != WL_CONNECTED) {
         delay(500);
         Serial.print(".");
     }
@@ -73,9 +73,9 @@ void setup() {
 
 void action() {
     // одна из форм была submit
-    if (ui.form()) {
+    if(ui.form()) {
         // проверяем, была ли это форма "/update"
-        if (ui.form("/update")) {
+        if(ui.form("/update")) {
             // забираем значения и обновляем переменные
             // 1. получаем и присваиваем вручную
             valCheck = ui.getBool("ch");

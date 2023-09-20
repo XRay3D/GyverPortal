@@ -18,12 +18,11 @@ class RequestHandler : public HttpRequestHandler {
     Q_OBJECT
     Q_DISABLE_COPY(RequestHandler)
 public:
-
     /**
       Constructor.
       @param parent Parent object
     */
-    RequestHandler(QObject* parent=0);
+    RequestHandler(QObject* parent = 0);
 
     /**
       Destructor
@@ -36,7 +35,6 @@ public:
       @param response Must be used to return the response
     */
     void service(HttpRequest& request, HttpResponse& response);
-
 };
 
 #endif // REQUESTHANDLER_H

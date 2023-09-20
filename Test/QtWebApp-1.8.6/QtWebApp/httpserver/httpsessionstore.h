@@ -6,14 +6,14 @@
 #ifndef HTTPSESSIONSTORE_H
 #define HTTPSESSIONSTORE_H
 
-#include <QObject>
-#include <QMap>
-#include <QTimer>
-#include <QMutex>
 #include "httpglobal.h"
-#include "httpsession.h"
-#include "httpresponse.h"
 #include "httprequest.h"
+#include "httpresponse.h"
+#include "httpsession.h"
+#include <QMap>
+#include <QMutex>
+#include <QObject>
+#include <QTimer>
 
 namespace stefanfrings {
 
@@ -36,7 +36,6 @@ class DECLSPEC HttpSessionStore : public QObject {
     Q_OBJECT
     Q_DISABLE_COPY(HttpSessionStore)
 public:
-
     /**
       Constructor.
       @param settings Configuration settings, usually stored in an INI file. Must not be 0.
@@ -47,7 +46,7 @@ public:
       caller should destroy it during shutdown.
       @param parent Parent object
      */
-    HttpSessionStore(const QSettings* settings, QObject* parent=nullptr);
+    HttpSessionStore(const QSettings* settings, QObject* parent = nullptr);
 
     /** Destructor */
     virtual ~HttpSessionStore();
@@ -73,7 +72,7 @@ public:
        @return If autoCreate is disabled, the function returns a null session if there is no session.
        @see HttpSession::isNull()
     */
-    HttpSession getSession(HttpRequest& request, HttpResponse& response, const bool allowCreate=true);
+    HttpSession getSession(HttpRequest& request, HttpResponse& response, const bool allowCreate = true);
 
     /**
        Get a HTTP session by it's ID number.
@@ -89,10 +88,9 @@ public:
 
 protected:
     /** Storage for the sessions */
-    QMap<QByteArray,HttpSession> sessions;
+    QMap<QByteArray, HttpSession> sessions;
 
 private:
-
     /** Configuration settings */
     const QSettings* settings;
 
@@ -122,6 +120,6 @@ signals:
     void sessionDeleted(const QByteArray& sessionId);
 };
 
-} // end of namespace
+} // namespace stefanfrings
 
 #endif // HTTPSESSIONSTORE_H

@@ -13,14 +13,13 @@
 
 #ifdef ESP8266
 #include <ESP8266WebServer.h>
-extern ESP8266WebServer* _gp_s;
 #else
 #include <WebServer.h>
 #endif
 
 namespace GP {
 
-extern WebServer__* _gp_s;
+extern WebServer__* __server__;
 
 extern int _gp_bufsize;
 extern String* _gp_uri;
@@ -98,12 +97,12 @@ struct Builder {
     }
     void SEND_P(PGM_P s) {
         send(true);
-        _gp_s->sendContent_P(s);
+        __server__->sendContent_P(s);
     }
 
     void send(bool force = 0) {
         if ((int)tmpPageBuf->length() > (force ? 0 : _gp_bufsize)) {
-            _gp_s->sendContent(*tmpPageBuf);
+            __server__->sendContent(*tmpPageBuf);
             *tmpPageBuf = "";
         }
     }

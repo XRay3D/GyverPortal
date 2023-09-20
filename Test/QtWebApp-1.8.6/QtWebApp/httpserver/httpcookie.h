@@ -6,9 +6,9 @@
 #ifndef HTTPCOOKIE_H
 #define HTTPCOOKIE_H
 
-#include <QList>
-#include <QByteArray>
 #include "httpglobal.h"
+#include <QByteArray>
+#include <QList>
 
 namespace stefanfrings {
 
@@ -17,10 +17,8 @@ namespace stefanfrings {
   Supports some additional attributes of RFC6265bis.
 */
 
-class DECLSPEC HttpCookie
-{
+class DECLSPEC HttpCookie {
 public:
-
     /** Creates an empty cookie */
     HttpCookie();
 
@@ -38,9 +36,9 @@ public:
              restriction than the domain. Allowed values: "Lax" and "Strict".
     */
     HttpCookie(const QByteArray name, const QByteArray value, const int maxAge,
-               const QByteArray path="/", const QByteArray comment=QByteArray(),
-               const QByteArray domain=QByteArray(), const bool secure=false,
-               const bool httpOnly=false, const QByteArray sameSite=QByteArray());
+        const QByteArray path = "/", const QByteArray comment = QByteArray(),
+        const QByteArray domain = QByteArray(), const bool secure = false,
+        const bool httpOnly = false, const QByteArray sameSite = QByteArray());
 
     /**
       Create a cookie from a string.
@@ -49,7 +47,7 @@ public:
     HttpCookie(const QByteArray source);
 
     /** Convert this cookie to a string that may be used in a Set-Cookie header. */
-    QByteArray toByteArray() const ;
+    QByteArray toByteArray() const;
 
     /**
       Split a string list into parts, where each part is delimited by semicolon.
@@ -118,7 +116,6 @@ public:
     int getVersion() const;
 
 private:
-
     QByteArray name;
     QByteArray value;
     QByteArray comment;
@@ -129,9 +126,8 @@ private:
     bool httpOnly;
     QByteArray sameSite;
     int version;
-
 };
 
-} // end of namespace
+} // namespace stefanfrings
 
 #endif // HTTPCOOKIE_H

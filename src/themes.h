@@ -1751,5 +1751,4 @@ input[type='number']{-moz-appearance:textfield;}
 .rad:checked:after{background-color:#37a93c;}
 */
 
-
 } // namespace GP
