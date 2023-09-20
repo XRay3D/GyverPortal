@@ -1,42 +1,43 @@
 # This file is used to ignore files which are generated
 # ----------------------------------------------------------------------------
 
-*~
-*.autosave
+!core/
+*.*#
 *.a
+*.app
+*.autosave
+*.bak
 *.core
+*.debug
 *.moc
 *.o
 *.obj
 *.orig
+*.prl
+*.qm
+*.rc
 *.rej
+*.res
 *.so
 *.so.*
 *_pch.h.cpp
 *_resource.rc
-*.qm
+*~
 .#*
-*.*#
-core
-!core/
-tags
 .DS_Store
 .directory
-*.debug
-Makefile*
-*.prl
-*.app
-moc_*.cpp
-ui_*.h
-qrc_*.cpp
-Thumbs.db
-*.res
-*.rc
 /.qmake.cache
 /.qmake.stash
+/bin
 /build*
 /build/*
-/bin
+Makefile*
+Thumbs.db
+core
+moc_*.cpp
+qrc_*.cpp
+tags
+ui_*.h
 
 # qtcreator generated files
 *.pro.user*
