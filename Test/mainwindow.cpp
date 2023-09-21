@@ -154,14 +154,14 @@ struct Flag {
 };
 
 template <typename Ty, typename... Ts>
-struct Printable : std::tuple<Ts*...>, Flag {
-    static constexpr auto Size = sizeof...(Ts);
+struct Printable : std::tuple<Ts...>, Flag {
+    static constexpr size_t Size = sizeof...(Ts);
     //    enum {
     //        Size = sizeof...(Ts)
     //    };
-    using tuple = std::tuple<Ts*...>;
-    Printable(Printable&&) = delete;
-    Printable(const Printable&) = delete;
+    using tuple = std::tuple<Ts...>;
+    //    Printable(Printable&&) = delete;
+    //    Printable(const Printable&) = delete;
     void build() {
         print_impl(*static_cast<Ty*>(this), std::make_index_sequence<Size>{});
     }
@@ -169,14 +169,14 @@ struct Printable : std::tuple<Ts*...>, Flag {
 private:
     template <typename _Ty, size_t... Is>
     static void print_impl(_Ty& t, std::index_sequence<Is...>) {
-        if constexpr (std::is_base_of_v<Flag, _Ty>) {
+        if constexpr(std::is_base_of_v<Flag, _Ty>) {
             t.begin();
-            ([](auto* val) {
-                using T = std::decay_t<decltype(*val)>;
-                if constexpr (std::is_base_of_v<Flag, T>) {
-                    print_impl(*val, std::make_index_sequence<T::Size>{});
-                } else
-                    print_impl(*val, std::index_sequence<>{});
+            ([](auto&& val) {
+                using T = std::decay_t<decltype(val)>;
+                if constexpr(std::is_base_of_v<Flag, T>)
+                    print_impl(val, std::make_index_sequence<T::Size>{});
+                else
+                    print_impl(val, std::index_sequence<>{});
             }(std::get<Is>(t)),
                 ...);
             t.end();
@@ -194,7 +194,7 @@ template <typename... Ts>
 struct BOX : Printable<BOX<Ts...>, Ts...> {
     using P = Printable<BOX<Ts...>, Ts...>;
     BOX(Ts&&... ts)
-        : P{{&ts...}} { }
+        : P{{std::forward<Ts>(ts)...}} { }
     void begin() const { GP::GP.BOX_BEGIN(); }
     void end() const { GP::GP.BOX_END(); }
 };
@@ -207,7 +207,7 @@ template <typename... Ts>
 struct GRID : Printable<GRID<Ts...>, Ts...> {
     using P = Printable<GRID<Ts...>, Ts...>;
     GRID(Ts&&... ts)
-        : P{{&ts...}} { }
+        : P{{std::forward<Ts>(ts)...}} { }
     void begin() const { GP::GP.GRID_BEGIN(); }
     void end() const { GP::GP.GRID_END(); }
 };
@@ -219,9 +219,9 @@ GRID(Ts&&...) -> GRID<Ts...>;
 template <typename... Ts>
 struct BLOCK_THIN_TAB : Printable<BLOCK_THIN_TAB<Ts...>, Ts...> {
     using P = Printable<BLOCK_THIN_TAB<Ts...>, Ts...>;
-    const String& name;
+    String name;
     BLOCK_THIN_TAB(const String& name, Ts&&... ts)
-        : P{{&ts...}}
+        : P{{std::forward<Ts>(ts)...}}
         , name{name} { }
     void begin() const { GP::GP.BLOCK_THIN_TAB_BEGIN(name); }
     void end() const { GP::GP.BLOCK_END(); }
@@ -234,7 +234,7 @@ void setup() {
     Serial.begin(115200);
     WiFi.mode(WIFI_STA);
     WiFi.begin(AP_SSID, AP_PASS);
-    while (WiFi.status() != WL_CONNECTED) {
+    while(WiFi.status() != WL_CONNECTED) {
         delay(500);
         Serial.print(".");
     }
@@ -247,25 +247,32 @@ void setup() {
         *GP::tmpPageBuf += "<!--//////////////////////////////////////////-->\n";
 
         GRID(
-            BLOCK_THIN_TAB(
-                "Котел",
-                BLOCK_THIN_TAB(
-                    "Отопление",
-                    BOX(GP::LABEL("", "Темп. прямой"), GP::LABEL("", "30", "t_in")),
-                    BOX(GP::LABEL("", "Темп. обратн"), GP::LABEL("", "22", "t_out"))),
-                BLOCK_THIN_TAB(
-                    "Горячая вода",
-                    BOX(GP::LABEL("", "Темп. хол."), GP::LABEL("", "23", "t_cold")),
-                    BOX(GP::LABEL("", "Темп. гор."), GP::LABEL("", "24", "t_hot"))),
-                BOX(GP::LABEL("", "Нагрев вкл"), GP::LED("boilerOn", false))))
+            BLOCK_THIN_TAB("Котел",
+                BLOCK_THIN_TAB("Отопление",
+                    BOX(GP::LABEL("", "Темп. прямой"), GP::LABEL("t_in", "30")),
+                    BOX(GP::LABEL("", "Темп. обратн"), GP::LABEL("t_out", "22"))),
+                BLOCK_THIN_TAB("Горячая вода",
+                    BOX(GP::LABEL("", "Темп. хол."), GP::LABEL("t_cold", "23")),
+                    BOX(GP::LABEL("", "Темп. гор."), GP::LABEL("t_hot", "24"))),
+                BOX{
+                    GP::LABEL("", "Нагрев вкл"),
+                    GP::LED("boilerOn0", false),
+                    GP::LED("boilerOn1", true),
+                    GP::LED("boilerOn2", false),
+                    GP::LED("boilerOn3", true),
+                }))
             .build();
 
         GRID(
-            BLOCK_THIN_TAB(
-                "UPS",
+            BLOCK_THIN_TAB("UPS",
                 BOX(GP::LABEL("", "Вход"), GP::NUMBER("v_in", "", 221)),
                 BOX(GP::LABEL("", "Выход"), GP::NUMBER("v_out", "", 220))))
             .build();
+
+        //        BLOCK_THIN_TAB b("UPS",
+        //            BOX(GP::LABEL("", "Вход"), GP::NUMBER("v_in", "", 221)),
+        //            BOX(GP::LABEL("", "Выход"), GP::NUMBER("v_out", "", 220)));
+        //        b.build();
 
         *GP::tmpPageBuf += "<!--//////////////////////////////////////////-->\n";
 
@@ -322,9 +329,9 @@ public:
 
 protected:
     void highlightBlock(const QString& text) {
-        for (const auto& rule: highlightingRules) {
+        for(const auto& rule: highlightingRules) {
             auto globalMatch = rule.pattern.globalMatch(text);
-            while (globalMatch.hasNext()) {
+            while(globalMatch.hasNext()) {
                 auto match = globalMatch.next();
                 setFormat(match.capturedStart(), match.capturedLength(), rule.format);
             }
@@ -334,13 +341,13 @@ protected:
 
         // match multi-line comments
         int startIndex = 0;
-        if (previousBlockState() != 1)
+        if(previousBlockState() != 1)
             startIndex = commentStartExpression.match(text).capturedStart();
-        while (startIndex >= 0) {
+        while(startIndex >= 0) {
             auto match = commentEndExpression.match(text, startIndex);
             int endIndex = match.capturedStart();
             int commentLength;
-            if (endIndex == -1) {
+            if(endIndex == -1) {
                 setCurrentBlockState(1);
                 commentLength = text.length() - startIndex;
             } else {
@@ -397,7 +404,7 @@ MainWindow::MainWindow(QWidget* parent)
     //    });
     connect(view->page(), &QWebEnginePage::loadFinished, [=](bool ok) {
         using std::placeholders::_1;
-        if (ok)
+        if(ok)
             //           view->page()->toHtml(std::bind(&QTextEdit::setPlainText, textEdit, _1));
             view->page()->toHtml([textEdit](const QString& xmlIn) {
                 QString xmlOut{};
@@ -405,9 +412,9 @@ MainWindow::MainWindow(QWidget* parent)
                 static QRegularExpression tagRr(R"((<(\w+))?.*(<\\(\w+)>)?)");
                 static QRegularExpression tagRr2(R"(<[^\]\w+))");
                 int i{-4};
-                for (auto&& var: QString(xmlIn).replace("><", ">\n<").split('\n')) {
-                    if (var.startsWith('<') && !var.startsWith("</") && !var.startsWith("<meta")) ++i;
-                    if (var.contains("</")) --i;
+                for(auto&& var: QString(xmlIn).replace("><", ">\n<").split('\n')) {
+                    //                    if(var.startsWith('<') && !var.startsWith("</") && !var.startsWith("<meta")) ++i;
+                    //                    if(var.contains("</")) --i;
                     xmlOut += QString(i * 3, ' ') + var + '\n';
                 }
 
