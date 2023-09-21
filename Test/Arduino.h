@@ -1,4 +1,5 @@
 #pragma once
+#include <QCoreApplication>
 #include <QDateTime>
 #include <QEventLoop>
 #include <QString>
@@ -130,7 +131,9 @@ inline void delay(uint32_t time) {
 template <typename T>
 inline void bitClear(T& val, size_t n) { val &= ~(1 << n); }
 
-inline void yield() { }
+inline void yield() {
+    qApp->processEvents();
+}
 
 inline int constrain(int a, int b, int c) { return std::clamp(a, b, c); }
 

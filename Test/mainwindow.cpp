@@ -14,6 +14,9 @@ void build();
 void rndLabel();
 void rndComp();
 
+// #include "../examples/builds/dynamicComponents/dynamicComponents.ino"
+// #include "../examples/builds/selectBuild/selectBuild.ino"
+// #include "../examples/customComponents/customComponents.ino"
 // #include "../examples/demos/actionClick/actionClick.ino"
 // #include "../examples/demos/actionForm/actionForm.ino"
 // #include "../examples/demos/actionUpdate/actionUpdate.ino"
@@ -39,7 +42,37 @@ void rndComp();
 // #include "../examples/demos/saveSettings/saveSettings.ino"
 // #include "../examples/demos/systemInfo/systemInfo.ino"
 // #include "../examples/demos/tableWrandom/tableWrandom.ino"
-#include "../examples/builds/dynamicComponents/dynamicComponents.ino"
+// #include "../examples/design/GridAndBlocks/GridAndBlocks.ino"
+// #include "../examples/design/blocks/blocks.ino"
+// #include "../examples/design/blocks2/blocks2.ino"
+// #include "../examples/design/boxes/boxes.ino"
+// #include "../examples/design/boxesMacro/boxesMacro.ino"
+// #include "../examples/design/icons/icons.ino"
+// #include "../examples/design/layoutApp/layoutApp.ino"
+// #include "../examples/design/layoutDashboard/layoutDashboard.ino"
+// #include "../examples/design/multiPageButtons/multiPageButtons.ino"
+// #include "../examples/design/multiPageTabLinks/multiPageTabLinks.ino"
+// #include "../examples/design/multiPageTabs/multiPageTabs.ino"
+// #include "../examples/design/multiPageTabsManual/multiPageTabsManual.ino"
+// #include "../examples/design/slidersEqual/slidersEqual.ino"
+// #include "../examples/design/tables/tables.ino"
+// #include "../examples/design/ui/ui.ino"
+// #include "../examples/design/uiManual/uiManual.ino"
+// #include "../examples/files/fileDownloadAuto/fileDownloadAuto.ino"
+// #include "../examples/files/fileDownloadManual/fileDownloadManual.ino"
+// #include "../examples/files/fileEmbed/fileEmbed.ino"
+// #include "../examples/files/fileUploadAuto/fileUploadAuto.ino"
+// #include "../examples/files/fileUploadManual/fileUploadManual.ino"
+// #include "../examples/projects/eepromLogPlot/eepromLogPlot.ino"
+// #include "../examples/projects/webSerial/webSerial.ino"
+// #include "../examples/projects/wifiLogin/wifiLogin.ino"
+// #include "../examples/system/OTAcustom/OTAcustom.ino"
+// #include "../examples/system/OTAupdate/OTAupdate.ino"
+// #include "../examples/system/accessNetIp/accessNetIp.ino"
+ #include "../examples/system/localLambda/localLambda.ino"
+// #include "../examples/system/localPortal/localPortal.ino"
+// #include "../examples/system/localPortal2/localPortal2.ino"
+// #include "../examples/system/rtos2core/rtos2core.ino"
 
 /*
 #include <array>
@@ -235,7 +268,7 @@ MainWindow::MainWindow(QWidget* parent)
                 QDomDocument output(input);
                 QTextStream stream(&xmlOut);
                 output.save(stream, QDomNode::EncodingFromTextStream);
-                textEdit->setPlainText(0 ? xmlIn : xmlOut);
+                textEdit->setPlainText(1 ? xmlIn : xmlOut);
             });
     });
 
