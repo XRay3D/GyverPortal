@@ -400,7 +400,16 @@ MainWindow::MainWindow(QWidget* parent)
         if (ok)
             //           view->page()->toHtml(std::bind(&QTextEdit::setPlainText, textEdit, _1));
             view->page()->toHtml([textEdit](const QString& xmlIn) {
-                QString xmlOut;
+                QString xmlOut{};
+                QString tag;
+                static QRegularExpression tagRr(R"((<(\w+))?.*(<\\(\w+)>)?)");
+                static QRegularExpression tagRr2(R"(<[^\]\w+))");
+                int i{-4};
+                for (auto&& var: QString(xmlIn).replace("><", ">\n<").split('\n')) {
+                    if (var.startsWith('<') && !var.startsWith("</") && !var.startsWith("<meta")) ++i;
+                    if (var.contains("</")) --i;
+                    xmlOut += QString(i * 3, ' ') + var + '\n';
+                }
 
                 //                QXmlStreamReader reader(xmlIn);
                 //                QXmlStreamWriter writer(&xmlOut);
@@ -417,12 +426,12 @@ MainWindow::MainWindow(QWidget* parent)
                 //                    }
                 //                } catch (...) {
                 //                }
-                QDomDocument input;
-                input.setContent(xmlIn);
-                QDomDocument output(input);
-                QTextStream stream(&xmlOut);
-                output.save(stream, QDomNode::EncodingFromTextStream);
-                textEdit->setPlainText(1 ? xmlIn : xmlOut);
+                //                QDomDocument input;
+                //                input.setContent(xmlIn);
+                //                QDomDocument output(input);
+                //                QTextStream stream(&xmlOut);
+                //                output.save(stream, QDomNode::EncodingFromTextStream);
+                textEdit->setPlainText(0 ? xmlIn : xmlOut);
             });
     });
 
