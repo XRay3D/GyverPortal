@@ -8,6 +8,8 @@
 #include <QWebEngineView>
 #include <QXmlStreamReader>
 #include <chrono>
+#include <stack>
+#include <tuple>
 
 void action();
 void build();
@@ -69,7 +71,7 @@ void rndComp();
 // #include "../examples/system/OTAcustom/OTAcustom.ino"
 // #include "../examples/system/OTAupdate/OTAupdate.ino"
 // #include "../examples/system/accessNetIp/accessNetIp.ino"
- #include "../examples/system/localLambda/localLambda.ino"
+// #include "../examples/system/localLambda/localLambda.ino"
 // #include "../examples/system/localPortal/localPortal.ino"
 // #include "../examples/system/localPortal2/localPortal2.ino"
 // #include "../examples/system/rtos2core/rtos2core.ino"
@@ -132,6 +134,158 @@ int main() {
 
 */
 
+#define AP_SSID ""
+#define AP_PASS ""
+
+#include <GyverPortal.h>
+GP::GyverPortal ui;
+
+// connect(comboBox, QOverload<const QString &>::of(&QComboBox::activated),
+//     [=](const QString &text){ /* ... */ });
+// Согласитесь, это будет гораздо проще для восприятия, чем нечто такое из предыдущего урока по сигналам и слотам
+
+// connect(m_testClass, static_cast<void(TestClass::*)(int)>(&TestClass::testSignal), this, static_cast<void(Widget::*)(int)>(&Widget::onTestSlot));
+// Давайте перепишем этот пример с использованием QOverload
+
+// connect(m_testClass, QOverload<int>::of(&TestClass::testSignal), this, QOverload<int>::of(&Widget::onTestSlot));
+// Запись стала не только короче, но и более понятной.
+
+struct Flag {
+};
+
+template <typename Ty, typename... Ts>
+struct Printable : std::tuple<Ts*...>, Flag {
+    static constexpr auto Size = sizeof...(Ts);
+    //    enum {
+    //        Size = sizeof...(Ts)
+    //    };
+    using tuple = std::tuple<Ts*...>;
+    Printable(Printable&&) = delete;
+    Printable(const Printable&) = delete;
+    void build() {
+        print_impl(*static_cast<Ty*>(this), std::make_index_sequence<Size>{});
+    }
+
+private:
+    template <typename _Ty, size_t... Is>
+    static void print_impl(_Ty& t, std::index_sequence<Is...>) {
+        if constexpr (std::is_base_of_v<Flag, _Ty>) {
+            t.begin();
+            ([](auto* val) {
+                using T = std::decay_t<decltype(*val)>;
+                if constexpr (std::is_base_of_v<Flag, T>) {
+                    print_impl(*val, std::make_index_sequence<T::Size>{});
+                } else
+                    print_impl(*val, std::index_sequence<>{});
+            }(std::get<Is>(t)),
+                ...);
+            t.end();
+        } else {
+            GP::GP.PUT_OBJ(t);
+        }
+    }
+};
+
+template <typename Ty, typename... Ts>
+Printable(Ty, Ts...) -> Printable<Ty, Ts...>;
+
+/// \brief The BOX class
+template <typename... Ts>
+struct BOX : Printable<BOX<Ts...>, Ts...> {
+    using P = Printable<BOX<Ts...>, Ts...>;
+    BOX(Ts&&... ts)
+        : P{{&ts...}} { }
+    void begin() const { GP::GP.BOX_BEGIN(); }
+    void end() const { GP::GP.BOX_END(); }
+};
+
+template <typename... Ts>
+BOX(Ts&&...) -> BOX<Ts...>;
+
+/// \brief The GRID class
+template <typename... Ts>
+struct GRID : Printable<GRID<Ts...>, Ts...> {
+    using P = Printable<GRID<Ts...>, Ts...>;
+    GRID(Ts&&... ts)
+        : P{{&ts...}} { }
+    void begin() const { GP::GP.GRID_BEGIN(); }
+    void end() const { GP::GP.GRID_END(); }
+};
+
+template <typename... Ts>
+GRID(Ts&&...) -> GRID<Ts...>;
+
+/// \brief The BLOCK_THIN_TAB class
+template <typename... Ts>
+struct BLOCK_THIN_TAB : Printable<BLOCK_THIN_TAB<Ts...>, Ts...> {
+    using P = Printable<BLOCK_THIN_TAB<Ts...>, Ts...>;
+    const String& name;
+    BLOCK_THIN_TAB(const String& name, Ts&&... ts)
+        : P{{&ts...}}
+        , name{name} { }
+    void begin() const { GP::GP.BLOCK_THIN_TAB_BEGIN(name); }
+    void end() const { GP::GP.BLOCK_END(); }
+};
+
+template <typename... Ts>
+BLOCK_THIN_TAB(const String&, Ts&&...) -> BLOCK_THIN_TAB<Ts...>;
+
+void setup() {
+    Serial.begin(115200);
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(AP_SSID, AP_PASS);
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println(WiFi.localIP());
+
+    ui.start();
+    ui.attachBuild([] {
+        GP::GP.BUILD_BEGIN();
+        GP::GP.THEME(GP::DARK);
+        *GP::tmpPageBuf += "<!--//////////////////////////////////////////-->\n";
+
+        GRID(
+            BLOCK_THIN_TAB(
+                "Котел",
+                BLOCK_THIN_TAB(
+                    "Отопление",
+                    BOX(GP::LABEL("", "Темп. прямой"), GP::LABEL("", "30", "t_in")),
+                    BOX(GP::LABEL("", "Темп. обратн"), GP::LABEL("", "22", "t_out"))),
+                BLOCK_THIN_TAB(
+                    "Горячая вода",
+                    BOX(GP::LABEL("", "Темп. хол."), GP::LABEL("", "23", "t_cold")),
+                    BOX(GP::LABEL("", "Темп. гор."), GP::LABEL("", "24", "t_hot"))),
+                BOX(GP::LABEL("", "Нагрев вкл"), GP::LED("boilerOn", false))))
+            .build();
+
+        GRID(
+            BLOCK_THIN_TAB(
+                "UPS",
+                BOX(GP::LABEL("", "Вход"), GP::NUMBER("v_in", "", 221)),
+                BOX(GP::LABEL("", "Выход"), GP::NUMBER("v_out", "", 220))))
+            .build();
+
+        *GP::tmpPageBuf += "<!--//////////////////////////////////////////-->\n";
+
+        GP::GP.BUILD_END();
+    });
+
+    ui.attach([](GP::GyverPortal& p) {
+        //        if (p.click("clk"))
+        //            Serial.println("Button click");
+        //        if (p.click("ext")) {
+        //            Serial.println("Exit portal");
+        //            p.stop();
+        //        }
+    });
+}
+
+void loop() {
+    // ui.tick();
+}
+
 class XmlHighlighter : public QSyntaxHighlighter {
     // Q_OBJECT
 public:
@@ -168,9 +322,9 @@ public:
 
 protected:
     void highlightBlock(const QString& text) {
-        for(const auto& rule: highlightingRules) {
+        for (const auto& rule: highlightingRules) {
             auto globalMatch = rule.pattern.globalMatch(text);
-            while(globalMatch.hasNext()) {
+            while (globalMatch.hasNext()) {
                 auto match = globalMatch.next();
                 setFormat(match.capturedStart(), match.capturedLength(), rule.format);
             }
@@ -178,23 +332,23 @@ protected:
 
         setCurrentBlockState(0);
 
-        //        // match multi-line comments
-        //        int startIndex = 0;
-        //        if (previousBlockState() != 1)
-        //            startIndex = commentStartExpression.indexIn(text);
-        //        while (startIndex >= 0) {
-        //            int endIndex = commentEndExpression.indexIn(text, startIndex);
-        //            int commentLength;
-        //            if (endIndex == -1) {
-        //                setCurrentBlockState(1);
-        //                commentLength = text.length() - startIndex;
-        //            } else {
-        //                commentLength = endIndex - startIndex
-        //                    + commentEndExpression.matchedLength();
-        //            }
-        //            setFormat(startIndex, commentLength, multiLineCommentFormat);
-        //            startIndex = commentStartExpression.indexIn(text, startIndex + commentLength);
-        //        }
+        // match multi-line comments
+        int startIndex = 0;
+        if (previousBlockState() != 1)
+            startIndex = commentStartExpression.match(text).capturedStart();
+        while (startIndex >= 0) {
+            auto match = commentEndExpression.match(text, startIndex);
+            int endIndex = match.capturedStart();
+            int commentLength;
+            if (endIndex == -1) {
+                setCurrentBlockState(1);
+                commentLength = text.length() - startIndex;
+            } else {
+                commentLength = endIndex - startIndex + match.capturedLength();
+            }
+            setFormat(startIndex, commentLength, multiLineCommentFormat);
+            startIndex = commentStartExpression.match(text, startIndex + commentLength).capturedStart();
+        }
     }
 signals:
 
@@ -243,7 +397,7 @@ MainWindow::MainWindow(QWidget* parent)
     //    });
     connect(view->page(), &QWebEnginePage::loadFinished, [=](bool ok) {
         using std::placeholders::_1;
-        if(ok)
+        if (ok)
             //           view->page()->toHtml(std::bind(&QTextEdit::setPlainText, textEdit, _1));
             view->page()->toHtml([textEdit](const QString& xmlIn) {
                 QString xmlOut;

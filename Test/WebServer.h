@@ -92,6 +92,8 @@ struct WebServer {
             }
             server.map["onNotFound"]();
 
+            server.response = nullptr;
+
             //            // Set a response header
             //            response.setHeader("Content-Type", "text/html; charset=ISO-8859-1");
 

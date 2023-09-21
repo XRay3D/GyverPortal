@@ -26,6 +26,10 @@
 #include <iostream>
 #include <string_view>
 #include <system_error>
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#define _WINSOCK_DEPRECATED_NO_WARNINGS 1
+
 /*********************************************/
 /*  Constructors                             */
 /*********************************************/

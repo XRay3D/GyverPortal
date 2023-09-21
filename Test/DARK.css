@@ -1,6 +1,9 @@
 p {
   display: inline;
 }
+* {
+  box-sizing: border-box;
+}
 .mainblock {
   margin: auto;
   max-width: 100%;
@@ -62,7 +65,8 @@ label {
   justify-content: space-between;
 }
 #grid .block {
-  width: 100%;
+  flex: auto;
+  /*width: 100%;*/
   margin: 10px;
 }
 .blockBase {
@@ -70,6 +74,7 @@ label {
   margin: 20px 10px;
 }
 .block {
+  flex: auto;
   border-radius: 10px;
   background-color: #2a2d35;
   box-shadow: #111 0px 0px 20px;

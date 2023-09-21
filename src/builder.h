@@ -645,9 +645,7 @@ struct Builder {
     void BLOCK_THIN_TAB_BEGIN(const String& label, const String& width = "") {
         BLOCK_BEGIN(Block::THIN, width, label);
     }
-    void BLOCK_END() {
-        SEND(F("</div>\n"));
-    }
+    void BLOCK_END() { SEND(F("</div>\n")); }
 
     void BOX_BEGIN(Align al = Align::JUSTIFY, const String& w = "100%", bool top = 0) {
         *tmpPageBuf += F("<div style='width:");
@@ -703,14 +701,14 @@ struct Builder {
         send();
     }
 
-    void TITLE(const String& val, const String& name = "", PGM_P st = DEFAULT, int size = 0, bool bold = 0) {
-        TAG_RAW(F("h2"), val, name, st, size, bold);
+    void TITLE(const String& text, const String& name = "", PGM_P style = DEFAULT, int size = 0, bool bold = 0) {
+        TAG_RAW(F("h2"), text, name, style, size, bold);
     }
-    void LABEL(const String& val, const String& name = "", PGM_P st = DEFAULT, int size = 0, bool bold = 0, bool wrap = 0) {
-        TAG_RAW(F("label"), val, name, st, size, bold, wrap);
+    void LABEL(const String& text, const String& name = "", PGM_P style = DEFAULT, int size = 0, bool bold = 0, bool wrap = 0) {
+        TAG_RAW(F("label"), text, name, style, size, bold, wrap);
     }
-    void LABEL_BLOCK(const String& val, const String& name = "", PGM_P st = GREEN, int size = 0, bool bold = 0) {
-        TAG_RAW(F("label class='display'"), val, name, DEFAULT, size, bold, 0, st);
+    void LABEL_BLOCK(const String& text, const String& name = "", PGM_P style = GREEN, int size = 0, bool bold = 0) {
+        TAG_RAW(F("label class='display'"), text, name, DEFAULT, size, bold, 0, style);
     }
 
     // устарело
@@ -2331,83 +2329,130 @@ struct Builder {
     }
 
     // ================== ОТПРАВКА ОБЪЕКТОВ ===================
-    void TITLE(GP::TITLE& title) {
-        TITLE(title.text, title.name, title.style, title.size, title.bold);
-    }
-    void LABEL(GP::LABEL& label) {
-        LABEL(label.text, label.name, label.style, label.size, label.bold, label.wrap);
-    }
-    void LABEL_BLOCK(GP::LABEL_BLOCK& label) {
-        LABEL_BLOCK(label.text, label.name, label.style, label.size, label.bold);
-    }
+//    template <typename T>
+//    void PUT_OBJ(const T& ar) { Serial.println(__FUNCSIG__); }
 
-    void LED(GP::LED& led) {
-        LED(led.name, led.state);
-    }
-    void LED_RED(GP::LED_RED& led) {
-        LED_RED(led.name, led.state);
-    }
-    void LED_GREEN(GP::LED_GREEN& led) {
-        LED_GREEN(led.name, led.state);
-    }
+    void PUT_OBJ(const GP::AREA& ar) { this->AREA(ar.name, ar.rows, ar.text, ar.width, ar.disabled); }
 
-    void BUTTON(GP::BUTTON& btn) {
-        BUTTON(btn.name, btn.text, btn.target, btn.style, btn.width, btn.disabled, btn.reload);
-    }
-    void BUTTON_MINI(GP::BUTTON_MINI& btn) {
-        BUTTON_MINI(btn.name, btn.text, btn.target, btn.style, btn.width);
-    }
+    void PUT_OBJ(const GP::BUTTON& btn) { this->BUTTON(btn.name, btn.text, btn.target, btn.style, btn.width, btn.disabled, btn.reload); }
 
-    void NUMBER(GP::NUMBER& num) {
-        NUMBER_RAW(num.name, num.placeholder, (num.value == INT32_MAX ? String("") : String(num.value)), num.min, num.max, num.width, num.pattern, num.disabled);
-    }
-    void NUMBER_F(GP::NUMBER_F& num) {
-        NUMBER_F(num.name, num.placeholder, num.value, num.decimals, num.width, num.disabled);
-        NUMBER_RAW(num.name, num.placeholder, (isnan(num.value) ? String("") : String(num.value, (uint16_t)num.decimals)), num.min, num.max, num.width, num.pattern, num.disabled);
-    }
+    void PUT_OBJ(const GP::BUTTON_MINI& btn) { this->BUTTON_MINI(btn.name, btn.text, btn.target, btn.style, btn.width); }
 
-    void TEXT(GP::TEXT& txt) {
-        TEXT(txt.name, txt.placeholder, txt.text, txt.width, txt.maxlen, txt.pattern, txt.disabled);
-    }
-    void PASS(GP::PASS& pas) {
-        PASS(pas.name, pas.placeholder, pas.text, pas.width, pas.maxlen, pas.pattern, pas.disabled, pas.eye);
-    }
+    void PUT_OBJ(const GP::CHECK& ch) { this->CHECK(ch.name, ch.state, ch.style, ch.disabled); }
 
-    void AREA(GP::AREA& ar) {
-        AREA(ar.name, ar.rows, ar.text, ar.width, ar.disabled);
-    }
+    void PUT_OBJ(const GP::COLOR& c) { this->COLOR(c.name, c.color, c.disabled); }
 
-    void CHECK(GP::CHECK& ch) {
-        CHECK(ch.name, ch.state, ch.style, ch.disabled);
-    }
-    void SWITCH(GP::SWITCH& sw) {
-        SWITCH(sw.name, sw.state, sw.style, sw.disabled);
-    }
+    void PUT_OBJ(const GP::DATE& d) { this->DATE(d.name, d.date, d.disabled); }
 
-    void DATE(GP::DATE& d) {
-        DATE(d.name, d.date, d.disabled);
-    }
-    void TIME(GP::TIME& t) {
-        TIME(t.name, t.time, t.disabled);
-    }
-    void COLOR(GP::COLOR& c) {
-        COLOR(c.name, c.color, c.disabled);
-    }
+    void PUT_OBJ(const GP::LABEL& label) { this->LABEL(label.text, label.name, label.style, label.size, label.bold, label.wrap); }
 
-    void SPINNER(GP::SPINNER& s) {
-        SPINNER(s.name, s.value, s.min, s.max, s.step, s.decimals, s.style, s.width, s.disabled);
-    }
-    void SLIDER(GP::SLIDER& s) {
-        SLIDER(s.name, s.value, s.min, s.max, s.step, s.decimals, s.style, s.disabled, s.oninput);
-    }
+    void PUT_OBJ(const GP::LABEL_BLOCK& label) { this->LABEL_BLOCK(label.text, label.name, label.style, label.size, label.bold); }
 
-    void SELECT(GP::SELECT& s) {
-        SELECT(s.name, s.list, s.selected, s.numbers, s.disabled, s.reload);
-    }
+    void PUT_OBJ(const GP::LED& led) { this->LED(led.name, led.state); }
 
-    void RADIO(GP::RADIO& r) {
-        RADIO(r.name, r.num, r.value, r.style, r.disabled);
-    }
+    void PUT_OBJ(const GP::LED_GREEN& led) { this->LED_GREEN(led.name, led.state); }
+
+    void PUT_OBJ(const GP::LED_RED& led) { this->LED_RED(led.name, led.state); }
+
+    void PUT_OBJ(const GP::NUMBER& num) { this->NUMBER_RAW(num.name, num.placeholder, (num.value == INT32_MAX ? String("") : String(num.value)), num.min, num.max, num.width, num.pattern, num.disabled); }
+
+    void PUT_OBJ(const GP::NUMBER_F& num) { this->NUMBER_F(num.name, num.placeholder, num.value, num.decimals, num.width, num.disabled), NUMBER_RAW(num.name, num.placeholder, (isnan(num.value) ? String("") : String(num.value, (uint16_t)num.decimals)), num.min, num.max, num.width, num.pattern, num.disabled); }
+
+    void PUT_OBJ(const GP::PASS& pas) { this->PASS(pas.name, pas.placeholder, pas.text, pas.width, pas.maxlen, pas.pattern, pas.disabled, pas.eye); }
+
+    void PUT_OBJ(const GP::RADIO& r) { this->RADIO(r.name, r.num, r.value, r.style, r.disabled); }
+
+    void PUT_OBJ(const GP::SELECT& s) { this->SELECT(s.name, s.list, s.selected, s.numbers, s.disabled, s.reload); }
+
+    void PUT_OBJ(const GP::SLIDER& s) { this->SLIDER(s.name, s.value, s.min, s.max, s.step, s.decimals, s.style, s.disabled, s.oninput); }
+
+    void PUT_OBJ(const GP::SPINNER& s) { this->SPINNER(s.name, s.value, s.min, s.max, s.step, s.decimals, s.style, s.width, s.disabled); }
+
+    void PUT_OBJ(const GP::SWITCH& sw) { this->SWITCH(sw.name, sw.state, sw.style, sw.disabled); }
+
+    void PUT_OBJ(const GP::TEXT& txt) { this->TEXT(txt.name, txt.placeholder, txt.text, txt.width, txt.maxlen, txt.pattern, txt.disabled); }
+
+    void PUT_OBJ(const GP::TIME& t) { this->TIME(t.name, t.time, t.disabled); }
+
+    void PUT_OBJ(const GP::TITLE& title) { this->TITLE(title.text, title.name, title.style, title.size, title.bold); }
+
+    //    void TITLE(GP::TITLE& title) {
+    //        TITLE(title.text, title.name, title.styler, title.size, title.bold);
+    //    }
+    //    void LABEL(GP::LABEL& label) {
+    //        LABEL(label.text, label.name, label.style, label.size, label.bold, label.wrap);
+    //    }
+    //    void LABEL_BLOCK(GP::LABEL_BLOCK& label) {
+    //        LABEL_BLOCK(label.text, label.name, label.style, label.size, label.bold);
+    //    }
+
+    //    void LED(GP::LED& led) {
+    //        LED(led.name, led.state);
+    //    }
+    //    void LED_RED(GP::LED_RED& led) {
+    //        LED_RED(led.name, led.state);
+    //    }
+    //    void LED_GREEN(GP::LED_GREEN& led) {
+    //        LED_GREEN(led.name, led.state);
+    //    }
+
+    //    void BUTTON(GP::BUTTON& btn) {
+    //        BUTTON(btn.name, btn.text, btn.target, btn.style, btn.width, btn.disabled, btn.reload);
+    //    }
+    //    void BUTTON_MINI(GP::BUTTON_MINI& btn) {
+    //        BUTTON_MINI(btn.name, btn.text, btn.target, btn.style, btn.width);
+    //    }
+
+    //    void NUMBER(GP::NUMBER& num) {
+    //        NUMBER_RAW(num.name, num.placeholder, (num.value == INT32_MAX ? String("") : String(num.value)), num.min, num.max, num.width, num.pattern, num.disabled);
+    //    }
+    //    void NUMBER_F(GP::NUMBER_F& num) {
+    //        NUMBER_F(num.name, num.placeholder, num.value, num.decimals, num.width, num.disabled);
+    //        NUMBER_RAW(num.name, num.placeholder, (isnan(num.value) ? String("") : String(num.value, (uint16_t)num.decimals)), num.min, num.max, num.width, num.pattern, num.disabled);
+    //    }
+
+    //    void TEXT(GP::TEXT& txt) {
+    //        TEXT(txt.name, txt.placeholder, txt.text, txt.width, txt.maxlen, txt.pattern, txt.disabled);
+    //    }
+    //    void PASS(GP::PASS& pas) {
+    //        PASS(pas.name, pas.placeholder, pas.text, pas.width, pas.maxlen, pas.pattern, pas.disabled, pas.eye);
+    //    }
+
+    //    void AREA(GP::AREA& ar) {
+    //        AREA(ar.name, ar.rows, ar.text, ar.width, ar.disabled);
+    //    }
+
+    //    void CHECK(GP::CHECK& ch) {
+    //        CHECK(ch.name, ch.state, ch.style, ch.disabled);
+    //    }
+    //    void SWITCH(GP::SWITCH& sw) {
+    //        SWITCH(sw.name, sw.state, sw.style, sw.disabled);
+    //    }
+
+    //    void DATE(GP::DATE& d) {
+    //        DATE(d.name, d.date, d.disabled);
+    //    }
+    //    void TIME(GP::TIME& t) {
+    //        TIME(t.name, t.time, t.disabled);
+    //    }
+    //    void COLOR(GP::COLOR& c) {
+    //        COLOR(c.name, c.color, c.disabled);
+    //    }
+
+    //    void SPINNER(GP::SPINNER& s) {
+    //        SPINNER(s.name, s.value, s.min, s.max, s.step, s.decimals, s.style, s.width, s.disabled);
+    //    }
+    //    void SLIDER(GP::SLIDER& s) {
+    //        SLIDER(s.name, s.value, s.min, s.max, s.step, s.decimals, s.style, s.disabled, s.oninput);
+    //    }
+
+    //    void SELECT(GP::SELECT& s) {
+    //        SELECT(s.name, s.list, s.selected, s.numbers, s.disabled, s.reload);
+    //    }
+
+    //    void RADIO(GP::RADIO& r) {
+    //        RADIO(r.name, r.num, r.value, r.style, r.disabled);
+    //    }
 };
 
 } // namespace GP

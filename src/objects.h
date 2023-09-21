@@ -10,12 +10,12 @@
 namespace GP {
 
 struct TITLE {
-    TITLE(const char* n = nullptr, const String& t = "", PGM_P st = DEFAULT, int s = 0, bool b = 0)
-        : name{n}
-        , text{t}
-        , style{st}
-        , size{s}
-        , bold{b} { }
+    TITLE(const char* name = nullptr, const String& text = {}, PGM_P style = DEFAULT, int size = 0, bool bold = 0)
+        : name{name}
+        , text{text}
+        , style{style}
+        , size{size}
+        , bold{bold} { }
     const char* name;
     String text;
     PGM_P style;
@@ -23,13 +23,14 @@ struct TITLE {
     bool bold;
 };
 struct LABEL {
-    LABEL(const char* n = nullptr, const String& t = "", PGM_P st = DEFAULT, int s = 0, bool b = 0, bool w = 0)
-        : name{n}
-        , text{t}
-        , style{st}
-        , size{s}
-        , bold{b}
-        , wrap{w} { }
+    LABEL(const char* name = nullptr, const String& text = {}, PGM_P style = DEFAULT, int size = 0, bool bold = 0, bool wrap = 0)
+        : name{name}
+        , text{text}
+        , style{style}
+        , size{size}
+        , bold{bold}
+        , wrap{wrap} { }
+
     const char* name;
     String text;
     PGM_P style;
@@ -37,13 +38,14 @@ struct LABEL {
     bool bold;
     bool wrap;
 };
+
 struct LABEL_BLOCK {
-    LABEL_BLOCK(const char* n = nullptr, const String& t = "", PGM_P st = GREEN, int s = 0, bool b = 0)
-        : name{n}
-        , text{t}
-        , style{st}
-        , size{s}
-        , bold{b} { }
+    LABEL_BLOCK(const char* name = nullptr, const String& text = {}, PGM_P style = GREEN, int size = 0, bool bold = 0)
+        : name{name}
+        , text{text}
+        , style{style}
+        , size{size}
+        , bold{bold} { }
     const char* name;
     String text;
     PGM_P style;
@@ -52,36 +54,36 @@ struct LABEL_BLOCK {
 };
 
 struct LED {
-    LED(const char* n = nullptr, bool s = 0)
-        : name{n}
-        , state{s} { }
+    LED(const char* name = nullptr, bool state = 0)
+        : name{name}
+        , state{state} { }
     const char* name;
     bool state;
 };
 struct LED_RED {
-    LED_RED(const char* n = nullptr, bool s = 0)
-        : name{n}
-        , state{s} { }
+    LED_RED(const char* name = nullptr, bool state = 0)
+        : name{name}
+        , state{state} { }
     const char* name;
     bool state;
 };
 struct LED_GREEN {
-    LED_GREEN(const char* n = nullptr, bool s = 0)
-        : name{n}
-        , state{s} { }
+    LED_GREEN(const char* name = nullptr, bool state = 0)
+        : name{name}
+        , state{state} { }
     const char* name;
     bool state;
 };
 
 struct BUTTON {
-    BUTTON(const char* n = nullptr, const String& t = "", const String& tar = "", PGM_P st = GREEN, const String& w = "", bool dis = 0, bool rel = 0)
-        : name{n}
-        , text{t}
-        , target{tar}
-        , style{st}
-        , width{w}
-        , disabled{dis}
-        , reload{rel} { }
+    BUTTON(const char* name = nullptr, const String& text = {}, const String& target = {}, PGM_P style = GREEN, const String& width = {}, bool disabled = 0, bool reload = 0)
+        : name{name}
+        , text{text}
+        , target{target}
+        , style{style}
+        , width{width}
+        , disabled{disabled}
+        , reload{reload} { }
     const char* name;
     String text;
     String target;
@@ -91,14 +93,14 @@ struct BUTTON {
     bool reload;
 };
 struct BUTTON_MINI {
-    BUTTON_MINI(const char* n = nullptr, const String& t = "", const String& tar = "", PGM_P st = GREEN, const String& w = "", bool dis = 0, bool rel = 0)
-        : name{n}
-        , text{t}
-        , target{tar}
-        , style{st}
-        , width{w}
-        , disabled{dis}
-        , reload{rel} { }
+    BUTTON_MINI(const char* name = nullptr, const String& text = {}, const String& target = {}, PGM_P style = GREEN, const String& width = {}, bool disabled = 0, bool reload = 0)
+        : name{name}
+        , text{text}
+        , target{target}
+        , style{style}
+        , width{width}
+        , disabled{disabled}
+        , reload{reload} { }
     const char* name;
     String text;
     String target;
@@ -109,49 +111,49 @@ struct BUTTON_MINI {
 };
 
 struct NUMBER {
-    NUMBER(const char* n = nullptr, const String& place = "", int val = EMPTY_INT, const String& w = "", bool dis = false)
-        : name{n}
-        , placeholder{place}
-        , value{val}
-        , width{w}
-        , disabled{dis} { }
+    NUMBER(const char* name = nullptr, const String& placeholder = {}, int value = EMPTY_INT, const String& wrap = {}, bool disabled = false)
+        : name{name}
+        , placeholder{placeholder}
+        , value{value}
+        , width{wrap}
+        , disabled{disabled} { }
     const char* name;
     String placeholder;
     int value;
     String width;
     String pattern;
-    String min = "";
-    String max = "";
+    String min = {};
+    String max = {};
     bool disabled;
 };
 struct NUMBER_F {
-    NUMBER_F(const char* n = nullptr, const String& place = "", float val = EMPTY_FLOAT, uint8_t dec = 2, const String& w = "", bool dis = false)
-        : name{n}
-        , placeholder{place}
-        , value{val}
-        , decimals{dec}
-        , width{w}
-        , disabled{dis} { }
+    NUMBER_F(const char* name = nullptr, const String& placeholder = {}, float value = EMPTY_FLOAT, uint8_t decimals = 2, const String& wrap = {}, bool disabled = false)
+        : name{name}
+        , placeholder{placeholder}
+        , value{value}
+        , decimals{decimals}
+        , width{wrap}
+        , disabled{disabled} { }
     const char* name;
     String placeholder;
     float value;
     uint8_t decimals;
     String width;
     String pattern;
-    String min = "";
-    String max = "";
+    String min = {};
+    String max = {};
     bool disabled;
 };
 
 struct TEXT {
-    TEXT(const char* n = nullptr, const String& place = "", const String& txt = "", const String& w = "", int maxl = 0, const String& pat = "", bool dis = false)
-        : name{n}
-        , placeholder{place}
+    TEXT(const char* name = nullptr, const String& placeholder = {}, const String& txt = {}, const String& wrap = {}, int maxlen = 0, const String& pattern = {}, bool disabled = false)
+        : name{name}
+        , placeholder{placeholder}
         , text{txt}
-        , width{w}
-        , maxlen{maxl}
-        , pattern{pat}
-        , disabled{dis} { }
+        , width{wrap}
+        , maxlen{maxlen}
+        , pattern{pattern}
+        , disabled{disabled} { }
     const char* name;
     String placeholder;
     String text;
@@ -161,14 +163,14 @@ struct TEXT {
     bool disabled;
 };
 struct PASS {
-    PASS(const char* n = nullptr, const String& place = "", const String& txt = "", const String& w = "", int maxl = 0, const String& pat = "", bool dis = false, bool e = false)
-        : name{n}
-        , placeholder{place}
+    PASS(const char* name = nullptr, const String& placeholder = {}, const String& txt = {}, const String& wrap = {}, int maxlen = 0, const String& pattern = {}, bool disabled = false, bool e = false)
+        : name{name}
+        , placeholder{placeholder}
         , text{txt}
-        , width{w}
-        , maxlen{maxl}
-        , pattern{pat}
-        , disabled{dis}
+        , width{wrap}
+        , maxlen{maxlen}
+        , pattern{pattern}
+        , disabled{disabled}
         , eye{e} { }
     const char* name;
     String placeholder;
@@ -181,12 +183,12 @@ struct PASS {
 };
 
 struct AREA {
-    AREA(const char* n = nullptr, int r = 1, const String& txt = "", const String& w = "", bool dis = false)
-        : name{n}
+    AREA(const char* name = nullptr, int r = 1, const String& text = {}, const String& wrap = {}, bool disabled = false)
+        : name{name}
         , rows{r}
-        , text{txt}
-        , width{w}
-        , disabled{dis} { }
+        , text{text}
+        , width{wrap}
+        , disabled{disabled} { }
     const char* name;
     int rows;
     String text;
@@ -195,22 +197,22 @@ struct AREA {
 };
 
 struct CHECK {
-    CHECK(const char* n = nullptr, bool sta = 0, PGM_P st = GREEN, bool dis = false)
-        : name{n}
+    CHECK(const char* name = nullptr, bool sta = 0, PGM_P style = GREEN, bool disabled = false)
+        : name{name}
         , state{sta}
-        , style{st}
-        , disabled{dis} { }
+        , style{style}
+        , disabled{disabled} { }
     const char* name;
     bool state;
     PGM_P style;
     bool disabled;
 };
 struct SWITCH {
-    SWITCH(const char* n = nullptr, bool sta = 0, PGM_P st = GREEN, bool dis = false)
-        : name{n}
+    SWITCH(const char* name = nullptr, bool sta = 0, PGM_P style = GREEN, bool disabled = false)
+        : name{name}
         , state{sta}
-        , style{st}
-        , disabled{dis} { }
+        , style{style}
+        , disabled{disabled} { }
     const char* name;
     bool state;
     PGM_P style;
@@ -218,50 +220,50 @@ struct SWITCH {
 };
 
 struct DATE {
-    DATE(const char* n = nullptr)
-        : name{n} { }
-    DATE(const char* n, GPdate d, bool dis = false)
-        : name{n}
+    DATE(const char* name = nullptr)
+        : name{name} { }
+    DATE(const char* name, GPdate d, bool disabled = false)
+        : name{name}
         , date{d}
-        , disabled{dis} { }
+        , disabled{disabled} { }
     const char* name;
     GPdate date;
     bool disabled = false;
 };
 struct TIME {
-    TIME(const char* n = nullptr)
-        : name{n} { }
-    TIME(const char* n, GPtime t, bool dis = false)
-        : name{n}
-        , time{t}
-        , disabled{dis} { }
+    TIME(const char* name = nullptr)
+        : name{name} { }
+    TIME(const char* name, GPtime text, bool disabled = false)
+        : name{name}
+        , time{text}
+        , disabled{disabled} { }
     const char* name;
     GPtime time;
     bool disabled = false;
 };
 struct COLOR {
-    COLOR(const char* n = nullptr)
-        : name{n} { }
-    COLOR(const char* n, GPcolor c, bool dis = false)
-        : name{n}
+    COLOR(const char* name = nullptr)
+        : name{name} { }
+    COLOR(const char* name, GPcolor c, bool disabled = false)
+        : name{name}
         , color{c}
-        , disabled{dis} { }
+        , disabled{disabled} { }
     const char* name;
     GPcolor color;
     bool disabled = false;
 };
 
 struct SPINNER {
-    SPINNER(const char* n = nullptr, float v = 0, float mn = NAN, float mx = NAN, float stp = 1, uint8_t dec = 0, PGM_P st = GREEN, const String& w = "", bool dis = 0)
-        : name{n}
-        , value{v}
-        , min{mn}
-        , max{mx}
-        , step{stp}
-        , decimals{dec}
-        , style{st}
-        , width{w}
-        , disabled{dis} { }
+    SPINNER(const char* name = nullptr, float value = 0, float min = NAN, float max = NAN, float step = 1, uint8_t decimals = 0, PGM_P style = GREEN, const String& wrap = {}, bool disabled = 0)
+        : name{name}
+        , value{value}
+        , min{min}
+        , max{max}
+        , step{step}
+        , decimals{decimals}
+        , style{style}
+        , width{wrap}
+        , disabled{disabled} { }
     const char* name;
     float value;
     float min;
@@ -274,16 +276,16 @@ struct SPINNER {
 };
 
 struct SLIDER {
-    SLIDER(const char* n = nullptr, float val = 0, float mn = 0, float mx = 10, float stp = 1, uint8_t dec = 0, PGM_P st = GREEN, bool dis = false, bool oninp = 0)
-        : name{n}
-        , value{val}
-        , min{mn}
-        , max{mx}
-        , step{stp}
-        , decimals{dec}
-        , style{st}
-        , disabled{dis}
-        , oninput{oninp} { }
+    SLIDER(const char* name = nullptr, float value = 0, float min = 0, float max = 10, float step = 1, uint8_t decimals = 0, PGM_P style = GREEN, bool disabled = false, bool oninput = 0)
+        : name{name}
+        , value{value}
+        , min{min}
+        , max{max}
+        , step{step}
+        , decimals{decimals}
+        , style{style}
+        , disabled{disabled}
+        , oninput{oninput} { }
     const char* name;
     float value = 0;
     float min = 0;
@@ -296,13 +298,13 @@ struct SLIDER {
 };
 
 struct SELECT {
-    SELECT(const char* n = nullptr, const String& lst = "", int sel = 0, bool nums = 0, bool dis = false, bool rel = 0)
-        : name{n}
-        , list{lst}
-        , selected{sel}
-        , numbers{nums}
-        , disabled{dis}
-        , reload{rel} { }
+    SELECT(const char* name = nullptr, const String& list = {}, int selected = 0, bool numbers = 0, bool disabled = false, bool reload = 0)
+        : name{name}
+        , list{list}
+        , selected{selected}
+        , numbers{numbers}
+        , disabled{disabled}
+        , reload{reload} { }
     const char* name;
     String list;
     int selected;
@@ -316,12 +318,12 @@ struct SELECT {
 };
 
 struct RADIO {
-    RADIO(const char* n = nullptr, int nm = 0, int v = -1, PGM_P st = DEFAULT, bool dis = 0)
-        : name{n}
-        , num{nm}
-        , value{v}
-        , style{st}
-        , disabled{dis} { }
+    RADIO(const char* name = nullptr, int num = 0, int value = -1, PGM_P style = DEFAULT, bool disabled = 0)
+        : name{name}
+        , num{num}
+        , value{value}
+        , style{style}
+        , disabled{disabled} { }
     const char* name;
     int num;
     int value;
