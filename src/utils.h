@@ -97,12 +97,12 @@ struct Parser {
     }
     bool parse() {
         int slen = strp->length();
-        if (idx > slen - 1) return 0;
+        if(idx > slen - 1) return 0;
         idx = strp->indexOf(',', from);
-        if (idx < 0) idx = slen;
+        if(idx < 0) idx = slen;
         int to = idx;
-        if (strp->charAt(to - 1) == ' ') to--;
-        if (strp->charAt(from) == ' ') from++;
+        if(strp->charAt(to - 1) == ' ') to--;
+        if(strp->charAt(from) == ' ') from++;
         str = strp->substring(from, to);
         from = idx + 1;
         count++;
@@ -122,7 +122,7 @@ int inList(const String& s, const String& list);
 String listIdx(const String& li, int idx, char div = ',');
 
 // получить тип файла (вида image/png) по его пути uri
-String GPfileType(const String& uri);
+String fileType(const String& uri);
 
 // ====================== COLOR =======================
 struct GPcolor {
@@ -161,7 +161,7 @@ struct GPcolor {
         uint32_t color = getHEX();
         String s('#');
         s.reserve(7 + 1);
-        for (uint8_t i = 0; i < 6; i++) {
+        for(uint8_t i = 0; i < 6; i++) {
             char p = ((uint32_t)color >> (5 - i) * 4) & 0xF;
             p += (p > 9) ? 87 : 48;
             s += p;
@@ -169,10 +169,10 @@ struct GPcolor {
         return s;
     }
     void decode(const String& hex) {
-        if (hex.length() < 6) return;
+        if(hex.length() < 6) return;
         uint32_t val = 0;
         uint8_t i = (hex[0] == '#') ? 1 : 0;
-        for (; i < hex.length(); i++) {
+        for(; i < hex.length(); i++) {
             val <<= 4;
             uint8_t d = hex[i];
             d -= (d <= '9') ? 48 : ((d <= 'F') ? 55 : 87);
@@ -183,13 +183,13 @@ struct GPcolor {
 };
 
 // ======================= DATE =======================
-struct GPdate {
+struct Date {
     uint16_t year = 0;
     uint8_t month = 1, day = 1;
 
-    GPdate() { }
-    GPdate(const GPdate& dat) = default;
-    GPdate(uint32_t unixx, int16_t gmt = 0) {
+    Date() { }
+    Date(const Date& dat) = default;
+    Date(uint32_t unixx, int16_t gmt = 0) {
         unixx = (unixx + gmt * 60L) / (60 * 60 * 24) + 719468;
         uint8_t era = unixx / 146097ul;
         uint16_t doe = unixx - era * 146097ul;
@@ -201,10 +201,10 @@ struct GPdate {
         month = mp + (mp < 10 ? 3 : -9);
         year += (month <= 2);
     }
-    GPdate(int nyear, int nmonth, int nday) {
+    Date(int nyear, int nmonth, int nday) {
         set(nyear, nmonth, nday);
     }
-    GPdate(const String& str) {
+    Date(const String& str) {
         decode(str);
     }
 
@@ -217,7 +217,7 @@ struct GPdate {
     String encode() {
         String s;
         s.reserve(10 + 1);
-        if (!year) s += F("0000");
+        if(!year) s += F("0000");
         else s += year;
         s += '-';
         s += month / 10;
@@ -229,7 +229,7 @@ struct GPdate {
     }
     String encodeDMY() {
         String s;
-        if (year < 2000) s = F("unset");
+        if(year < 2000) s = F("unset");
         else {
             s.reserve(10 + 1);
             s += day / 10;
@@ -238,31 +238,31 @@ struct GPdate {
             s += month / 10;
             s += month % 10;
             s += '.';
-            if (!year) s += F("0000");
+            if(!year) s += F("0000");
             else s += year;
         }
         return s;
     }
     void decode(const String& str) {
-        if (str.length() > 10) return;
+        if(str.length() > 10) return;
         const char* s = str.c_str();
         year = atoi(s);
         s = strchr(s, '-');
-        if (!s) return;
+        if(!s) return;
         month = atoi(++s);
         s = strchr(s, '-');
-        if (!s) return;
+        if(!s) return;
         day = atoi(++s);
     }
 };
 
 // ======================= TIME =======================
-struct GPtime {
+struct Time {
     uint8_t hour = 0, minute = 0, second = 0;
 
-    GPtime() { }
-    GPtime(const GPtime& tim) = default;
-    GPtime(uint32_t unixx, int16_t gmt = 0) {
+    Time() { }
+    Time(const Time& tim) = default;
+    Time(uint32_t unixx, int16_t gmt = 0) {
         unixx += gmt * 60L;
         second = unixx % 60ul;
         unixx /= 60ul;
@@ -270,10 +270,10 @@ struct GPtime {
         unixx /= 60ul;
         hour = unixx % 24ul;
     }
-    GPtime(int nhour, int nminute, int nsecond = 0) {
+    Time(int nhour, int nminute, int nsecond = 0) {
         set(nhour, nminute, nsecond);
     }
-    GPtime(const String& str) {
+    Time(const String& str) {
         decode(str);
     }
 
@@ -296,14 +296,14 @@ struct GPtime {
         return s;
     }
     void decode(const String& str) {
-        if (str.length() > 8) return;
+        if(str.length() > 8) return;
         const char* s = str.c_str();
         hour = atoi(s);
         s = strchr(s, ':');
-        if (!s) return;
+        if(!s) return;
         minute = atoi(++s);
         s = strchr(s, ':');
-        if (!s) return;
+        if(!s) return;
         second = atoi(++s);
     }
 };
@@ -321,17 +321,17 @@ struct GPweek {
     }
 
     void set(uint8_t idx, uint8_t val) {
-        if (idx < 8) bitWrite(week, idx, val);
+        if(idx < 8) bitWrite(week, idx, val);
     }
     uint8_t get(uint8_t idx) {
-        if (idx < 8) return bitRead(week, idx);
+        if(idx < 8) return bitRead(week, idx);
         else return 0;
     }
 
     void decode(const String& s) {
-        if (s.length() != 7) return;
+        if(s.length() != 7) return;
         week = 0;
-        for (int i = 0; i < 7; i++) {
+        for(int i = 0; i < 7; i++) {
             week |= s[6 - i] - '0';
             week <<= 1;
         }
@@ -339,48 +339,41 @@ struct GPweek {
     String encode() {
         String s;
         s.reserve(7);
-        for (int i = 1; i < 8; i++) s += get(i);
+        for(int i = 1; i < 8; i++) s += get(i);
         return s;
     }
 };
 
-struct GPflags {
+struct Flags {
     uint16_t flags = 0;
     uint8_t len = 16;
 
-    GPflags() { }
-    GPflags(const GPflags& f) = default;
-    GPflags(uint8_t nlen) {
-        len = nlen;
-    }
-    GPflags(uint16_t nflags, uint8_t nlen) {
-        flags = nflags;
-        len = nlen;
-    }
-    GPflags(const String& s) {
-        decode(s);
-    }
+    Flags() { }
+    Flags(const Flags& f) = default;
 
-    uint8_t length() {
-        return len;
-    }
-    void setLength(uint8_t nlen) {
-        len = nlen;
-    }
+    Flags(uint8_t nlen)
+        : len{nlen} { }
+    Flags(uint16_t nflags, uint8_t nlen)
+        : flags{nflags}
+        , len{nlen} { }
+    Flags(const String& s) { decode(s); }
+
+    uint8_t length() { return len; }
+    void setLength(uint8_t nlen) { len = nlen; }
 
     void set(uint8_t idx, uint8_t val) {
-        if (idx < 16) bitWrite(flags, idx, val);
+        if(idx < 16) bitWrite(flags, idx, val);
     }
     uint8_t get(uint8_t idx) {
-        if (idx < 16) return bitRead(flags, idx);
+        if(idx < 16) return bitRead(flags, idx);
         else return 0;
     }
 
     void decode(const String& s) {
-        if (s.length() > 16) return;
+        if(s.length() > 16) return;
         len = s.length();
         flags = 0;
-        for (int i = 0; i < len; i++) {
+        for(int i = 0; i < len; i++) {
             flags <<= 1;
             flags |= s[len - 1 - i] - '0';
         }
@@ -388,14 +381,14 @@ struct GPflags {
     String encode() {
         String s;
         s.reserve(len);
-        for (int i = 0; i < len; i++) s += get(i);
+        for(int i = 0; i < len; i++) s += get(i);
         return s;
     }
 };
 
 // ===================== DATE-TIME UNIX =====================
 uint32_t GPunix(uint16_t y, uint8_t m, uint8_t d, uint8_t h, uint8_t mn, uint8_t s, int8_t gmt = 0);
-uint32_t GPunix(GPdate d, GPtime t, int8_t gmt = 0);
+uint32_t GPunix(Date d, Time t, int8_t gmt = 0);
 
 // добавить новое значение в массив с перемоткой (для графиков)
 void GPaddInt(int16_t val, int16_t* arr, uint8_t am);

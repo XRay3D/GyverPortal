@@ -20,7 +20,7 @@ GP_PGM(_gp__app, "javascript,octet-stream,gzip,json,pdf,x-httpd-php,x-tar,xml");
 GP_PGM_LIST(_gp_extension, _gp_img, _gp_txt, _gp_au, _gp_vid, _gp_app);
 GP_PGM_LIST(_gp_value, _gp__img, _gp__txt, _gp__au, _gp__vid, _gp__app);
 
-String GPfileType(const String& uri) {
+String fileType(const String& uri) {
     int div = uri.lastIndexOf('.');
     if(div >= 0) {
         String ext = uri.substring(div + 1, uri.length());
@@ -63,7 +63,7 @@ uint32_t GPunix(uint16_t y, uint8_t m, uint8_t d, uint8_t h, uint8_t mn, uint8_t
     for(int i = 0; i < m - 1; i++) dm += (i < 7) ? ((i == 1) ? 28 : ((i & 1) ? 30 : 31)) : ((i & 1) ? 31 : 30);
     return (((d - 1 + dm + ((y + 1) >> 2) - ((y + 69) / 100) + ((y + 369) / 100 / 4) + 365 * (y - my)) * 24ul + h - gmt) * 60ul + mn) * 60ul + s;
 }
-uint32_t GPunix(GPdate d, GPtime t, int8_t gmt) {
+uint32_t GPunix(GP::Date d, GP::Time t, int8_t gmt) {
     return GPunix(d.year, d.month, d.day, t.hour, t.minute, t.second, gmt);
 }
 

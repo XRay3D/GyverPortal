@@ -16,25 +16,25 @@ void build() {
 
     // онлайн иконки
     GP::GP.ICON_SUPPORT();
-    GP::GP.LABEL(GP.ICON("gear") + "Text");
+    GP::GP.LABEL(GP::GP.ICON("gear") + "Text");
     GP::GP.BREAK();
-    GP::GP.LABEL(GP.ICON("gear", 30) + "Text");
+    GP::GP.LABEL(GP::GP.ICON("gear", 30) + "Text");
     GP::GP.BREAK();
-    GP::GP.LABEL(GP.ICON("gear", 50, GP_RED) + "Text");
+    GP::GP.LABEL(GP::GP.ICON("gear", 50, GP::RED) + "Text");
     GP::GP.BREAK();
 
     GP::GP.ICON_BUTTON("icn", "gear", 70, GP_GREEN);
     GP::GP.BREAK();
 
     // оффлайн иконки
-    GP::GP.LABEL(GP.ICON_FILE("/gp_data/gear.svg") + "Text");
+    GP::GP.LABEL(GP::GP.ICON_FILE("/gp_data/gear.svg") + "Text");
     GP::GP.BREAK();
-    GP::GP.LABEL(GP.ICON_FILE("/gp_data/gear.svg", 30) + "Text");
+    GP::GP.LABEL(GP::GP.ICON_FILE("/gp_data/gear.svg", 30) + "Text");
     GP::GP.BREAK();
-    GP::GP.LABEL(GP.ICON_FILE("/gp_data/gear.svg", 50, GP_RED) + "Text");
+    GP::GP.LABEL(GP::GP.ICON_FILE("/gp_data/gear.svg", 50, GP::RED) + "Text");
     GP::GP.BREAK();
 
-    GP::GP.ICON_FILE_BUTTON("icnf", "/gp_data/gear.svg", 70, GP_RED);
+    GP::GP.ICON_FILE_BUTTON("icnf", "/gp_data/gear.svg", 70, GP::RED);
     GP::GP.BREAK();
 
     // кнопка с иконкой

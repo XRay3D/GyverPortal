@@ -27,7 +27,7 @@
 #include <string_view>
 #include <system_error>
 
-#define _CRT_SECURE_NO_WARNINGS 1
+#define _CRT_SECURE_NO_WARNINGS         1
 #define _WINSOCK_DEPRECATED_NO_WARNINGS 1
 
 /*********************************************/
@@ -45,19 +45,14 @@ auto show_to_chars(char (&str)[N], Ts... args) {
     return str;
 }
 template <typename T, size_t N>
-void utoa__(T value, char (&buf)[N], int base) { show_to_chars(buf, value, base); }
+void fromIntegral(T value, char (&buf)[N], int base) { show_to_chars(buf, value, base); }
 
 template <typename T, size_t N>
-void itoa__(T value, char (&buf)[N], int base) { show_to_chars(buf, value, base); }
-
-template <typename T, size_t N>
-void ltoa__(T value, char (&buf)[N], int base) { show_to_chars(buf, value, base); }
-
-template <typename T, size_t N>
-void ultoa__(T value, char (&buf)[N], int base) { show_to_chars(buf, value, base); }
-
-template <typename T, size_t N>
-auto dtostrf(T value, int decimalPlaces, int decimalPlaces2, char (&buf)[N]) { return show_to_chars(buf, value, std::chars_format::fixed, decimalPlaces); }
+auto dtostrf(T value, int decimalPlaces, int decimalPlaces2, char (&buf)[N]) {
+    // return show_to_chars(buf, value, std::chars_format::fixed, decimalPlaces);
+    strcpy(buf, QByteArray::number(value, 'f', decimalPlaces).data());
+    return buf;
+}
 
 /*
  *
@@ -101,35 +96,35 @@ String::String(char c) {
 String::String(unsigned char value, unsigned char base) {
     init();
     char buf[1 + 8 * sizeof(unsigned char)]{};
-    utoa__(value, buf, base);
+    fromIntegral(value, buf, base);
     *this = buf;
 }
 
 String::String(int value, unsigned char base) {
     init();
     char buf[2 + 8 * sizeof(int)]{};
-    itoa__(value, buf, base);
+    fromIntegral(value, buf, base);
     *this = buf;
 }
 
 String::String(unsigned int value, unsigned char base) {
     init();
     char buf[1 + 8 * sizeof(unsigned int)]{};
-    utoa__(value, buf, base);
+    fromIntegral(value, buf, base);
     *this = buf;
 }
 
 String::String(long value, unsigned char base) {
     init();
     char buf[2 + 8 * sizeof(long)]{};
-    ltoa__(value, buf, base);
+    fromIntegral(value, buf, base);
     *this = buf;
 }
 
 String::String(unsigned long value, unsigned char base) {
     init();
     char buf[1 + 8 * sizeof(unsigned long)]{};
-    ultoa__(value, buf, base);
+    fromIntegral(value, buf, base);
     *this = buf;
 }
 
@@ -297,31 +292,31 @@ unsigned char String::concat(char c) {
 
 unsigned char String::concat(unsigned char num) {
     char buf[1 + 3 * sizeof(unsigned char)]{};
-    itoa__(num, buf, 10);
+    fromIntegral(num, buf, 10);
     return concat(buf, strlen(buf));
 }
 
 unsigned char String::concat(int num) {
     char buf[2 + 3 * sizeof(int)]{};
-    itoa(num, buf, 10);
+    fromIntegral(num, buf, 10);
     return concat(buf, strlen(buf));
 }
 
 unsigned char String::concat(unsigned int num) {
     char buf[1 + 3 * sizeof(unsigned int)]{};
-    utoa__(num, buf, 10);
+    fromIntegral(num, buf, 10);
     return concat(buf, strlen(buf));
 }
 
 unsigned char String::concat(long num) {
     char buf[2 + 3 * sizeof(long)]{};
-    ltoa(num, buf, 10);
+    fromIntegral(num, buf, 10);
     return concat(buf, strlen(buf));
 }
 
 unsigned char String::concat(unsigned long num) {
     char buf[1 + 3 * sizeof(unsigned long)]{};
-    ultoa(num, buf, 10);
+    fromIntegral(num, buf, 10);
     return concat(buf, strlen(buf));
 }
 

@@ -20,16 +20,16 @@ void build() {
 
     // лейбл с апдейтом
     GP::GP.UPDATE(lbl.name);
-    GP::GP.LABEL_BLOCK(lbl);
+    GP::GP.PUT_OBJ(lbl);
     GP::GP.BREAK();
 
-    GP::GP.BUTTON(btn);
+    GP::GP.PUT_OBJ(btn);
     GP::GP.BREAK();
     txt.width = GP::getAlign(GP::Align::JUSTIFY);
-    GP::GP.TEXT(txt);
+    GP::GP.PUT_OBJ(txt);
     GP::GP.BREAK();
     GP::GP.SELECT("sel", "Sel 1,Sel 2,Sel 3,Sel 4");
-    GP::GP.SELECT(sel);
+    GP::GP.PUT_OBJ(sel);
 
     GP::GP.BUILD_END();
 }

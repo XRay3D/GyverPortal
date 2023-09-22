@@ -10,7 +10,7 @@
 
 struct PlotData {
     int16_t vals[2][PLOT_SIZE];
-    uint32_t unix[PLOT_SIZE];
+    uint32_t GPunix[PLOT_SIZE];
 };
 
 PlotData data; // храним всё в структуре для удобства
@@ -28,7 +28,7 @@ void build() {
     GP::GP.BUILD_BEGIN();
     GP::GP.THEME(GP::DARK);
 
-    GP::GP.PLOT_STOCK_DARK<2, PLOT_SIZE>("plot", names, data.unix, data.vals);
+    GP::GP.PLOT_STOCK_DARK<2, PLOT_SIZE>("plot", names, data.GPunix, data.vals);
     GP::GP.BUILD_END();
 }
 
@@ -78,7 +78,7 @@ void dataLog() {
         // добавляем точки в график
         GPaddInt(random(255), data.vals[0], PLOT_SIZE);
         GPaddInt(counter, data.vals[1], PLOT_SIZE);
-        GPaddUnix(rawtime, data.unix, PLOT_SIZE);
+        GPaddUnix(rawtime, data.GPunix, PLOT_SIZE);
         counter++;
 
         // сохраняем в епром

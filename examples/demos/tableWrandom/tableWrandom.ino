@@ -4,11 +4,11 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GP::GP::GyverPortal ui;
+GP::GyverPortal ui;
 
 void build() {
     GP::GP.BUILD_BEGIN(600);
-    // 4GP::GP.THEME(GP::DARK);
+    GP::GP.THEME(GP::DARK);
     static GP::Align arr[]{GP::Align::LEFT, GP::Align::LEFT};
     GP::GP.TABLE_BEGIN("", arr);
     //    GP::GP.TABLE_BORDER(true);

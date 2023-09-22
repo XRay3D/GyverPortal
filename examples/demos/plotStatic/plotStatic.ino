@@ -16,9 +16,9 @@ const char* names[] = {
 // конструктор страницы
 void build() {
     GP::GP.BUILD_BEGIN();
-    GP::GP.THEME(GP_LIGHT);
+    GP::GP.THEME(GP::LIGHT);
 
-    // GP.PLOT_DARK<2, PLOT_SIZE>("table", names, arr);
+    // GP::GP.PLOT_DARK<2, PLOT_SIZE>("table", names, arr);
     GP::GP.PLOT<2, PLOT_SIZE>("table", names, arr);
 
     GP::GP.BUILD_END();
@@ -45,7 +45,7 @@ void loop() {
     static uint32_t tmr;
     if(millis() - tmr >= 5000) {
         tmr = millis();
-        GPaddInt(random(100), arr[0], PLOT_SIZE);
-        GPaddInt(random(100), arr[1], PLOT_SIZE);
+        GP::GPaddInt(random(100), arr[0], PLOT_SIZE);
+        GP::GPaddInt(random(100), arr[1], PLOT_SIZE);
     }
 }

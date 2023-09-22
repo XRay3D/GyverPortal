@@ -222,23 +222,23 @@ struct SWITCH {
 struct DATE {
     DATE(const char* name = nullptr)
         : name{name} { }
-    DATE(const char* name, GPdate d, bool disabled = false)
+    DATE(const char* name, GP::Date d, bool disabled = false)
         : name{name}
         , date{d}
         , disabled{disabled} { }
     const char* name;
-    GPdate date;
+    GP::Date date;
     bool disabled = false;
 };
 struct TIME {
     TIME(const char* name = nullptr)
         : name{name} { }
-    TIME(const char* name, GPtime text, bool disabled = false)
+    TIME(const char* name, GP::Time text, bool disabled = false)
         : name{name}
         , time{text}
         , disabled{disabled} { }
     const char* name;
-    GPtime time;
+    GP::Time time;
     bool disabled = false;
 };
 struct COLOR {

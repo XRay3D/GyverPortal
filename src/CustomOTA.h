@@ -178,38 +178,38 @@ public:
     */
     void defBuild(bool UpdateEnd, const String& UpdateError) {
 #ifndef GP_OTA_FILES
-        GP.BUILD_BEGIN(400);
+        GP::GP.BUILD_BEGIN(400);
 
 #ifndef GP_OTA_LIGHT
-        GP.THEME(DARK);
+        GP::GP.THEME(DARK);
 #else
-        GP.THEME(GP_LIGHT);
+        GP::GP.THEME(GP_LIGHT);
 #endif
 #else
-        GP.BUILD_BEGIN_FILE(400);
+        GP::GP.BUILD_BEGIN_FILE(400);
 
 #ifndef GP_OTA_LIGHT
-        GP.THEME_FILE(F("GP_DARK"));
+        GP::GP.THEME_FILE(F("GP_DARK"));
 #else
-        GP.THEME_FILE(F("GP_LIGHT"));
+        GP::GP.THEME_FILE(F("GP_LIGHT"));
 #endif
 #endif
 
-        GP.BLOCK_TAB_BEGIN(F("OTA Update"));
+        GP::GP.BLOCK_TAB_BEGIN(F("OTA Update"));
         if(!UpdateEnd) {
-            GP.OTA_FIRMWARE(F("OTA firmware"), GREEN, true /*OTA page*/);
-            GP.OTA_FILESYSTEM(F("OTA filesystem"), GREEN, true /*OTA page*/);
+            GP::GP.OTA_FIRMWARE(F("OTA firmware"), GREEN, true /*OTA page*/);
+            GP::GP.OTA_FILESYSTEM(F("OTA filesystem"), GREEN, true /*OTA page*/);
         } else if(UpdateError.length()) {
-            GP.TITLE(String(F("Update error: ")) + UpdateError);
-            GP.BUTTON_LINK(F("/ota_update"), F("Refresh"));
+            GP::GP.TITLE(String(F("Update error: ")) + UpdateError);
+            GP::GP.BUTTON_LINK(F("/ota_update"), F("Refresh"));
         } else {
-            GP.TITLE(F("Update Success!"));
-            GP.TITLE(F("Rebooting..."));
-            GP.BUTTON_LINK(F("/"), F("Home"));
-            GP.BUTTON_LINK(F("/ota_update"), F("Refresh"));
+            GP::GP.TITLE(F("Update Success!"));
+            GP::GP.TITLE(F("Rebooting..."));
+            GP::GP.BUTTON_LINK(F("/"), F("Home"));
+            GP::GP.BUTTON_LINK(F("/ota_update"), F("Refresh"));
         }
-        GP.BLOCK_END();
-        GP.BUILD_END();
+        GP::GP.BLOCK_END();
+        GP::GP.BUILD_END();
     }
 
     /* Пример функции блока для обновления
@@ -221,13 +221,13 @@ public:
 
     */
     void buildBlock() {
-        GP.BLOCK_TAB_BEGIN(F("OTA Update"));
+        GP::GP.BLOCK_TAB_BEGIN(F("OTA Update"));
         if(hasError())                                       // OTA.hasError()
-            GP.TITLE(String(F("Update error: ")) + error()); // OTA.error()
+            GP::GP.TITLE(String(F("Update error: ")) + error()); // OTA.error()
 
-        GP.OTA_FIRMWARE(F("OTA firmware"), GREEN);
-        GP.OTA_FILESYSTEM(F("OTA filesystem"), GREEN);
-        GP.BLOCK_END();
+        GP::GP.OTA_FIRMWARE(F("OTA firmware"), GREEN);
+        GP::GP.OTA_FILESYSTEM(F("OTA filesystem"), GREEN);
+        GP::GP.BLOCK_END();
     }
 
     /* Возращает ошибку текстом

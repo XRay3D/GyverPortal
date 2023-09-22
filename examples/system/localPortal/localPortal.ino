@@ -6,19 +6,19 @@
 #include <GyverPortal.h>
 
 // конструктор страницы
-void build(GyverPortal& p) {
+void build(GP::GyverPortal& p) {
     GP::GP.BUILD_BEGIN(GP::DARK);
 
     GP::GP.BUTTON("clk", "Click");
     GP::GP.BREAK();
     GP::GP.BUTTON("ext", "Exit");
     GP::GP.BREAK();
-    // GP.FILE_UPLOAD("test.txt"); Требует предварительного монтирования файловой системы
+    // GP::GP.FILE_UPLOAD("test.txt"); Требует предварительного монтирования файловой системы
     GP::GP.BUILD_END();
 }
 
 // Обработчик событий
-void action(GyverPortal& p) {
+void action(GP::GyverPortal& p) {
     if(p.click("clk")) Serial.println("Button click");
     if(p.click("ext")) {
         Serial.println("Exit portal");
@@ -36,7 +36,7 @@ void setup() {
     }
     Serial.println(WiFi.localIP());
 
-    GP::GP::GyverPortal ui;
+    GP::GyverPortal ui;
     ui.attachBuild(build);
     ui.attach(action);
     ui.start();

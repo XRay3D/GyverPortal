@@ -10,70 +10,70 @@ void build() {
     GP::GP.BUILD_BEGIN(600);
     GP::GP.THEME(GP::DARK);
 
-    GP::GP.BLOCK_BEGIN(GP_DIV);
+    GP::GP.BLOCK_BEGIN(GP::Block::DIV);
     GP::GP.LABEL("Block div");
     GP::GP.BLOCK_END();
 
-    GP::GP.BLOCK_BEGIN(GP_DIV, "", "My div txt");
+    GP::GP.BLOCK_BEGIN(GP::Block::DIV, "", "My div txt");
     GP::GP.LABEL("Block div text");
     GP::GP.BLOCK_END();
 
-    GP::GP.BLOCK_BEGIN(GP_TAB);
+    GP::GP.BLOCK_BEGIN(GP::Block::TAB);
     GP::GP.LABEL("Block tab");
     GP::GP.BLOCK_END();
 
-    GP::GP.BLOCK_BEGIN(GP_TAB, "", "My tab txt");
+    GP::GP.BLOCK_BEGIN(GP::Block::TAB, "", "My tab txt");
     GP::GP.LABEL("Block tab text");
     GP::GP.BLOCK_END();
 
-    GP::GP.BLOCK_BEGIN(GP_TAB, "", "My tab txt red ", GP_RED);
+    GP::GP.BLOCK_BEGIN(GP::Block::TAB, "", "My tab txt red ", GP::RED);
     GP::GP.LABEL("Block tab text red");
     GP::GP.BLOCK_END();
 
-    GP::GP.BLOCK_BEGIN(GP_THIN);
+    GP::GP.BLOCK_BEGIN(GP::Block::THIN);
     GP::GP.LABEL("Block thin");
     GP::GP.BLOCK_END();
 
-    GP::GP.BLOCK_BEGIN(GP_THIN, "", "My thin txt");
+    GP::GP.BLOCK_BEGIN(GP::Block::THIN, "", "My thin txt");
     GP::GP.LABEL("Block thin text");
     GP::GP.BLOCK_END();
 
-    GP::GP.BLOCK_BEGIN(GP_THIN, "", "My thin txt red", GP_RED);
+    GP::GP.BLOCK_BEGIN(GP::Block::THIN, "", "My thin txt red", GP::RED);
     GP::GP.LABEL("Block thin text red");
     GP::GP.BLOCK_END();
 
     // то же самое макросами
 
     M_BLOCK(
-        GP_DIV,
+        GP::Block::DIV,
         GP::GP.LABEL("Block div"););
 
     M_BLOCK(
-        GP_DIV, "", "My div txt",
+        GP::Block::DIV, "", "My div txt",
         GP::GP.LABEL("Block div text"););
 
     M_BLOCK(
-        GP_TAB,
+        GP::Block::TAB,
         GP::GP.LABEL("Block tab"););
 
     M_BLOCK(
-        GP_TAB, "", "My tab txt",
+        GP::Block::TAB, "", "My tab txt",
         GP::GP.LABEL("Block tab text"););
 
     M_BLOCK(
-        GP_TAB, "", "My tab txt red ", GP_RED,
+        GP::Block::TAB, "", "My tab txt red ", GP::RED,
         GP::GP.LABEL("Block tab text red"););
 
     M_BLOCK(
-        GP_THIN,
+        GP::Block::THIN,
         GP::GP.LABEL("Block thin"););
 
     M_BLOCK(
-        GP_THIN, "", "My thin txt",
+        GP::Block::THIN, "", "My thin txt",
         GP::GP.LABEL("Block thin text"););
 
     M_BLOCK(
-        GP_THIN, "", "My thin txt red", GP_RED,
+        GP::Block::THIN, "", "My thin txt red", GP::RED,
         GP::GP.LABEL("Block thin text red"););
 
     GP::GP.BUILD_END();

@@ -11,7 +11,7 @@ void action();
 void build() {
     GP::GP.BUILD_BEGIN();
     GP::GP.THEME(GP::DARK);
-    // GP.THEME(GP_LIGHT);
+    // GP::GP.THEME(GP_LIGHT);
 
     GP::GP.TITLE("GyverPortal");
     GP::GP.HR();
@@ -33,28 +33,28 @@ void build() {
     M_BLOCK_TAB(
         "Block Tab",
         GP::GP.LABEL("Inputs");
-        M_BOX(GP.LABEL("Number"); GP::GP.NUMBER("", "", 123););
-        M_BOX(GP.LABEL("Float"); GP::GP.NUMBER_F("", "", 3.14););
-        M_BOX(GP.LABEL("Text"); GP::GP.TEXT("", "", "Hello"););
-        M_BOX(GP.LABEL("Password"); GP::GP.PASS("", "", "Pass"););
+        M_BOX(GP::GP.LABEL("Number"); GP::GP.NUMBER("", "", 123););
+        M_BOX(GP::GP.LABEL("Float"); GP::GP.NUMBER_F("", "", 3.14););
+        M_BOX(GP::GP.LABEL("Text"); GP::GP.TEXT("", "", "Hello"););
+        M_BOX(GP::GP.LABEL("Password"); GP::GP.PASS("", "", "Pass"););
         GP::GP.AREA("", 3, "Text area"););
 
     M_BLOCK_THIN(
-        M_BOX(GP.LABEL("Date"); GP::GP.DATE(""););
-        M_BOX(GP.LABEL("Time"); GP::GP.TIME(""););
-        M_BOX(GP.LABEL("Color"); GP::GP.COLOR("");););
+        M_BOX(GP::GP.LABEL("Date"); GP::GP.DATE(""););
+        M_BOX(GP::GP.LABEL("Time"); GP::GP.TIME(""););
+        M_BOX(GP::GP.LABEL("Color"); GP::GP.COLOR("");););
 
     M_BLOCK_THIN_TAB(
         "Thin Tab",
         GP::GP.LABEL("Upload File/Folder");
         M_BOX(
-            Align::CENTER,
+            GP::Align::CENTER,
             GP::GP.FILE_UPLOAD("");
             GP::GP.FOLDER_UPLOAD("");););
 
-    M_BOX(GP.LABEL("Select"); GP::GP.SELECT("", "Some,Drop,List"););
-    M_BOX(GP.LABEL("Slider"); GP::GP.SLIDER(""););
-    M_BOX(GP.LABEL("Spinner"); GP::GP.SPINNER(""););
+    M_BOX(GP::GP.LABEL("Select"); GP::GP.SELECT("", "Some,Drop,List"););
+    M_BOX(GP::GP.LABEL("Slider"); GP::GP.SLIDER(""););
+    M_BOX(GP::GP.LABEL("Spinner"); GP::GP.SPINNER(""););
 
     GP::GP.BUTTON("", "Button");
     GP::GP.BUTTON_MINI("", "Btn Mini");

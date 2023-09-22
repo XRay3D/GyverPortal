@@ -63,7 +63,7 @@ void loginPortal() {
     WiFi.softAP("WiFi Config");
 
     // запускаем портал
-    GP::GP::GyverPortal ui;
+    GP::GyverPortal ui;
     ui.attachBuild(build);
     ui.start();
     ui.attach(action);

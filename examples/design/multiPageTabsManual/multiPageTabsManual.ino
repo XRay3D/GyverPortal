@@ -31,7 +31,7 @@ void build() {
     GP::GP.NAV_BLOCK_END();
 
     // второй блок навигации
-    GP::GP.NAV_TABS_M("navB", "KEK,PUK,4EBUREK", GP_RED);
+    GP::GP.NAV_TABS_M("navB", "KEK,PUK,4EBUREK", GP::RED);
 
     // эти блоки сделаем макросами
     M_NAV_BLOCK(

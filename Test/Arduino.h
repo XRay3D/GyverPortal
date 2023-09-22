@@ -5,8 +5,11 @@
 #include <QString>
 #include <QTimer>
 #include <WString.h>
+#include <cmath>
 #include <filesystem>
 #include <random>
+
+using std::isnan;
 
 #include "themes.h"
 

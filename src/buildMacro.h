@@ -24,7 +24,7 @@ namespace GP {
 // ...
 */
 
-#define GP_ALS(...) __extension__({static Align __als[] = {__VA_ARGS__}; __als; })
+#define GP_ALS(...) __extension__({static GP::Align __als[] = {__VA_ARGS__}; __als; })
 
 #define M_FORM(...) OVR_MACRO(M_FORM, __VA_ARGS__)
 #define M_FORM2(act, args)  \

@@ -5,10 +5,10 @@
 #include <Print.h>
 namespace GP {
 
-class GPlog : public Print {
+class Log : public Print {
 public:
-    GPlog() { }
-    GPlog(const char* nname)
+    Log() { }
+    Log(const char* nname)
         : name(nname) { }
 
     void start(int n = 64) {
@@ -18,7 +18,7 @@ public:
         buffer = new char[size];
     }
 
-    ~GPlog() {
+    ~Log() {
         stop();
     }
 

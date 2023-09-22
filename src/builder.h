@@ -190,7 +190,7 @@ struct Builder {
     void setTimeUpdatePeriod(uint32_t t) { _timeUpdPrd = t; }
     void updateTime() {
         if (!_gp_unix_tmr || millis() - _gp_unix_tmr >= _timeUpdPrd)
-            SEND(F("<script>GP_send('/GP_time?unix='+Math.round(new Date().getTime()/1000)+'&gmt='+(-new Date().getTimezoneOffset()));</script>\n"));
+            SEND(F("<script>GP_send('/GP_time?GPunix='+Math.round(new Date().getTime()/1000)+'&gmt='+(-new Date().getTimezoneOffset()));</script>\n"));
     }
 
     void THEME(PGM_P style) {
@@ -1270,14 +1270,14 @@ struct Builder {
         TR();
         TD(Align::LEFT);
         BOLD(F("Date"));
-        GPdate date(_gp_local_unix);
+        GP::Date date(_gp_local_unix);
         TD(Align::RIGHT);
         SEND(_gp_local_unix ? date.encodeDMY() : String("unset"));
 
         TR();
         TD(Align::LEFT);
         BOLD(F("Time"));
-        GPtime time(_gp_local_unix);
+        GP::Time time(_gp_local_unix);
         TD(Align::RIGHT);
         SEND(_gp_local_unix ? time.encode() : String("unset"));
 
@@ -1620,7 +1620,7 @@ struct Builder {
     void AREA_LOG(int rows = 5, int prd = 1000, const String& w = "") {
         AREA_LOG_RAW("GP_log", rows, prd, w);
     }
-    void AREA_LOG(GPlog& log, int rows = 5, int prd = 1000, const String& w = "") {
+    void AREA_LOG(GP::Log& log, int rows = 5, int prd = 1000, const String& w = "") {
         // log.clear();
         AREA_LOG_RAW(log.name, rows, prd, w);
     }
@@ -1679,10 +1679,10 @@ struct Builder {
     }
 
     void DATE(const String& name, bool dis = false) {
-        GPdate d;
+        GP::Date d;
         DATE(name, d, dis);
     }
-    void DATE(const String& name, GPdate d, bool dis = false) {
+    void DATE(const String& name, GP::Date d, bool dis = false) {
         *tmpPageBuf += F("<input step='any' type='date' name='");
         *tmpPageBuf += name;
         *tmpPageBuf += F("' id='");
@@ -1707,7 +1707,7 @@ struct Builder {
         *tmpPageBuf += F("onchange='GP_click(this)'>\n");
         send();
     }
-    void TIME(const String& name, GPtime t, bool dis = false) {
+    void TIME(const String& name, GP::Time t, bool dis = false) {
         *tmpPageBuf += F("<input step='1' type='time' name='");
         *tmpPageBuf += name;
         *tmpPageBuf += F("' id='");

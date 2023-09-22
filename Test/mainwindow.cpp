@@ -1,43 +1,48 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "xmlhighlighter.h"
 #include <QDomDocument>
-#include <QRegularExpression>
-#include <QSyntaxHighlighter>
+#include <QShortcut>
 #include <QTextEdit>
 #include <QWebEngineView>
 #include <QXmlStreamReader>
+#include <array>
 #include <chrono>
+#include <iostream>
+#include <map>
 #include <stack>
 #include <tuple>
+#include <vector>
 
 void action();
 void build();
 void rndLabel();
 void rndComp();
+void startup();
 
 // #include "../examples/builds/dynamicComponents/dynamicComponents.ino"
-// #include "../examples/builds/selectBuild/selectBuild.ino"
-// #include "../examples/customComponents/customComponents.ino"
-// #include "../examples/demos/actionClick/actionClick.ino"
-// #include "../examples/demos/actionForm/actionForm.ino"
-// #include "../examples/demos/actionUpdate/actionUpdate.ino"
-// #include "../examples/demos/buttonHold/buttonHold.ino"
-// #include "../examples/demos/canvas/canvas.ino"
-// #include "../examples/demos/demoAllComponents/demoAllComponents.ino"
-// #include "../examples/demos/demoAuth/demoAuth.ino"
-// #include "../examples/demos/demoColor/demoColor.ino"
-// #include "../examples/demos/demoLog/demoLog.ino"
-// #include "../examples/demos/demoLogManual/demoLogManual.ino"
-// #include "../examples/demos/esp32-stream/esp32-stream.ino"
-// #include "../examples/demos/jQupdate/jQupdate.ino"
-// #include "../examples/demos/objTest/objTest.ino"
-// #include "../examples/demos/objects/objects.ino"
-// #include "../examples/demos/onlineCheck/onlineCheck.ino"
-// #include "../examples/demos/pageTitle/pageTitle.ino"
-// #include "../examples/demos/plotAjax/plotAjax.ino"
-// #include "../examples/demos/plotStatic/plotStatic.ino"
-// #include "../examples/demos/plotStock/plotStock.ino"
+//  #include "../examples/builds/selectBuild/selectBuild.ino"
+//  #include "../examples/customComponents/customComponents.ino"
+//  #include "../examples/demos/actionClick/actionClick.ino"
+//  #include "../examples/demos/actionForm/actionForm.ino"
+//  #include "../examples/demos/actionUpdate/actionUpdate.ino"
+//  #include "../examples/demos/buttonHold/buttonHold.ino"
+//  #include "../examples/demos/canvas/canvas.ino"
+//  #include "../examples/demos/demoAllComponents/demoAllComponents.ino"
+//  #include "../examples/demos/demoAuth/demoAuth.ino"
+//  #include "../examples/demos/demoColor/demoColor.ino"
+//  #include "../examples/demos/demoLog/demoLog.ino"
+//  #include "../examples/demos/demoLogManual/demoLogManual.ino"
+//  #include "../examples/demos/esp32-stream/esp32-stream.ino"
+//  #include "../examples/demos/jQupdate/jQupdate.ino"
+//  #include "../examples/demos/objTest/objTest.ino"
+//  #include "../examples/demos/objects/objects.ino"
+//  #include "../examples/demos/onlineCheck/onlineCheck.ino"
+//  #include "../examples/demos/pageTitle/pageTitle.ino"
+//  #include "../examples/demos/plotAjax/plotAjax.ino"
+//  #include "../examples/demos/plotStatic/plotStatic.ino"
+//  #include "../examples/demos/plotStock/plotStock.ino"
 // #include "../examples/demos/popupAlert/popupAlert.ino"
 // #include "../examples/demos/popupConfirm/popupConfirm.ino"
 // #include "../examples/demos/popupPrompt/popupPrompt.ino"
@@ -57,7 +62,7 @@ void rndComp();
 // #include "../examples/design/multiPageTabs/multiPageTabs.ino"
 // #include "../examples/design/multiPageTabsManual/multiPageTabsManual.ino"
 // #include "../examples/design/slidersEqual/slidersEqual.ino"
-// #include "../examples/design/tables/tables.ino"
+ #include "../examples/design/tables/tables.ino"
 // #include "../examples/design/ui/ui.ino"
 // #include "../examples/design/uiManual/uiManual.ino"
 // #include "../examples/files/fileDownloadAuto/fileDownloadAuto.ino"
@@ -74,14 +79,9 @@ void rndComp();
 // #include "../examples/system/localLambda/localLambda.ino"
 // #include "../examples/system/localPortal/localPortal.ino"
 // #include "../examples/system/localPortal2/localPortal2.ino"
-// #include "../examples/system/rtos2core/rtos2core.ino"
+//#include "../examples/system/rtos2core/rtos2core.ino"
 
 /*
-#include <array>
-#include <format>
-#include <iostream>
-#include <map>
-#include <vector>
 
 using std::cout;
 using std::endl;
@@ -133,7 +133,7 @@ int main() {
 }
 
 */
-
+#if 0
 #define AP_SSID ""
 #define AP_PASS ""
 
@@ -269,6 +269,29 @@ void setup() {
                 BOX(GP::LABEL("", "Выход"), GP::NUMBER("v_out", "", 220))))
             .build();
 
+        GP::GP.PUT_OBJ(GP::AREA("", ""));
+        GP::GP.PUT_OBJ(GP::BUTTON_MINI("", ""));
+        GP::GP.PUT_OBJ(GP::BUTTON("", ""));
+        GP::GP.PUT_OBJ(GP::CHECK("", ""));
+        //        GP::GP.PUT_OBJ(GP::COLOR("", ""));
+        //        GP::GP.PUT_OBJ(GP::DATE("", ""));
+        GP::GP.PUT_OBJ(GP::LABEL_BLOCK("", ""));
+        GP::GP.PUT_OBJ(GP::LABEL("", ""));
+        GP::GP.PUT_OBJ(GP::LED_GREEN("", ""));
+        GP::GP.PUT_OBJ(GP::LED_RED("", ""));
+        GP::GP.PUT_OBJ(GP::LED("", ""));
+        GP::GP.PUT_OBJ(GP::NUMBER_F("", ""));
+        GP::GP.PUT_OBJ(GP::NUMBER("", ""));
+        GP::GP.PUT_OBJ(GP::PASS("", ""));
+        //        GP::GP.PUT_OBJ(GP::RADIO("", ""));
+        GP::GP.PUT_OBJ(GP::SELECT("", ""));
+        //        GP::GP.PUT_OBJ(GP::SLIDER("", ""));
+        //        GP::GP.PUT_OBJ(GP::SPINNER("", ""));
+        GP::GP.PUT_OBJ(GP::SWITCH("", ""));
+        GP::GP.PUT_OBJ(GP::TEXT("", ""));
+        //        GP::GP.PUT_OBJ(GP::TIME("", ""));
+        GP::GP.PUT_OBJ(GP::TITLE("", ""));
+
         //        BLOCK_THIN_TAB b("UPS",
         //            BOX(GP::LABEL("", "Вход"), GP::NUMBER("v_in", "", 221)),
         //            BOX(GP::LABEL("", "Выход"), GP::NUMBER("v_out", "", 220)));
@@ -293,88 +316,7 @@ void loop() {
     // ui.tick();
 }
 
-class XmlHighlighter : public QSyntaxHighlighter {
-    // Q_OBJECT
-public:
-    explicit XmlHighlighter(QTextDocument* parent = nullptr)
-        : QSyntaxHighlighter{parent} {
-        HighlightingRule rule;
-
-        // Double quotes
-        quotationFormat.setForeground(Qt::blue);
-        rule.pattern = QRegularExpression(R"(".*")");
-        //        rule.pattern.setMinimal(true); // Match the shortest first
-        rule.format = quotationFormat;
-        highlightingRules.append(rule);
-
-        // element name
-        propertyFormat.setForeground(Qt::red);
-        rule.pattern = QRegularExpression(R"(\b[A-Za-z0-9_]+[\s]*(?=\=))");
-        //        rule.pattern.setMinimal(true);
-        rule.format = propertyFormat;
-        highlightingRules.append(rule);
-
-        // element name
-        elementNameFormat.setForeground(Qt::blue);
-        rule.pattern = QRegularExpression(R"(<[\/]*[A-Za-z0-9_]+\b|>)");
-        //        rule.pattern.setMinimal(true);
-        rule.format = elementNameFormat;
-        highlightingRules.append(rule);
-
-        // Multi-line comment
-        multiLineCommentFormat.setForeground(Qt::darkGreen);
-        commentStartExpression = QRegularExpression("<!--");
-        commentEndExpression = QRegularExpression("-->");
-    }
-
-protected:
-    void highlightBlock(const QString& text) {
-        for(const auto& rule: highlightingRules) {
-            auto globalMatch = rule.pattern.globalMatch(text);
-            while(globalMatch.hasNext()) {
-                auto match = globalMatch.next();
-                setFormat(match.capturedStart(), match.capturedLength(), rule.format);
-            }
-        }
-
-        setCurrentBlockState(0);
-
-        // match multi-line comments
-        int startIndex = 0;
-        if(previousBlockState() != 1)
-            startIndex = commentStartExpression.match(text).capturedStart();
-        while(startIndex >= 0) {
-            auto match = commentEndExpression.match(text, startIndex);
-            int endIndex = match.capturedStart();
-            int commentLength;
-            if(endIndex == -1) {
-                setCurrentBlockState(1);
-                commentLength = text.length() - startIndex;
-            } else {
-                commentLength = endIndex - startIndex + match.capturedLength();
-            }
-            setFormat(startIndex, commentLength, multiLineCommentFormat);
-            startIndex = commentStartExpression.match(text, startIndex + commentLength).capturedStart();
-        }
-    }
-signals:
-
-public slots:
-private:
-    struct HighlightingRule {
-        QRegularExpression pattern;
-        QTextCharFormat format;
-    };
-    QVector<HighlightingRule> highlightingRules;
-
-    QRegularExpression commentStartExpression;
-    QRegularExpression commentEndExpression;
-
-    QTextCharFormat multiLineCommentFormat;
-    QTextCharFormat quotationFormat;
-    QTextCharFormat elementNameFormat;
-    QTextCharFormat propertyFormat;
-};
+#endif
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -391,12 +333,14 @@ MainWindow::MainWindow(QWidget* parent)
     textEdit->setWordWrapMode(QTextOption::NoWrap);
     ui->splitter->addWidget(textEdit);
 
+    new QShortcut({"esc"}, this, [this] { close(); });
+
     //    ui->verticalLayout->setSpacing(6);
     //    ui->verticalLayout->setContentsMargins(6, 6, 6, 6);
     //    ui->verticalLayout->setColumnStretch(0, 1);
     //    ui->verticalLayout->setColumnStretch(1, 1);
 
-    view->load(QUrl("http://localhost:80"));
+    view->load(QUrl("http://localhost:1234"));
 
     //    connect(view->page()->action(QWebEnginePage::ViewSource), &QAction::triggered, [=] {
     //        view->page()->toHtml([textEdit](auto&& str) { textEdit->setPlainText(str); });
@@ -442,7 +386,7 @@ MainWindow::MainWindow(QWidget* parent)
             });
     });
 
-    startTimer(1);
+    startTimer(10);
 
     QSettings settings;
     settings.beginGroup("MainWindow");

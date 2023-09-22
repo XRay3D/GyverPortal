@@ -25,7 +25,7 @@ void setup() {
     }
     Serial.println(WiFi.localIP());
 
-    GP::GP::GyverPortal ui;
+    GP::GyverPortal ui;
     ui.start();
     ui.attachBuild(build);
     ui.attach(action);
@@ -37,7 +37,7 @@ void setup() {
     Serial.println("Setup end");
 }
 
-void action(GyverPortal& p) {
+void action(GP::GyverPortal& p) {
     if(p.click("clk"))
         Serial.println("Button click");
     if(p.click("ext")) {

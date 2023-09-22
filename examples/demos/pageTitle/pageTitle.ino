@@ -11,7 +11,7 @@ void build() {
     GP::GP.THEME(GP::DARK);
 
     // однократно изменить название окна
-    // GP.PAGE_TITLE("MyPortal");
+    // GP::GP.PAGE_TITLE("MyPortal");
 
     // изменить и подключить обновление (1 в сек)
     GP::GP.PAGE_TITLE("MyPortal", "tit");

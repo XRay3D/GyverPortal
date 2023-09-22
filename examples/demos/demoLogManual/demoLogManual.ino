@@ -6,8 +6,8 @@
 #include <GyverPortal.h>
 GP::GyverPortal ui;
 
-GPlog glog1("log1");
-GPlog glog2("log2");
+GP::Log glog1("log1");
+GP::Log glog2("log2");
 
 // конструктор страницы
 void build() {

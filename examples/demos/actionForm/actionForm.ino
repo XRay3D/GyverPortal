@@ -4,7 +4,7 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GP::GP::GyverPortal ui;
+GP::GyverPortal ui;
 
 // переменные для получения данных с формы
 bool valCheck;
@@ -14,8 +14,8 @@ int valNum;
 char valPass[10];
 float valSpin;
 int valSlider;
-GP::GPdate valDate;
-GP::GPtime valTime;
+GP::Date valDate;
+GP::Time valTime;
 GP::GPcolor valCol;
 int valSelect;
 int valRad;

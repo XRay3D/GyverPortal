@@ -436,12 +436,12 @@ public:
     }
 
     // ======================= ВРЕМЯ ========================
-    GPdate getSystemDate() {
-        return timeSynced() ? GPdate{getUnix(), getGMT()} : GPdate{};
+    GP::Date getSystemDate() {
+        return timeSynced() ? GP::Date{getUnix(), getGMT()} : GP::Date{};
     }
 
-    GPtime getSystemTime() {
-        return timeSynced() ? GPtime{getUnix(), getGMT()} : GPtime{};
+    GP::Time getSystemTime() {
+        return timeSynced() ? GP::Time{getUnix(), getGMT()} : GP::Time{};
     }
 
     // ======================== FILE ========================
@@ -590,7 +590,7 @@ public:
     void setBufferSize(int sz) { _bufsize = sz; }
 
     List list;
-    GPlog log;
+    GP::Log log;
 
 #ifdef ESP8266
     ESP8266WebServer server;
@@ -627,7 +627,7 @@ public:
 #ifdef ESP8266
         server.streamFile(file, mime::getContentType(file.name()));
 #else
-        server.streamFile(file, GPfileType(file.name()));
+        server.streamFile(file, fileType(file.name()));
 #endif
 
         file.close();
@@ -662,8 +662,8 @@ private:
                 // clang-format off
                 case Type::CSTR:      copyStr(list.names[i],  (char*)         list.vals[i]); return;
                 case Type::STRING:   *(String*)list.vals[i] = getString(     list.names[i]); return;
-                case Type::TIME:     *(GPtime*)list.vals[i] = getTime(       list.names[i]); return;
-                case Type::DATE:     *(GPdate*)list.vals[i] = getDate(       list.names[i]); return;
+                case Type::TIME:     *(GP::Time*)list.vals[i] = getTime(       list.names[i]); return;
+                case Type::DATE:     *(GP::Date*)list.vals[i] = getDate(       list.names[i]); return;
                 case Type::CHECK:      *(bool*)list.vals[i] = getBool(       list.names[i]); return;
                 case Type::BYTE:     *(int8_t*)list.vals[i] = (int8_t)getInt(list.names[i]); return;
                 case Type::INT:        *(long*)list.vals[i] = getInt(        list.names[i]); return;

@@ -8,14 +8,14 @@ void GP_MY_BLOCK(const String& data) {
     String s;            // создай строку
     s += F("some html"); // собери html код
     s += data;           // добавь данные из аргументов
-    GP.SEND(s);          // отправь через GP.SEND
+    GP::GP.SEND(s);          // отправь через GP::GP.SEND
 }
 
 // шаблон одиночного блока (например скрипт, набор стилей итд)
 void GP_MY_BLOCK() {
     // храним html код через макрос PSTR в программной памяти
-    // и отправляем через GP.SEND_P
-    GP.SEND_P(PSTR("some\n"
+    // и отправляем через GP::GP.SEND_P
+    GP::GP.SEND_P(PSTR("some\n"
                    "multi-line\n"
                    "html\n"
                    "code\n"));
@@ -29,5 +29,5 @@ void GP_TEXT_HREF(const String& url, const String& text) {
     s += F("'>");
     s += text;
     s += F("</a>");
-    GP.SEND(s);
+    GP::GP.SEND(s);
 }

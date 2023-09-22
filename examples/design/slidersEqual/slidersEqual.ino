@@ -14,14 +14,14 @@ void build() {
         M_BOX(
             GP::GP.LABEL("Velocity");
             M_BOX(
-                Align::RIGHT,
+                GP::Align::RIGHT,
                 "220px",
                 GP::GP.SLIDER("vel");););
 
         M_BOX(
             GP::GP.LABEL("Accel.");
             M_BOX(
-                Align::RIGHT,
+                GP::Align::RIGHT,
                 "220px",
                 GP::GP.SLIDER("acc"););););
 

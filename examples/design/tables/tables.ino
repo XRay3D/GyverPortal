@@ -36,7 +36,7 @@ void build() {
     GP::GP.TABLE_BEGIN();
 
     GP::GP.TR();
-    GP::GP.TD(Align::CENTER, 2);
+    GP::GP.TD(GP::Align::CENTER, 2);
     GP::GP.LABEL("Big table cell");
 
     GP::GP.TR();
@@ -76,9 +76,9 @@ void build() {
     GP::GP.TITLE("Auto Table 3");
     M_TABLE(
         "",
-        GP_ALS(Align::LEFT, Align::CENTER, Align::RIGHT),
+        GP_ALS(GP::Align::LEFT, GP::Align::CENTER, GP::Align::RIGHT),
         for(int i = 0; i < 3; i++) {
-            M_TR(GP.LABEL(String(i)), GP::GP.CHECK(""), GP::GP.LED(""));
+            M_TR(GP::GP.LABEL(String(i)), GP::GP.CHECK(""), GP::GP.LED(""));
         });
 
     GP::GP.BUILD_END();

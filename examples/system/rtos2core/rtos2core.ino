@@ -44,7 +44,7 @@ void taskCore0(void* pvParameters) {
 // Функция для запуска на ядре 1 (Запускаем GP::GyverPortal локально)
 void taskCore1(void* pvParameters) {
     for(;;) {
-        GP::GP::GyverPortal ui;
+        GP::GyverPortal ui;
         ui.attachBuild(build);
         ui.attach(action);
         ui.start();

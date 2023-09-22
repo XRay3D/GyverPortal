@@ -35,14 +35,14 @@ void setup() {
 
     // ставим последний элемент массива на текущую дату
     // gmt 3 для Москвы
-    dates[PLOT_SIZE - 1] = GPunix(2022, 1, 22, 21, 59, 0, 3);
+    dates[PLOT_SIZE - 1] = GP::GPunix(2022, 1, 22, 21, 59, 0, 3);
 
     for(int i = 0; i < PLOT_SIZE; i++) {
-        GPaddInt(i * 2, arr[0], PLOT_SIZE);
-        GPaddInt(i * 5, arr[1], PLOT_SIZE);
+        GP::GPaddInt(i * 2, arr[0], PLOT_SIZE);
+        GP::GPaddInt(i * 5, arr[1], PLOT_SIZE);
 
         // добавляем значения графика по 5 секунд
-        GPaddUnixS(5, dates, PLOT_SIZE);
+        GP::GPaddUnixS(5, dates, PLOT_SIZE);
     }
 
     // подключаем конструктор и запускаем
@@ -56,8 +56,8 @@ void loop() {
     static uint32_t tmr;
     if(millis() - tmr >= 5000) {
         tmr = millis();
-        GPaddInt(random(100), arr[0], PLOT_SIZE);
-        GPaddInt(random(100), arr[1], PLOT_SIZE);
-        GPaddUnixS(5, dates, PLOT_SIZE);
+        GP::GPaddInt(random(100), arr[0], PLOT_SIZE);
+        GP::GPaddInt(random(100), arr[1], PLOT_SIZE);
+        GP::GPaddUnixS(5, dates, PLOT_SIZE);
     }
 }

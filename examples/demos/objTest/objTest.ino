@@ -4,7 +4,7 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
-GP::GP::GyverPortal ui;
+GP::GyverPortal ui;
 
 GP::TITLE tit("t1");
 GP::LABEL lab("l1");
@@ -41,38 +41,38 @@ void build() {
     GP::GP.BUILD_BEGIN(GP::DARK);
     // GP::GP.UPDATE("t1,l1,lb1,led1,led2,led3,num,numf,txt,pas,ar,ch,sw,dat,tm,col,sp,sl");
 
-    GP::GP.TITLE(tit);
-    GP::GP.LABEL(lab);
-    GP::GP.LABEL_BLOCK(labb);
+    GP::GP.PUT_OBJ(tit);
+    GP::GP.PUT_OBJ(lab);
+    GP::GP.PUT_OBJ(labb);
 
-    GP::GP.LED(led1);
-    GP::GP.LED_RED(led2);
-    GP::GP.LED_GREEN(led3);
+    GP::GP.PUT_OBJ(led1);
+    GP::GP.PUT_OBJ(led2);
+    GP::GP.PUT_OBJ(led3);
 
-    GP::GP.BUTTON(btn);
-    GP::GP.BUTTON_MINI(btnm);
+    GP::GP.PUT_OBJ(btn);
+    GP::GP.PUT_OBJ(btnm);
 
     GP::GP.FORM_BEGIN("/save");
-    GP::GP.NUMBER(num);
-    GP::GP.NUMBER_F(numf);
+    GP::GP.PUT_OBJ(num);
+    GP::GP.PUT_OBJ(numf);
 
-    GP::GP.TEXT(txt);
-    GP::GP.PASS(pas);
+    GP::GP.PUT_OBJ(txt);
+    GP::GP.PUT_OBJ(pas);
 
-    GP::GP.AREA(ar);
+    GP::GP.PUT_OBJ(ar);
     GP::GP.BREAK();
 
-    GP::GP.CHECK(ch);
-    GP::GP.SWITCH(sw);
+    GP::GP.PUT_OBJ(ch);
+    GP::GP.PUT_OBJ(sw);
 
-    GP::GP.DATE(dat);
-    GP::GP.TIME(tm);
-    GP::GP.COLOR(col);
+    GP::GP.PUT_OBJ(dat);
+    GP::GP.PUT_OBJ(tm);
+    GP::GP.PUT_OBJ(col);
 
-    GP::GP.SPINNER(sp);
-    GP::GP.SLIDER(sl);
+    GP::GP.PUT_OBJ(sp);
+    GP::GP.PUT_OBJ(sl);
 
-    GP::GP.SELECT(sel);
+    GP::GP.PUT_OBJ(sel);
 
     GP::GP.SUBMIT("Submit");
     GP::GP.FORM_END();

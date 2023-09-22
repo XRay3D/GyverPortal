@@ -11,10 +11,10 @@ void build() {
     GP::GP.THEME(GP::DARK);
 
     M_BOX(
-        Align::JUSTIFY,
+        GP::Align::JUSTIFY,
         GP::GP.LABEL("Switch");
         M_BOX(
-            Align::RIGHT,
+           GP:: Align::RIGHT,
             GP::GP.LED("");
             GP::GP.SWITCH("");
             GP::GP.LED("");););
@@ -22,24 +22,24 @@ void build() {
     GP::GP.HR();
 
     M_BOX(
-        Align::CENTER,
+        GP::Align::CENTER,
         GP::GP.SPINNER("sp1");
         GP::GP.SPINNER("sp2"););
 
     GP::GP.HR();
 
     M_BOX(
-        Align::JUSTIFY,
+        GP::Align::JUSTIFY,
         GP::GP.LABEL("Slider");
         GP::GP.SLIDER("sld"););
 
     GP::GP.HR();
 
     M_BOX(
-        Align::JUSTIFY,
+        GP::Align::JUSTIFY,
         GP::GP.LABEL("Setting");
         M_BOX(
-            Align::RIGHT,
+            GP::Align::RIGHT,
             GP::GP.CHECK("ch1");
             GP::GP.CHECK("ch2");
             GP::GP.CHECK("ch3");););
@@ -47,17 +47,17 @@ void build() {
     GP::GP.HR();
 
     M_BOX(
-        Align::JUSTIFY,
+        GP::Align::JUSTIFY,
         GP::GP.LABEL("Buttons");
         M_BOX(
-            Align::RIGHT,
-            GP::GP.BUTTON_MINI("b1", "Kek", "", GP_RED);
+            GP::Align::RIGHT,
+            GP::GP.BUTTON_MINI("b1", "Kek", "", GP::RED);
             GP::GP.BUTTON_MINI("b1", "Puk");););
 
     GP::GP.HR();
 
     M_BOX(
-        Align::JUSTIFY,
+        GP::Align::JUSTIFY,
         GP::GP.LABEL("Upload settings");
         GP::GP.FILE_UPLOAD("file"););
 

@@ -12,15 +12,15 @@ void build() {
 
     // создаём блок вручную
     GP::GP.BLOCK_TAB_BEGIN("MOTOR CONFIG");
-    M_BOX(GP.LABEL("Velocity"); GP::GP.SLIDER("vel"););
-    M_BOX(GP.LABEL("Accel."); GP::GP.SLIDER("acc"););
+    M_BOX(GP::GP.LABEL("Velocity"); GP::GP.SLIDER("vel"););
+    M_BOX(GP::GP.LABEL("Accel."); GP::GP.SLIDER("acc"););
     GP::GP.BLOCK_END();
 
     // через макрос
     M_BLOCK_TAB(
         "MANUAL",
-        M_BOX(GP.LABEL("Duty"); GP::GP.SLIDER("spd"););
-        M_BOX(GP.BUTTON("bkw", "◄"); GP::GP.BUTTON("frw", "►");););
+        M_BOX(GP::GP.LABEL("Duty"); GP::GP.SLIDER("spd"););
+        M_BOX(GP::GP.BUTTON("bkw", "◄"); GP::GP.BUTTON("frw", "►");););
 
     GP::GP.BUILD_END();
 }

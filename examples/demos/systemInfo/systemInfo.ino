@@ -7,9 +7,9 @@
 GP::GyverPortal ui;
 
 void build() {
-    GP::GP.BUILD_BEGIN(GP_LIGHT);
+    GP::GP.BUILD_BEGIN(GP::LIGHT);
 
-    // GP.SYSTEM_INFO();
+    // GP::GP.SYSTEM_INFO();
     GP::GP.SYSTEM_INFO("1.0");
 
     GP::GP.BUILD_END();
