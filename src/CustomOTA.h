@@ -65,7 +65,7 @@
 #define CUSTOM_UPDATE_ERROR_ABORTED      (255)
 namespace GP {
 
-extern Builder GP;
+//extern Builder GP;
 extern int _gp_bufsize;
 extern String* tmpPageBuf;
 

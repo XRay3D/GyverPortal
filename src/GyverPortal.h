@@ -54,7 +54,6 @@ using WebServer__ = WebServer;
 
 #endif
 
-#include "buildMacro.h"
 #include "builder.h"
 #include "canvas.h"
 #include "log.h"
@@ -62,6 +61,8 @@ using WebServer__ = WebServer;
 #include "portal.h"
 #include "themes.h"
 #include "version.h"
+
+#include "buildMacro.h"
 
 #ifndef GP_NO_OTA
 #include "CustomOTA.h"

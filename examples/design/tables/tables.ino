@@ -4,6 +4,7 @@
 #define AP_PASS ""
 
 #include <GyverPortal.h>
+
 GP::GyverPortal ui;
 
 void build() {
@@ -49,37 +50,32 @@ void build() {
 
     // авто таблица 1
     GP::GP.TITLE("Auto Table 1");
-    M_TABLE(
-
-        for(int i = 0; i < 5; i++) {
-            // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
-            M_TR(
-                GP::GP.LABEL(String("Switch #") + i),
-                GP::GP.SWITCH(""));
-        } // for
-    );
+    GP::M_TABLE(GP::FOR(5, // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
+                        GP::M_TR(
+                            GP::LABEL("", String("Switch #") + I), GP::SWITCH(""))))
+        .build();
 
     // авто таблица 2
     // с указанием размеров ячеек
     GP::GP.TITLE("Auto Table 2");
-    M_TABLE(
-        "30%,20%,50%",
-        for(int i = 0; i < 5; i++) {
-            M_TR(
-                GP::GP.LABEL(String("Label #") + i),
-                GP::GP.CHECK(""),
-                GP::GP.BUTTON("", "Btn"));
-        });
+    // M_TABLE(        "30%,20%,50%",
+    for (int i = 0; i < 5; i++) {
+        GP::M_TR(
+            GP::LABEL("", String("Label #") + i),
+            GP::CHECK(""),
+            GP::BUTTON("", "Btn"))
+            .build();
+    } //);
 
     // авто таблица 3
     // с указанием ориентации ячеек
     GP::GP.TITLE("Auto Table 3");
-    M_TABLE(
-        "",
-        GP_ALS(GP::Align::LEFT, GP::Align::CENTER, GP::Align::RIGHT),
-        for(int i = 0; i < 3; i++) {
-            M_TR(GP::GP.LABEL(String(i)), GP::GP.CHECK(""), GP::GP.LED(""));
-        });
+    // M_TABLE(        "",
+    // GP_ALS(GP::Align::LEFT, GP::Align::CENTER, GP::Align::RIGHT),
+    for (int i = 0; i < 3; i++) {
+        GP::M_TR(GP::LABEL("", String(i)), GP::CHECK(""), GP::LED(""))
+            .build();
+    } //);
 
     GP::GP.BUILD_END();
 }
@@ -88,7 +84,7 @@ void setup() {
     Serial.begin(115200);
     WiFi.mode(WIFI_STA);
     WiFi.begin(AP_SSID, AP_PASS);
-    while(WiFi.status() != WL_CONNECTED) {
+    while (WiFi.status() != WL_CONNECTED) {
         delay(500);
         Serial.print(".");
     }

@@ -9,7 +9,12 @@
 
 namespace GP {
 
-struct TITLE {
+struct HasText { };
+
+struct TD { };
+struct TR { };
+
+struct TITLE : HasText {
     TITLE(const char* name = nullptr, const String& text = {}, PGM_P style = DEFAULT, int size = 0, bool bold = 0)
         : name{name}
         , text{text}
@@ -22,7 +27,7 @@ struct TITLE {
     int size;
     bool bold;
 };
-struct LABEL {
+struct LABEL : HasText {
     LABEL(const char* name = nullptr, const String& text = {}, PGM_P style = DEFAULT, int size = 0, bool bold = 0, bool wrap = 0)
         : name{name}
         , text{text}

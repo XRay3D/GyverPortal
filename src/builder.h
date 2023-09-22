@@ -2,7 +2,7 @@
 
 // GP Builder
 
-#include "buildMacro.h"
+// #include "buildMacro.h"
 #include "canvas.h"
 #include "log.h"
 #include "objects.h"
@@ -2329,52 +2329,33 @@ struct Builder {
     }
 
     // ================== ОТПРАВКА ОБЪЕКТОВ ===================
-//    template <typename T>
-//    void PUT_OBJ(const T& ar) { Serial.println(__FUNCSIG__); }
+    //    template <typename T>
+    //    void PUT_OBJ(const T& ar) { Serial.println(__FUNCSIG__); }
 
     void PUT_OBJ(const GP::AREA& ar) { this->AREA(ar.name, ar.rows, ar.text, ar.width, ar.disabled); }
-
     void PUT_OBJ(const GP::BUTTON& btn) { this->BUTTON(btn.name, btn.text, btn.target, btn.style, btn.width, btn.disabled, btn.reload); }
-
     void PUT_OBJ(const GP::BUTTON_MINI& btn) { this->BUTTON_MINI(btn.name, btn.text, btn.target, btn.style, btn.width); }
-
     void PUT_OBJ(const GP::CHECK& ch) { this->CHECK(ch.name, ch.state, ch.style, ch.disabled); }
-
     void PUT_OBJ(const GP::COLOR& c) { this->COLOR(c.name, c.color, c.disabled); }
-
     void PUT_OBJ(const GP::DATE& d) { this->DATE(d.name, d.date, d.disabled); }
-
     void PUT_OBJ(const GP::LABEL& label) { this->LABEL(label.text, label.name, label.style, label.size, label.bold, label.wrap); }
-
     void PUT_OBJ(const GP::LABEL_BLOCK& label) { this->LABEL_BLOCK(label.text, label.name, label.style, label.size, label.bold); }
-
     void PUT_OBJ(const GP::LED& led) { this->LED(led.name, led.state); }
-
     void PUT_OBJ(const GP::LED_GREEN& led) { this->LED_GREEN(led.name, led.state); }
-
     void PUT_OBJ(const GP::LED_RED& led) { this->LED_RED(led.name, led.state); }
-
     void PUT_OBJ(const GP::NUMBER& num) { this->NUMBER_RAW(num.name, num.placeholder, (num.value == INT32_MAX ? String("") : String(num.value)), num.min, num.max, num.width, num.pattern, num.disabled); }
-
     void PUT_OBJ(const GP::NUMBER_F& num) { this->NUMBER_F(num.name, num.placeholder, num.value, num.decimals, num.width, num.disabled), NUMBER_RAW(num.name, num.placeholder, (isnan(num.value) ? String("") : String(num.value, (uint16_t)num.decimals)), num.min, num.max, num.width, num.pattern, num.disabled); }
-
     void PUT_OBJ(const GP::PASS& pas) { this->PASS(pas.name, pas.placeholder, pas.text, pas.width, pas.maxlen, pas.pattern, pas.disabled, pas.eye); }
-
     void PUT_OBJ(const GP::RADIO& r) { this->RADIO(r.name, r.num, r.value, r.style, r.disabled); }
-
     void PUT_OBJ(const GP::SELECT& s) { this->SELECT(s.name, s.list, s.selected, s.numbers, s.disabled, s.reload); }
-
     void PUT_OBJ(const GP::SLIDER& s) { this->SLIDER(s.name, s.value, s.min, s.max, s.step, s.decimals, s.style, s.disabled, s.oninput); }
-
     void PUT_OBJ(const GP::SPINNER& s) { this->SPINNER(s.name, s.value, s.min, s.max, s.step, s.decimals, s.style, s.width, s.disabled); }
-
     void PUT_OBJ(const GP::SWITCH& sw) { this->SWITCH(sw.name, sw.state, sw.style, sw.disabled); }
-
     void PUT_OBJ(const GP::TEXT& txt) { this->TEXT(txt.name, txt.placeholder, txt.text, txt.width, txt.maxlen, txt.pattern, txt.disabled); }
-
     void PUT_OBJ(const GP::TIME& t) { this->TIME(t.name, t.time, t.disabled); }
-
     void PUT_OBJ(const GP::TITLE& title) { this->TITLE(title.text, title.name, title.style, title.size, title.bold); }
+    void PUT_OBJ(const GP::TD&) { this->TD(); }
+    void PUT_OBJ(const GP::TR&) { this->TR(); }
 
     //    void TITLE(GP::TITLE& title) {
     //        TITLE(title.text, title.name, title.styler, title.size, title.bold);
@@ -2454,5 +2435,7 @@ struct Builder {
     //        RADIO(r.name, r.num, r.value, r.style, r.disabled);
     //    }
 };
+
+inline Builder GP;
 
 } // namespace GP

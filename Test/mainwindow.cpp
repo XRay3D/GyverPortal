@@ -22,27 +22,27 @@ void rndComp();
 void startup();
 
 // #include "../examples/builds/dynamicComponents/dynamicComponents.ino"
-//  #include "../examples/builds/selectBuild/selectBuild.ino"
-//  #include "../examples/customComponents/customComponents.ino"
-//  #include "../examples/demos/actionClick/actionClick.ino"
-//  #include "../examples/demos/actionForm/actionForm.ino"
-//  #include "../examples/demos/actionUpdate/actionUpdate.ino"
-//  #include "../examples/demos/buttonHold/buttonHold.ino"
-//  #include "../examples/demos/canvas/canvas.ino"
-//  #include "../examples/demos/demoAllComponents/demoAllComponents.ino"
-//  #include "../examples/demos/demoAuth/demoAuth.ino"
-//  #include "../examples/demos/demoColor/demoColor.ino"
-//  #include "../examples/demos/demoLog/demoLog.ino"
-//  #include "../examples/demos/demoLogManual/demoLogManual.ino"
-//  #include "../examples/demos/esp32-stream/esp32-stream.ino"
-//  #include "../examples/demos/jQupdate/jQupdate.ino"
-//  #include "../examples/demos/objTest/objTest.ino"
-//  #include "../examples/demos/objects/objects.ino"
-//  #include "../examples/demos/onlineCheck/onlineCheck.ino"
-//  #include "../examples/demos/pageTitle/pageTitle.ino"
-//  #include "../examples/demos/plotAjax/plotAjax.ino"
-//  #include "../examples/demos/plotStatic/plotStatic.ino"
-//  #include "../examples/demos/plotStock/plotStock.ino"
+// #include "../examples/builds/selectBuild/selectBuild.ino"
+// #include "../examples/customComponents/customComponents.ino"
+// #include "../examples/demos/actionClick/actionClick.ino"
+// #include "../examples/demos/actionForm/actionForm.ino"
+// #include "../examples/demos/actionUpdate/actionUpdate.ino"
+// #include "../examples/demos/buttonHold/buttonHold.ino"
+// #include "../examples/demos/canvas/canvas.ino"
+// #include "../examples/demos/demoAllComponents/demoAllComponents.ino"
+// #include "../examples/demos/demoAuth/demoAuth.ino"
+// #include "../examples/demos/demoColor/demoColor.ino"
+// #include "../examples/demos/demoLog/demoLog.ino"
+// #include "../examples/demos/demoLogManual/demoLogManual.ino"
+// #include "../examples/demos/esp32-stream/esp32-stream.ino"
+// #include "../examples/demos/jQupdate/jQupdate.ino"
+// #include "../examples/demos/objTest/objTest.ino"
+// #include "../examples/demos/objects/objects.ino"
+// #include "../examples/demos/onlineCheck/onlineCheck.ino"
+// #include "../examples/demos/pageTitle/pageTitle.ino"
+// #include "../examples/demos/plotAjax/plotAjax.ino"
+// #include "../examples/demos/plotStatic/plotStatic.ino"
+// #include "../examples/demos/plotStock/plotStock.ino"
 // #include "../examples/demos/popupAlert/popupAlert.ino"
 // #include "../examples/demos/popupConfirm/popupConfirm.ino"
 // #include "../examples/demos/popupPrompt/popupPrompt.ino"
@@ -62,7 +62,7 @@ void startup();
 // #include "../examples/design/multiPageTabs/multiPageTabs.ino"
 // #include "../examples/design/multiPageTabsManual/multiPageTabsManual.ino"
 // #include "../examples/design/slidersEqual/slidersEqual.ino"
- #include "../examples/design/tables/tables.ino"
+// #include "../examples/design/tables/tables.ino"
 // #include "../examples/design/ui/ui.ino"
 // #include "../examples/design/uiManual/uiManual.ino"
 // #include "../examples/files/fileDownloadAuto/fileDownloadAuto.ino"
@@ -79,7 +79,7 @@ void startup();
 // #include "../examples/system/localLambda/localLambda.ino"
 // #include "../examples/system/localPortal/localPortal.ino"
 // #include "../examples/system/localPortal2/localPortal2.ino"
-//#include "../examples/system/rtos2core/rtos2core.ino"
+// #include "../examples/system/rtos2core/rtos2core.ino"
 
 /*
 
@@ -133,187 +133,103 @@ int main() {
 }
 
 */
-#if 0
-#define AP_SSID ""
-#define AP_PASS ""
+#if 1
 
 #include <GyverPortal.h>
+
 GP::GyverPortal ui;
 
-// connect(comboBox, QOverload<const QString &>::of(&QComboBox::activated),
-//     [=](const QString &text){ /* ... */ });
-// Согласитесь, это будет гораздо проще для восприятия, чем нечто такое из предыдущего урока по сигналам и слотам
+void build() {
+    GP::GP.BUILD_BEGIN(600);
+    GP::GP.THEME(GP::DARK);
 
-// connect(m_testClass, static_cast<void(TestClass::*)(int)>(&TestClass::testSignal), this, static_cast<void(Widget::*)(int)>(&Widget::onTestSlot));
-// Давайте перепишем этот пример с использованием QOverload
+    // включаем границы таблиц (ДЛЯ НАГЛЯДНОСТИ)
+    GP::GP.TABLE_BORDER(true);
 
-// connect(m_testClass, QOverload<int>::of(&TestClass::testSignal), this, QOverload<int>::of(&Widget::onTestSlot));
-// Запись стала не только короче, но и более понятной.
+    // делаем таблицу вручную
+    GP::GP.TITLE("Manual Table");
+    GP::GP.TABLE_BEGIN();
 
-struct Flag {
-};
+    GP::GP.TR();
+    GP::GP.TD();
+    GP::GP.LABEL("Row 1");
+    GP::GP.TD();
+    GP::GP.CHECK("");
 
-template <typename Ty, typename... Ts>
-struct Printable : std::tuple<Ts...>, Flag {
-    static constexpr size_t Size = sizeof...(Ts);
-    //    enum {
-    //        Size = sizeof...(Ts)
-    //    };
-    using tuple = std::tuple<Ts...>;
-    //    Printable(Printable&&) = delete;
-    //    Printable(const Printable&) = delete;
-    void build() {
-        print_impl(*static_cast<Ty*>(this), std::make_index_sequence<Size>{});
-    }
+    GP::GP.TR();
+    GP::GP.TD();
+    GP::GP.LABEL("Row 2");
+    GP::GP.TD();
+    GP::GP.CHECK("");
 
-private:
-    template <typename _Ty, size_t... Is>
-    static void print_impl(_Ty& t, std::index_sequence<Is...>) {
-        if constexpr(std::is_base_of_v<Flag, _Ty>) {
-            t.begin();
-            ([](auto&& val) {
-                using T = std::decay_t<decltype(val)>;
-                if constexpr(std::is_base_of_v<Flag, T>)
-                    print_impl(val, std::make_index_sequence<T::Size>{});
-                else
-                    print_impl(val, std::index_sequence<>{});
-            }(std::get<Is>(t)),
-                ...);
-            t.end();
-        } else {
-            GP::GP.PUT_OBJ(t);
-        }
-    }
-};
+    GP::GP.TABLE_END();
 
-template <typename Ty, typename... Ts>
-Printable(Ty, Ts...) -> Printable<Ty, Ts...>;
+    //    // делаем таблицу с объединением ячеек
+    //    GP::GP.TITLE("Span Table");
+    //    GP::GP.TABLE_BEGIN();
 
-/// \brief The BOX class
-template <typename... Ts>
-struct BOX : Printable<BOX<Ts...>, Ts...> {
-    using P = Printable<BOX<Ts...>, Ts...>;
-    BOX(Ts&&... ts)
-        : P{{std::forward<Ts>(ts)...}} { }
-    void begin() const { GP::GP.BOX_BEGIN(); }
-    void end() const { GP::GP.BOX_END(); }
-};
+    //    GP::GP.TR();
+    //    GP::GP.TD(GP::Align::CENTER, 2);
+    //    GP::GP.LABEL("Big table cell");
 
-template <typename... Ts>
-BOX(Ts&&...) -> BOX<Ts...>;
+    //    GP::GP.TR();
+    //    GP::GP.TD();
+    //    GP::GP.LABEL("First");
+    //    GP::GP.TD();
+    //    GP::GP.LABEL("Second");
 
-/// \brief The GRID class
-template <typename... Ts>
-struct GRID : Printable<GRID<Ts...>, Ts...> {
-    using P = Printable<GRID<Ts...>, Ts...>;
-    GRID(Ts&&... ts)
-        : P{{std::forward<Ts>(ts)...}} { }
-    void begin() const { GP::GP.GRID_BEGIN(); }
-    void end() const { GP::GP.GRID_END(); }
-};
+    //    GP::GP.TABLE_END();
 
-template <typename... Ts>
-GRID(Ts&&...) -> GRID<Ts...>;
+    // авто таблица 1
+    GP::GP.TITLE("Auto Table 1");
+    GP::M_TABLE(
+        GP::FOR(2, // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
+            GP::M_TR(
+                GP::LABEL("", String("Switch #")), GP::SWITCH(""), GP::SWITCH(""), GP::SWITCH(""), GP::SWITCH(""))))
+        .build();
 
-/// \brief The BLOCK_THIN_TAB class
-template <typename... Ts>
-struct BLOCK_THIN_TAB : Printable<BLOCK_THIN_TAB<Ts...>, Ts...> {
-    using P = Printable<BLOCK_THIN_TAB<Ts...>, Ts...>;
-    String name;
-    BLOCK_THIN_TAB(const String& name, Ts&&... ts)
-        : P{{std::forward<Ts>(ts)...}}
-        , name{name} { }
-    void begin() const { GP::GP.BLOCK_THIN_TAB_BEGIN(name); }
-    void end() const { GP::GP.BLOCK_END(); }
-};
+    GP::GP.TITLE("Auto Table 2");
+    GP::M_TABLE(
+        GP::M_TR( // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
+            GP::LABEL("", String("Switch #")), GP::SWITCH(""), GP::SWITCH("")),
+        GP::M_TR( // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
+            GP::LABEL("", String("Switch #")), GP::SWITCH(""), GP::SWITCH("")),
+        GP::M_TR( // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
+            GP::LABEL("", String("Switch #")), GP::SWITCH(""), GP::SWITCH("")),
+        GP::M_TR( // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
+            GP::LABEL("", String("Switch #")), GP::SWITCH(""), GP::SWITCH("")))
+        .build();
 
-template <typename... Ts>
-BLOCK_THIN_TAB(const String&, Ts&&...) -> BLOCK_THIN_TAB<Ts...>;
+    // авто таблица 2
+    // с указанием размеров ячеек
+    GP::GP.TITLE("Auto Table 2");
+    GP::M_TABLE("30%,20%,50%",
+        GP::FOR{5,
+            GP::M_TR(
+                GP::LABEL("", String("Label #")), GP::CHECK(""), GP::BUTTON("", "Btn"))
+
+        })
+        .build();
+
+    // авто таблица 3
+    // с указанием ориентации ячеек
+    GP::GP.TITLE("Auto Table 3");
+    GP::M_TABLE("", std::array{GP::Align::LEFT, GP::Align::CENTER, GP::Align::RIGHT},
+        GP::FOR{3,
+            GP::M_TR(GP::LABEL("", String("#")), GP::CHECK(""), GP::LED(""))})
+        .build(); //);
+
+    GP::GP.BUILD_END();
+}
 
 void setup() {
     Serial.begin(115200);
-    WiFi.mode(WIFI_STA);
-    WiFi.begin(AP_SSID, AP_PASS);
-    while(WiFi.status() != WL_CONNECTED) {
-        delay(500);
-        Serial.print(".");
-    }
-    Serial.println(WiFi.localIP());
-
+    ui.attachBuild(build);
     ui.start();
-    ui.attachBuild([] {
-        GP::GP.BUILD_BEGIN();
-        GP::GP.THEME(GP::DARK);
-        *GP::tmpPageBuf += "<!--//////////////////////////////////////////-->\n";
-
-        GRID(
-            BLOCK_THIN_TAB("Котел",
-                BLOCK_THIN_TAB("Отопление",
-                    BOX(GP::LABEL("", "Темп. прямой"), GP::LABEL("t_in", "30")),
-                    BOX(GP::LABEL("", "Темп. обратн"), GP::LABEL("t_out", "22"))),
-                BLOCK_THIN_TAB("Горячая вода",
-                    BOX(GP::LABEL("", "Темп. хол."), GP::LABEL("t_cold", "23")),
-                    BOX(GP::LABEL("", "Темп. гор."), GP::LABEL("t_hot", "24"))),
-                BOX{
-                    GP::LABEL("", "Нагрев вкл"),
-                    GP::LED("boilerOn0", false),
-                    GP::LED("boilerOn1", true),
-                    GP::LED("boilerOn2", false),
-                    GP::LED("boilerOn3", true),
-                }))
-            .build();
-
-        GRID(
-            BLOCK_THIN_TAB("UPS",
-                BOX(GP::LABEL("", "Вход"), GP::NUMBER("v_in", "", 221)),
-                BOX(GP::LABEL("", "Выход"), GP::NUMBER("v_out", "", 220))))
-            .build();
-
-        GP::GP.PUT_OBJ(GP::AREA("", ""));
-        GP::GP.PUT_OBJ(GP::BUTTON_MINI("", ""));
-        GP::GP.PUT_OBJ(GP::BUTTON("", ""));
-        GP::GP.PUT_OBJ(GP::CHECK("", ""));
-        //        GP::GP.PUT_OBJ(GP::COLOR("", ""));
-        //        GP::GP.PUT_OBJ(GP::DATE("", ""));
-        GP::GP.PUT_OBJ(GP::LABEL_BLOCK("", ""));
-        GP::GP.PUT_OBJ(GP::LABEL("", ""));
-        GP::GP.PUT_OBJ(GP::LED_GREEN("", ""));
-        GP::GP.PUT_OBJ(GP::LED_RED("", ""));
-        GP::GP.PUT_OBJ(GP::LED("", ""));
-        GP::GP.PUT_OBJ(GP::NUMBER_F("", ""));
-        GP::GP.PUT_OBJ(GP::NUMBER("", ""));
-        GP::GP.PUT_OBJ(GP::PASS("", ""));
-        //        GP::GP.PUT_OBJ(GP::RADIO("", ""));
-        GP::GP.PUT_OBJ(GP::SELECT("", ""));
-        //        GP::GP.PUT_OBJ(GP::SLIDER("", ""));
-        //        GP::GP.PUT_OBJ(GP::SPINNER("", ""));
-        GP::GP.PUT_OBJ(GP::SWITCH("", ""));
-        GP::GP.PUT_OBJ(GP::TEXT("", ""));
-        //        GP::GP.PUT_OBJ(GP::TIME("", ""));
-        GP::GP.PUT_OBJ(GP::TITLE("", ""));
-
-        //        BLOCK_THIN_TAB b("UPS",
-        //            BOX(GP::LABEL("", "Вход"), GP::NUMBER("v_in", "", 221)),
-        //            BOX(GP::LABEL("", "Выход"), GP::NUMBER("v_out", "", 220)));
-        //        b.build();
-
-        *GP::tmpPageBuf += "<!--//////////////////////////////////////////-->\n";
-
-        GP::GP.BUILD_END();
-    });
-
-    ui.attach([](GP::GyverPortal& p) {
-        //        if (p.click("clk"))
-        //            Serial.println("Button click");
-        //        if (p.click("ext")) {
-        //            Serial.println("Exit portal");
-        //            p.stop();
-        //        }
-    });
 }
 
 void loop() {
-    // ui.tick();
+    ui.tick();
 }
 
 #endif
@@ -348,7 +264,7 @@ MainWindow::MainWindow(QWidget* parent)
     //    });
     connect(view->page(), &QWebEnginePage::loadFinished, [=](bool ok) {
         using std::placeholders::_1;
-        if(ok)
+        if (ok)
             //           view->page()->toHtml(std::bind(&QTextEdit::setPlainText, textEdit, _1));
             view->page()->toHtml([textEdit](const QString& xmlIn) {
                 QString xmlOut{};
@@ -356,7 +272,7 @@ MainWindow::MainWindow(QWidget* parent)
                 static QRegularExpression tagRr(R"((<(\w+))?.*(<\\(\w+)>)?)");
                 static QRegularExpression tagRr2(R"(<[^\]\w+))");
                 int i{-4};
-                for(auto&& var: QString(xmlIn).replace("><", ">\n<").split('\n')) {
+                for (auto&& var: QString(xmlIn).replace("><", ">\n<").split('\n')) {
                     //                    if(var.startsWith('<') && !var.startsWith("</") && !var.startsWith("<meta")) ++i;
                     //                    if(var.contains("</")) --i;
                     xmlOut += QString(i * 3, ' ') + var + '\n';

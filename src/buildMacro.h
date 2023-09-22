@@ -3,11 +3,214 @@
 // GP Macro
 
 #include "builder.h"
+#include "objects.h"
+#include "utils.h"
 
 namespace GP {
 
-}
+struct Flag { };
 
+template <typename Ty, typename... Ts>
+struct Printable : std::tuple<Ts...>, Flag {
+    static constexpr size_t Size = sizeof...(Ts);
+    using tuple = std::tuple<Ts...>;
+    using tuple::tuple;
+    //    enum {
+    //        Size = sizeof...(Ts)
+    //    };
+    //    Printable(Printable&&) = delete;
+    //    Printable(const Printable&) = delete;
+    void build() const {
+        print_impl(*static_cast<const Ty*>(this), std::make_index_sequence<Size>{});
+    }
+
+    mutable int i{};
+
+private:
+    template <typename _Ty, size_t... Is>
+    /*static*/ void print_impl(const _Ty& t, std::index_sequence<Is...>) const {
+        if constexpr (std::is_base_of_v<Flag, _Ty>) {
+            t.begin();
+            ([this](auto&& val) {
+                using T = std::decay_t<decltype(val)>;
+                if constexpr (std::is_base_of_v<Flag, T>)
+                    print_impl(val, std::make_index_sequence<T::Size>{});
+                else
+                    print_impl(val, std::index_sequence<>{});
+            }(std::get<Is>(t)),
+                ...);
+            t.end();
+        } else {
+            static_cast<const Ty*>(this)->begin2();
+            if constexpr (std::is_base_of_v<HasText, _Ty>) {
+                if (t.text.endsWith("#")) {
+                    auto copy{t};
+                    copy.text += i;
+                    GP.PUT_OBJ(copy);
+                } else {
+                    GP.PUT_OBJ(t);
+                }
+            } else
+                GP.PUT_OBJ(t);
+            static_cast<const Ty*>(this)->end2();
+        }
+    }
+};
+
+template <typename Ty, typename... Ts>
+Printable(Ty, Ts...) -> Printable<Ty, Ts...>;
+
+/// \brief The BOX class
+template <typename... Ts>
+struct BOX : Printable<BOX<Ts...>, Ts...> {
+    using P = Printable<BOX<Ts...>, Ts...>;
+    BOX(Ts&&... ts)
+        : P{std::forward<Ts>(ts)...} { }
+    void begin() const { GP.BOX_BEGIN(); }
+    void begin2() const { }
+    void end() const { GP.BOX_END(); }
+    void end2() const { }
+};
+
+template <typename... Ts>
+BOX(Ts&&...) -> BOX<Ts...>;
+
+/// \brief The GRID class
+template <typename... Ts>
+struct GRID : Printable<GRID<Ts...>, Ts...> {
+    using P = Printable<GRID<Ts...>, Ts...>;
+    GRID(Ts&&... ts)
+        : P{std::forward<Ts>(ts)...} { }
+    void begin() const { GP.GRID_BEGIN(); }
+    void begin2() const { }
+    void end() const { GP.GRID_END(); }
+    void end2() const { }
+};
+
+template <typename... Ts>
+GRID(Ts&&...) -> GRID<Ts...>;
+
+/// \brief The BLOCK_THIN_TAB class
+template <typename... Ts>
+struct BLOCK_THIN_TAB : Printable<BLOCK_THIN_TAB<Ts...>, Ts...> {
+    using P = Printable<BLOCK_THIN_TAB<Ts...>, Ts...>;
+    String name;
+    BLOCK_THIN_TAB(const String& name, Ts&&... ts)
+        : P{std::forward<Ts>(ts)...}
+        , name{name} { }
+    void begin() const { GP.BLOCK_THIN_TAB_BEGIN(name); }
+    void begin2() const { }
+    void end() const { GP.BLOCK_END(); }
+    void end2() const { }
+};
+
+template <typename... Ts>
+BLOCK_THIN_TAB(const String&, Ts&&...) -> BLOCK_THIN_TAB<Ts...>;
+
+/// \brief The BLOCK_THIN_TAB class
+template <typename... Ts>
+struct M_TR : Printable<M_TR<Ts...>, Ts...> {
+    using P = Printable<M_TR<Ts...>, Ts...>;
+    String name;
+    M_TR(const String& name, Ts&&... ts)
+        : P{std::forward<Ts>(ts)...}
+        , name{name} { }
+    M_TR(Ts&&... ts)
+        : P{std::forward<Ts>(ts)...} { }
+
+    void begin() const { GP.TR(); }
+    void begin2() { GP.TD(); }
+    void end() const { }
+    void end2() const { }
+};
+
+template <typename... Ts>
+M_TR(const String&, Ts&&...) -> M_TR<Ts...>;
+template <typename... Ts>
+M_TR(Ts&&...) -> M_TR<Ts...>;
+
+/// \brief The BLOCK_THIN_TAB class
+template <size_t N, typename... Ts>
+struct M_TABLE : Printable<M_TABLE<N, Ts...>, Ts...> {
+    using P = Printable<M_TABLE<N, Ts...>, Ts...>;
+    String name;
+    std::array<Align, N> align;
+
+    M_TABLE(const String& name, Ts&&... ts)
+        : P{std::forward<Ts>(ts)...}
+        , name{name} { }
+
+    M_TABLE(Ts&&... ts)
+        : P{std::forward<Ts>(ts)...} { }
+
+    M_TABLE(const String& name, const std::array<Align, N>& align, Ts&&... ts)
+        : P{std::forward<Ts>(ts)...}
+        , name{name}
+        , align{align} { }
+
+    M_TABLE(const std::array<Align, N>& align, Ts&&... ts)
+        : P{std::forward<Ts>(ts)...}
+        , align{align} { }
+
+    void begin() const { GP.TABLE_BEGIN(name, N ? const_cast<Align*>(align.data()) : nullptr); }
+    void begin2() const { GP.TD(); }
+    void end() const { GP.TABLE_END(); }
+    void end2() const { }
+};
+
+template <size_t N, typename... Ts>
+M_TABLE(const String&, std::array<Align, N>, Ts&&...) -> M_TABLE<N, Ts...>;
+template <size_t N, typename... Ts>
+M_TABLE(const char*, std::array<Align, N>, Ts&&...) -> M_TABLE<N, Ts...>;
+template <size_t N, typename... Ts>
+M_TABLE(std::array<Align, N>, Ts&&...) -> M_TABLE<N, Ts...>;
+
+template <typename... Ts>
+M_TABLE(const String&, Ts&&...) -> M_TABLE<0, Ts...>;
+template <typename... Ts>
+M_TABLE(const char*, Ts&&...) -> M_TABLE<0, Ts...>;
+template <typename... Ts>
+M_TABLE(Ts&&...) -> M_TABLE<0, Ts...>;
+
+// template <size_t N, typename... Ts>
+// M_TABLE(const String&, Align (&)[N], Ts&&...) -> M_TABLE<N, Ts...>;
+// template <size_t N, typename... Ts>
+// M_TABLE(const char*, Align (&)[N], Ts&&...) -> M_TABLE<N, Ts...>;
+// template <size_t N, typename... Ts>
+// M_TABLE(Align (&)[N], Ts&&...) -> M_TABLE<N, Ts...>;
+
+// inline struct {
+//     int i{};
+//     operator int() { return i; }
+//     auto& operator=(int i_) { return i = i_, *this; }
+//     auto& operator++() { return ++i, *this; }
+// } I;
+
+template <typename... Ts>
+struct FOR : Printable<FOR<Ts...>, Ts...> {
+    using P = Printable<FOR<Ts...>, Ts...>;
+    int count{};
+    FOR(int count, Ts&&... ts)
+        : P{std::forward<Ts>(ts)...}
+        , count{count} { }
+    void begin() const {
+        qDebug() << P::i;
+        if (P::i == count) P::i = 0;
+    }
+    void begin2() const { GP.TD(); }
+    void end() const {
+        qDebug() << P::i;
+        if (++P::i == count) return;
+        P::build();
+    }
+    void end2() const { }
+};
+template <typename... Ts>
+FOR(int, Ts&&...) -> FOR<Ts...>;
+
+} // namespace GP
+
+#if 0
 // https://stackoverflow.com/a/30566098
 #define OVR_MACRO(M, ...)                                      _OVR(M, _COUNT_ARGS(__VA_ARGS__))(__VA_ARGS__)
 #define _OVR(mName, nArgs)                                     _OVR_EXPAND(mName, nArgs)
@@ -243,3 +446,5 @@ namespace GP {
 #define GP_MAKE_JQ_UPDATE(...)      M_JQ_UPDATE(__VA_ARGS__)
 #define GP_MAKE_NAV_BLOCK(...)      M_NAV_BLOCK(__VA_ARGS__)
 #define GP_MAKE_SPOILER(...)        M_SPOILER(__VA_ARGS__)
+
+#endif
