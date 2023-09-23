@@ -36,27 +36,27 @@ inline constexpr bool is_same_v = is_same<T, U>::value;
 extern String __empty_str__;
 
 // ==================== COLORS =====================
-[[maybe_unused]] GP_PGM(RED, "#bf1e1e");
-[[maybe_unused]] GP_PGM(RED_B, "#e11414");
-[[maybe_unused]] GP_PGM(PINK, "#bb32aa");
-[[maybe_unused]] GP_PGM(PINK_B, "#db13c1");
-[[maybe_unused]] GP_PGM(VIOL, "#802ecb");
-[[maybe_unused]] GP_PGM(VIOL_B, "#a60cf5");
-[[maybe_unused]] GP_PGM(BLUE, "#3b3ebd");
-[[maybe_unused]] GP_PGM(BLUE_B, "#353aff");
-[[maybe_unused]] GP_PGM(CYAN, "#1f8fa9");
-[[maybe_unused]] GP_PGM(CYAN_B, "#06b3db");
-[[maybe_unused]] GP_PGM(GREEN, "#37a93c");
-[[maybe_unused]] GP_PGM(GREEN_B, "#25d52c");
-[[maybe_unused]] GP_PGM(YELLOW_B, "#ffff00");
-[[maybe_unused]] GP_PGM(YELLOW, "#b4b700");
-[[maybe_unused]] GP_PGM(ORANGE, "#b37f0d");
-[[maybe_unused]] GP_PGM(ORANGE_B, "#ff4500");
-[[maybe_unused]] GP_PGM(GRAY, "#5e5e5e");
-[[maybe_unused]] GP_PGM(GRAY_B, "#9c9ea1");
-[[maybe_unused]] GP_PGM(BLACK, "#13161a");
-[[maybe_unused]] GP_PGM(WHITE, "#fff");
-[[maybe_unused]] GP_PGM(DEFAULT, "#fff");
+[[maybe_unused]] inline GP_PGM(RED, "#bf1e1e");
+[[maybe_unused]] inline GP_PGM(RED_B, "#e11414");
+[[maybe_unused]] inline GP_PGM(PINK, "#bb32aa");
+[[maybe_unused]] inline GP_PGM(PINK_B, "#db13c1");
+[[maybe_unused]] inline GP_PGM(VIOL, "#802ecb");
+[[maybe_unused]] inline GP_PGM(VIOL_B, "#a60cf5");
+[[maybe_unused]] inline GP_PGM(BLUE, "#3b3ebd");
+[[maybe_unused]] inline GP_PGM(BLUE_B, "#353aff");
+[[maybe_unused]] inline GP_PGM(CYAN, "#1f8fa9");
+[[maybe_unused]] inline GP_PGM(CYAN_B, "#06b3db");
+[[maybe_unused]] inline GP_PGM(GREEN, "#37a93c");
+[[maybe_unused]] inline GP_PGM(GREEN_B, "#25d52c");
+[[maybe_unused]] inline GP_PGM(YELLOW_B, "#ffff00");
+[[maybe_unused]] inline GP_PGM(YELLOW, "#b4b700");
+[[maybe_unused]] inline GP_PGM(ORANGE, "#b37f0d");
+[[maybe_unused]] inline GP_PGM(ORANGE_B, "#ff4500");
+[[maybe_unused]] inline GP_PGM(GRAY, "#5e5e5e");
+[[maybe_unused]] inline GP_PGM(GRAY_B, "#9c9ea1");
+[[maybe_unused]] inline GP_PGM(BLACK, "#13161a");
+[[maybe_unused]] inline GP_PGM(WHITE, "#fff");
+[[maybe_unused]] inline GP_PGM(__DEFAULT__, "#fff");
 
 enum class Align {
     CENTER,      // 0

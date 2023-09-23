@@ -579,7 +579,7 @@ struct Builder {
         send();
     }
 
-    void BLOCK_BEGIN(Block type, const String& width = "", const String& text = "", PGM_P st = DEFAULT) {
+    void BLOCK_BEGIN(Block type, const String& width = "", const String& text = "", PGM_P st = __DEFAULT__) {
         *tmpPageBuf += F("<div class='");
         if (type != Block::DIV_RAW) *tmpPageBuf += F("blockBase");
         if (type != Block::DIV && type != Block::DIV_RAW) {
@@ -595,7 +595,7 @@ struct Builder {
             *tmpPageBuf += width;
             *tmpPageBuf += "'";
         }
-        if (type == Block::THIN && st != DEFAULT) {
+        if (type == Block::THIN && st != __DEFAULT__) {
             *tmpPageBuf += F(" style='border:2px solid");
             *tmpPageBuf += FPSTR(st);
             *tmpPageBuf += "'";
@@ -608,7 +608,7 @@ struct Builder {
                 HR();
             } else if (type == Block::TAB) {
                 *tmpPageBuf += F("<div class='blockHeader'");
-                if (st != DEFAULT) {
+                if (st != __DEFAULT__) {
                     *tmpPageBuf += F(" style='background:");
                     *tmpPageBuf += FPSTR(st);
                     *tmpPageBuf += "'";
@@ -619,7 +619,7 @@ struct Builder {
             } else if (type == Block::THIN) {
                 *tmpPageBuf += F("<div class='blockHeader thinTab'>");
                 *tmpPageBuf += F("<span class='thinText'");
-                if (st != DEFAULT) {
+                if (st != __DEFAULT__) {
                     *tmpPageBuf += F(" style='color:");
                     *tmpPageBuf += FPSTR(st);
                     *tmpPageBuf += "'";
@@ -636,7 +636,7 @@ struct Builder {
         BLOCK_BEGIN(Block::TAB, width);
     }
 
-    void BLOCK_TAB_BEGIN(const String& label, const String& width = "", PGM_P st = DEFAULT) {
+    void BLOCK_TAB_BEGIN(const String& label, const String& width = "", PGM_P st = __DEFAULT__) {
         BLOCK_BEGIN(Block::TAB, width, label, st);
     }
     void BLOCK_THIN_BEGIN(const String& width = "") {
@@ -667,7 +667,7 @@ struct Builder {
     }
 
     // ======================= ТЕКСТ =======================
-    void TAG_RAW(const String& tag, const String& val, const String& name = "", PGM_P st = DEFAULT, int size = 0, bool bold = 0, bool wrap = 0, PGM_P back = DEFAULT) {
+    void TAG_RAW(const String& tag, const String& val, const String& name = "", PGM_P st = __DEFAULT__, int size = 0, bool bold = 0, bool wrap = 0, PGM_P back = __DEFAULT__) {
         *tmpPageBuf += F("<");
         *tmpPageBuf += tag;
         if (name.length()) {
@@ -676,12 +676,12 @@ struct Builder {
             *tmpPageBuf += "'";
         }
         *tmpPageBuf += F(" style='");
-        if (st != DEFAULT) {
+        if (st != __DEFAULT__) {
             *tmpPageBuf += F("color:");
             *tmpPageBuf += FPSTR(st);
             *tmpPageBuf += ';';
         }
-        if (back != DEFAULT) {
+        if (back != __DEFAULT__) {
             *tmpPageBuf += F("background-color:");
             *tmpPageBuf += FPSTR(back);
             *tmpPageBuf += ';';
@@ -701,18 +701,18 @@ struct Builder {
         send();
     }
 
-    void TITLE(const String& text, const String& name = "", PGM_P style = DEFAULT, int size = 0, bool bold = 0) {
+    void TITLE(const String& text, const String& name = "", PGM_P style = __DEFAULT__, int size = 0, bool bold = 0) {
         TAG_RAW(F("h2"), text, name, style, size, bold);
     }
-    void LABEL(const String& text, const String& name = "", PGM_P style = DEFAULT, int size = 0, bool bold = 0, bool wrap = 0) {
+    void LABEL(const String& text, const String& name = "", PGM_P style = __DEFAULT__, int size = 0, bool bold = 0, bool wrap = 0) {
         TAG_RAW(F("label"), text, name, style, size, bold, wrap);
     }
     void LABEL_BLOCK(const String& text, const String& name = "", PGM_P style = GREEN, int size = 0, bool bold = 0) {
-        TAG_RAW(F("label class='display'"), text, name, DEFAULT, size, bold, 0, style);
+        TAG_RAW(F("label class='display'"), text, name, __DEFAULT__, size, bold, 0, style);
     }
 
     // устарело
-    void SPAN(const String& text, Align al = Align::CENTER, const String& name = "", PGM_P st = DEFAULT, int size = 0, bool bold = 0) {
+    void SPAN(const String& text, Align al = Align::CENTER, const String& name = "", PGM_P st = __DEFAULT__, int size = 0, bool bold = 0) {
         if (al != Align::CENTER) {
             *tmpPageBuf += F("<div style='text-align:");
             *tmpPageBuf += FPSTR(getAlign(al));
@@ -722,11 +722,11 @@ struct Builder {
         *tmpPageBuf += F("</div>\n");
         send();
     }
-    void PLAIN(const String& text, const String& name = "", PGM_P st = DEFAULT) {
+    void PLAIN(const String& text, const String& name = "", PGM_P st = __DEFAULT__) {
         TAG_RAW(F("p"), text, name, st);
         send();
     }
-    void BOLD(const String& text, const String& name = "", PGM_P st = DEFAULT) {
+    void BOLD(const String& text, const String& name = "", PGM_P st = __DEFAULT__) {
         TAG_RAW(F("strong"), text, name, st);
         send();
     }
@@ -791,7 +791,7 @@ struct Builder {
         SEND(F("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>\n"));
     }
 
-    String ICON(const String& faname, int size = 20, PGM_P st = DEFAULT) {
+    String ICON(const String& faname, int size = 20, PGM_P st = __DEFAULT__) {
         String s(F("<i class='fa fa-"));
         s += faname;
         s += F("' style='");
@@ -800,7 +800,7 @@ struct Builder {
             s += size;
             s += F("px;");
         }
-        if (st != DEFAULT) {
+        if (st != __DEFAULT__) {
             s += F("color:");
             s += FPSTR(st);
             s += ";";
@@ -808,11 +808,11 @@ struct Builder {
         s += F("'></i>");
         return s;
     }
-    String ICON_FILE(const String& uri, int size = 20, PGM_P st = DEFAULT) {
+    String ICON_FILE(const String& uri, int size = 20, PGM_P st = __DEFAULT__) {
         String s(F("<i class='i_mask' style='-webkit-mask:center/contain no-repeat url("));
         s += uri;
         s += F(");");
-        if (st != DEFAULT) {
+        if (st != __DEFAULT__) {
             s += F("background-color:");
             s += FPSTR(st);
             s += ";";
@@ -839,10 +839,10 @@ struct Builder {
         *tmpPageBuf += F("</div>");
     }
 
-    void ICON_BUTTON(const String& name, const String& faname, int size = 0, PGM_P st = DEFAULT) {
+    void ICON_BUTTON(const String& name, const String& faname, int size = 0, PGM_P st = __DEFAULT__) {
         ICON_BUTTON_RAW(name, ICON(faname, size, st));
     }
-    void ICON_FILE_BUTTON(const String& name, const String& uri, int size = 0, PGM_P st = DEFAULT) {
+    void ICON_FILE_BUTTON(const String& name, const String& uri, int size = 0, PGM_P st = __DEFAULT__) {
         ICON_BUTTON_RAW(name, ICON_FILE(uri, size, st));
     }
 
@@ -1847,8 +1847,8 @@ struct Builder {
         send();
     }
 
-    void RADIO(const String& name, int num, int val = -1, PGM_P st = DEFAULT, bool dis = 0) {
-        if (st != DEFAULT) {
+    void RADIO(const String& name, int num, int val = -1, PGM_P st = __DEFAULT__, bool dis = 0) {
+        if (st != __DEFAULT__) {
             *tmpPageBuf += F("<style>.rad_");
             *tmpPageBuf += name;
             *tmpPageBuf += F(":after{border-color:");
@@ -2341,8 +2341,6 @@ struct Builder {
     void PUT_OBJ(const GP::LABEL& label) { this->LABEL(label.text, label.name, label.style, label.size, label.bold, label.wrap); }
     void PUT_OBJ(const GP::LABEL_BLOCK& label) { this->LABEL_BLOCK(label.text, label.name, label.style, label.size, label.bold); }
     void PUT_OBJ(const GP::LED& led) { this->LED(led.name, led.state); }
-    void PUT_OBJ(const GP::LED_GREEN& led) { this->LED_GREEN(led.name, led.state); }
-    void PUT_OBJ(const GP::LED_RED& led) { this->LED_RED(led.name, led.state); }
     void PUT_OBJ(const GP::NUMBER& num) { this->NUMBER_RAW(num.name, num.placeholder, (num.value == INT32_MAX ? String("") : String(num.value)), num.min, num.max, num.width, num.pattern, num.disabled); }
     void PUT_OBJ(const GP::NUMBER_F& num) { this->NUMBER_F(num.name, num.placeholder, num.value, num.decimals, num.width, num.disabled), NUMBER_RAW(num.name, num.placeholder, (isnan(num.value) ? String("") : String(num.value, (uint16_t)num.decimals)), num.min, num.max, num.width, num.pattern, num.disabled); }
     void PUT_OBJ(const GP::PASS& pas) { this->PASS(pas.name, pas.placeholder, pas.text, pas.width, pas.maxlen, pas.pattern, pas.disabled, pas.eye); }

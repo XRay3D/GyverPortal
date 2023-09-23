@@ -15,7 +15,7 @@ struct TD { };
 struct TR { };
 
 struct TITLE : HasText {
-    TITLE(const char* name = nullptr, const String& text = {}, PGM_P style = DEFAULT, int size = 0, bool bold = 0)
+    TITLE(const char* name = nullptr, const String& text = {}, PGM_P style = __DEFAULT__, int size = 0, bool bold = 0)
         : name{name}
         , text{text}
         , style{style}
@@ -28,7 +28,7 @@ struct TITLE : HasText {
     bool bold;
 };
 struct LABEL : HasText {
-    LABEL(const char* name = nullptr, const String& text = {}, PGM_P style = DEFAULT, int size = 0, bool bold = 0, bool wrap = 0)
+    LABEL(const char* name = nullptr, const String& text = {}, PGM_P style = __DEFAULT__, int size = 0, bool bold = 0, bool wrap = 0)
         : name{name}
         , text{text}
         , style{style}
@@ -323,7 +323,7 @@ struct SELECT {
 };
 
 struct RADIO {
-    RADIO(const char* name = nullptr, int num = 0, int value = -1, PGM_P style = DEFAULT, bool disabled = 0)
+    RADIO(const char* name = nullptr, int num = 0, int value = -1, PGM_P style = __DEFAULT__, bool disabled = 0)
         : name{name}
         , num{num}
         , value{value}

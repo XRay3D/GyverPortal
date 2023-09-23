@@ -1,0 +1,3010 @@
+* ЭТАЛОННАЯ СБОРКА
+```
+FQBN: esp8266:esp8266:d1_mini_pro
+Using board 'd1_mini_pro' from platform in folder: /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2
+Using core 'esp8266' from platform in folder: /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2
+
+/home/x-ray/.arduino15/packages/esp8266/tools/python3/3.7.2-post1/python3
+         -I /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/mkbuildoptglobals.py /tmp/.private/x-ray/.mount_arduinChE70F/resources/app/lib/backend/resources 10607 /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4 /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt /tmp/.private/x-ray/.arduinoIDE-unsaved2023823-34695-13sjo30.glzci/tables/tables.ino.globals.h /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266/CommonHFile.h
+default_encoding:       UTF-8
+Assume aggressive 'core.a' caching enabled.
+Clean build, created dir /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+Note: optional global include file '/tmp/.private/x-ray/.arduinoIDE-unsaved2023823-34695-13sjo30.glzci/tables/tables.ino.globals.h' does not exist.
+  Read more at https://arduino-esp8266.readthedocs.io/en/latest/faq/a06-global-build-options.html
+Detecting libraries used...
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/sketch/tables.ino.cpp
+         -o /dev/null
+Alternatives for GyverPortal.h: [GyverPortal@3.6.6]
+ResolveLibrary(GyverPortal.h)
+  -> candidates: [GyverPortal@3.6.6]
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/sketch/tables.ino.cpp
+         -o /dev/null
+Alternatives for DNSServer.h: [DNSServer@1.1.1]
+ResolveLibrary(DNSServer.h)
+  -> candidates: [DNSServer@1.1.1]
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/sketch/tables.ino.cpp
+         -o /dev/null
+Alternatives for WiFiUdp.h: [ESP8266WiFi@1.0]
+ResolveLibrary(WiFiUdp.h)
+  -> candidates: [ESP8266WiFi@1.0]
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/sketch/tables.ino.cpp
+         -o /dev/null
+Alternatives for ESP8266WebServer.h: [ESP8266WebServer@1.0]
+ResolveLibrary(ESP8266WebServer.h)
+  -> candidates: [ESP8266WebServer@1.0]
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/sketch/tables.ino.cpp
+         -o /dev/null
+Alternatives for ESP8266mDNS.h: [ESP8266mDNS@1.2]
+ResolveLibrary(ESP8266mDNS.h)
+  -> candidates: [ESP8266mDNS@1.2]
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/sketch/tables.ino.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/Arduino/libraries/GyverPortal/src/GyverPortal.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/Arduino/libraries/GyverPortal/src/utils.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src/DNSServer.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/BearSSLHelpers.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/CertStoreBearSSL.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFi.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiAP.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiGeneric.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiGratuitous.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiMulti.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiSTA-WPS.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiSTA.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiScan.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/WiFiClient.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/WiFiClientSecureBearSSL.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/WiFiServer.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/WiFiServerSecureBearSSL.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/WiFiUdp.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/enable_wifi_at_boot_time.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src/detail/mimetable.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src/ESP8266mDNS.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src/LEAmDNS.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src/LEAmDNS_Control.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src/LEAmDNS_Helpers.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src/LEAmDNS_Structs.cpp
+         -o /dev/null
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src/LEAmDNS_Transfer.cpp
+         -o /dev/null
+Generating function prototypes...
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/none-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -w
+         -x c++
+         -E
+         -CC
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266
+         -DARDUINO_BOARD="ESP8266_WEMOS_D1MINIPRO"
+         -DARDUINO_BOARD_ID="d1_mini_pro"
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/sketch/tables.ino.cpp
+         -o /tmp/.private/x-ray/3495714788/sketch_merged.cpp
+/home/x-ray/.arduino15/packages/builtin/tools/ctags/5.8-arduino11/ctags
+         -u --language-force=c++
+         -f - --c++-kinds=svpf --fields=KSTtzns --line-directives /tmp/.private/x-ray/3495714788/sketch_merged.cpp
+Компиляция скетча...
+/home/x-ray/.arduino15/packages/esp8266/tools/python3/3.7.2-post1/python3
+         -I /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/signing.py --mode header --publickey /tmp/.private/x-ray/.arduinoIDE-unsaved2023823-34695-13sjo30.glzci/tables/public.key --out /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/Updater_Signing.h
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/sketch/tables.ino.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/sketch/tables.ino.cpp.o
+Compiling libraries...
+Compiling library "GyverPortal"
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/Arduino/libraries/GyverPortal/src/GyverPortal.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/GyverPortal/GyverPortal.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/Arduino/libraries/GyverPortal/src/utils.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/GyverPortal/utils.cpp.o
+Compiling library "DNSServer"
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src/DNSServer.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/DNSServer/DNSServer.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/DNSServer/DNSServer.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/DNSServer/DNSServer.cpp.o
+Compiling library "ESP8266WiFi"
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiGratuitous.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiGratuitous.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/WiFiClientSecureBearSSL.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/WiFiClientSecureBearSSL.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/BearSSLHelpers.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/BearSSLHelpers.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiSTA.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiSTA.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiAP.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiAP.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFi.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiScan.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiScan.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiMulti.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiMulti.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/CertStoreBearSSL.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/CertStoreBearSSL.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/WiFiClient.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/WiFiClient.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiSTA-WPS.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiSTA-WPS.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/ESP8266WiFiGeneric.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiGeneric.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/WiFiServer.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/WiFiServer.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/WiFiServerSecureBearSSL.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/WiFiServerSecureBearSSL.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/WiFiUdp.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/WiFiUdp.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src/enable_wifi_at_boot_time.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/enable_wifi_at_boot_time.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/BearSSLHelpers.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/CertStoreBearSSL.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiAP.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiGeneric.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiGratuitous.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiMulti.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiSTA-WPS.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiSTA.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFiScan.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/WiFiClient.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/WiFiClientSecureBearSSL.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/WiFiServer.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/WiFiServerSecureBearSSL.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/WiFiUdp.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/enable_wifi_at_boot_time.cpp.o
+Compiling library "ESP8266WebServer"
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src/detail/mimetable.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WebServer/detail/mimetable.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WebServer/ESP8266WebServer.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WebServer/detail/mimetable.cpp.o
+Compiling library "ESP8266mDNS"
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src/LEAmDNS_Transfer.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/LEAmDNS_Transfer.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src/ESP8266mDNS.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/ESP8266mDNS.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src/LEAmDNS.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/LEAmDNS.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src/LEAmDNS_Structs.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/LEAmDNS_Structs.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src/LEAmDNS_Helpers.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/LEAmDNS_Helpers.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-g++
+         -D__ets__
+         -DICACHE_FLASH
+         -U__STRICT_ANSI__
+         -D_GNU_SOURCE
+         -DESP8266 @/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core/build.opt
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lwip2/include
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/include
+         -I/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/core
+         -c @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cppflags
+         -Os
+         -g
+         -free
+         -fipa-pta
+         -Werror=return-type
+         -mlongcalls
+         -mtext-section-literals
+         -fno-rtti
+         -falign-functions=4
+         -std=gnu++17
+         -MMD
+         -ffunction-sections
+         -fdata-sections
+         -fno-exceptions
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000
+         -DNONOSDK22x_190703=1
+         -DF_CPU=80000000L
+         -DLWIP_OPEN_SRC
+         -DTCP_MSS=536
+         -DLWIP_FEATURES=1
+         -DLWIP_IPV6=0
+         -DARDUINO=10607
+         -DARDUINO_ESP8266_WEMOS_D1MINIPRO
+         -DARDUINO_ARCH_ESP8266 "-DARDUINO_BOARD=\"ESP8266_WEMOS_D1MINIPRO\"" "-DARDUINO_BOARD_ID=\"d1_mini_pro\""
+         -DFLASHMODE_DIO
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/cores/esp8266
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/variants/d1_mini
+         -I/home/x-ray/Arduino/libraries/GyverPortal/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer/src
+         -I/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS/src/LEAmDNS_Control.cpp
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/LEAmDNS_Control.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/ESP8266mDNS.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/ESP8266mDNS.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/ESP8266mDNS.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/LEAmDNS.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/ESP8266mDNS.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/LEAmDNS_Control.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/ESP8266mDNS.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/LEAmDNS_Helpers.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/ESP8266mDNS.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/LEAmDNS_Structs.cpp.o
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-ar cru /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/ESP8266mDNS.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/LEAmDNS_Transfer.cpp.o
+Compiling core...
+Using precompiled core: /tmp/.private/x-ray/arduino/cores/c09dfdc917dc25429c712dbd620fffd9/core.a
+Linking everything together...
+/home/x-ray/.arduino15/packages/esp8266/tools/python3/3.7.2-post1/python3
+         -I /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/mkdir.py
+         -p /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/ld_h/
+/home/x-ray/.arduino15/packages/esp8266/tools/python3/3.7.2-post1/python3
+         -I /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/cp.py /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/ld/eagle.flash.16m14m.ld /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/ld_h/local.eagle.flash.ld.h
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-gcc
+         -CC
+         -E
+         -P
+         -DVTABLES_IN_FLASH
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000 /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/ld_h/local.eagle.flash.ld.h
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/local.eagle.flash.ld
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-gcc
+         -CC
+         -E
+         -P
+         -DVTABLES_IN_FLASH
+         -DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000 /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/ld/eagle.app.v6.common.ld.h
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/local.eagle.app.v6.common.ld
+/home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin/xtensa-lx106-elf-gcc
+         -fno-exceptions
+         -Wl,-Map
+         -Wl,/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/tables.ino.map
+         -g @/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/warnings/extra-cflags
+         -Os
+         -nostdlib
+         -Wl,--no-check-sections
+         -u app_entry
+         -u _printf_float
+         -u _scanf_float
+         -Wl,-static
+         -L/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lib
+         -L/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/lib/NONOSDK22x_190703
+         -L/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4
+         -L/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sdk/libc/xtensa-lx106-elf/lib
+         -Tlocal.eagle.flash.ld
+         -Wl,--gc-sections
+         -Wl,-wrap,system_restart_local
+         -Wl,-wrap,spi_flash_read
+         -o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/tables.ino.elf
+         -Wl,--start-group /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/sketch/tables.ino.cpp.o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/GyverPortal/GyverPortal.cpp.o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/GyverPortal/utils.cpp.o /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/DNSServer/DNSServer.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WiFi/ESP8266WiFi.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266WebServer/ESP8266WebServer.a /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/libraries/ESP8266mDNS/ESP8266mDNS.a /tmp/.private/x-ray/arduino/cores/c09dfdc917dc25429c712dbd620fffd9/core.a
+         -lhal
+         -lphy
+         -lpp
+         -lnet80211
+         -llwip2-536-feat
+         -lwpa
+         -lcrypto
+         -lmain
+         -lwps
+         -lbearssl
+         -lespnow
+         -lsmartconfig
+         -lairkiss
+         -lwpa2
+         -lstdc++
+         -lm
+         -lc
+         -lgcc
+         -Wl,--end-group
+         -L/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4
+/home/x-ray/.arduino15/packages/esp8266/tools/python3/3.7.2-post1/python3
+         -I /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/elf2bin.py --eboot /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/bootloaders/eboot/eboot.elf --app /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/tables.ino.elf --flash_mode dio --flash_freq 40 --flash_size 16M --path /home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin --out /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/tables.ino.bin
+Creating BIN file "/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/tables.ino.bin" using "/home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/bootloaders/eboot/eboot.elf" and "/tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/tables.ino.elf"
+/home/x-ray/.arduino15/packages/esp8266/tools/python3/3.7.2-post1/python3
+         -I /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/signing.py --mode sign --privatekey /tmp/.private/x-ray/.arduinoIDE-unsaved2023823-34695-13sjo30.glzci/tables/private.key --bin /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/tables.ino.bin --out /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/tables.ino.bin.signed --legacy /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/tables.ino.bin.legacy_sig
+/home/x-ray/.arduino15/packages/esp8266/tools/python3/3.7.2-post1/python3
+         -X utf8
+         -I /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/tools/sizes.py --elf /tmp/.private/x-ray/arduino/sketches/1A5804457C0567429DEA0B9D9B7D0CA4/tables.ino.elf --path /home/x-ray/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/3.1.0-gcc10.3-e5f9fec/bin --mmu "-DMMU_IRAM_SIZE=0x8000
+         -DMMU_ICACHE_SIZE=0x8000"
+. Variables and constants in RAM (global, static), used 29436 / 80192 bytes (36%)
+║   SEGMENT  BYTES    DESCRIPTION
+╠══ DATA     1532     initialized variables
+╠══ RODATA   1304     constants       
+╚══ BSS      26600    zeroed variables
+. Instruction RAM (IRAM_ATTR, ICACHE_RAM_ATTR), used 60223 / 65536 bytes (91%)
+║   SEGMENT  BYTES    DESCRIPTION
+╠══ ICACHE   32768    reserved space for flash instruction cache
+╚══ IRAM     27455    code in IRAM    
+. Code in flash (default, ICACHE_FLASH_ATTR), used 329684 / 1048576 bytes (31%)
+║   SEGMENT  BYTES    DESCRIPTION
+╚══ IROM     329684   code in flash   
+
+Используем библиотеку GyverPortal версии 3.6.6 из папки: /home/x-ray/Arduino/libraries/GyverPortal 
+Используем библиотеку DNSServer версии 1.1.1 из папки: /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/DNSServer 
+Используем библиотеку ESP8266WiFi версии 1.0 из папки: /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WiFi 
+Используем библиотеку ESP8266WebServer версии 1.0 из папки: /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266WebServer 
+Используем библиотеку ESP8266mDNS версии 1.2 из папки: /home/x-ray/.arduino15/packages/esp8266/hardware/esp8266/3.1.2/libraries/ESP8266mDNS 
+```

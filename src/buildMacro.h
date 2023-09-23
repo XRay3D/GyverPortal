@@ -20,7 +20,7 @@ struct Printable : std::tuple<Ts...>, Flag {
     //    };
     //    Printable(Printable&&) = delete;
     //    Printable(const Printable&) = delete;
-    void build() const {
+    constexpr void build() const {
         print_impl(*static_cast<const Ty*>(this), std::make_index_sequence<Size>{});
     }
 
@@ -28,12 +28,12 @@ struct Printable : std::tuple<Ts...>, Flag {
 
 private:
     template <typename _Ty, size_t... Is>
-    /*static*/ void print_impl(const _Ty& t, std::index_sequence<Is...>) const {
-        if constexpr (std::is_base_of_v<Flag, _Ty>) {
+    constexpr void print_impl(const _Ty& t, std::index_sequence<Is...>) const {
+        if constexpr(std::is_base_of_v<Flag, _Ty>) {
             t.begin();
             ([this](auto&& val) {
                 using T = std::decay_t<decltype(val)>;
-                if constexpr (std::is_base_of_v<Flag, T>)
+                if constexpr(std::is_base_of_v<Flag, T>)
                     print_impl(val, std::make_index_sequence<T::Size>{});
                 else
                     print_impl(val, std::index_sequence<>{});
@@ -42,16 +42,16 @@ private:
             t.end();
         } else {
             static_cast<const Ty*>(this)->begin2();
-            if constexpr (std::is_base_of_v<HasText, _Ty>) {
-                if (t.text.endsWith("#")) {
+            if constexpr(std::is_base_of_v<HasText, _Ty>) {
+                if(t.text.endsWith("#")) {
                     auto copy{t};
                     copy.text += i;
-                    GP.PUT_OBJ(copy);
+                    GP::GP.PUT_OBJ(copy);
                 } else {
-                    GP.PUT_OBJ(t);
+                    GP::GP.PUT_OBJ(t);
                 }
             } else
-                GP.PUT_OBJ(t);
+                GP::GP.PUT_OBJ(t);
             static_cast<const Ty*>(this)->end2();
         }
     }
@@ -66,9 +66,9 @@ struct BOX : Printable<BOX<Ts...>, Ts...> {
     using P = Printable<BOX<Ts...>, Ts...>;
     BOX(Ts&&... ts)
         : P{std::forward<Ts>(ts)...} { }
-    void begin() const { GP.BOX_BEGIN(); }
+    void begin() const { GP::GP.BOX_BEGIN(); }
     void begin2() const { }
-    void end() const { GP.BOX_END(); }
+    void end() const { GP::GP.BOX_END(); }
     void end2() const { }
 };
 
@@ -81,9 +81,9 @@ struct GRID : Printable<GRID<Ts...>, Ts...> {
     using P = Printable<GRID<Ts...>, Ts...>;
     GRID(Ts&&... ts)
         : P{std::forward<Ts>(ts)...} { }
-    void begin() const { GP.GRID_BEGIN(); }
+    void begin() const { GP::GP.GRID_BEGIN(); }
     void begin2() const { }
-    void end() const { GP.GRID_END(); }
+    void end() const { GP::GP.GRID_END(); }
     void end2() const { }
 };
 
@@ -98,9 +98,9 @@ struct BLOCK_THIN_TAB : Printable<BLOCK_THIN_TAB<Ts...>, Ts...> {
     BLOCK_THIN_TAB(const String& name, Ts&&... ts)
         : P{std::forward<Ts>(ts)...}
         , name{name} { }
-    void begin() const { GP.BLOCK_THIN_TAB_BEGIN(name); }
+    void begin() const { GP::GP.BLOCK_THIN_TAB_BEGIN(name); }
     void begin2() const { }
-    void end() const { GP.BLOCK_END(); }
+    void end() const { GP::GP.BLOCK_END(); }
     void end2() const { }
 };
 
@@ -109,82 +109,68 @@ BLOCK_THIN_TAB(const String&, Ts&&...) -> BLOCK_THIN_TAB<Ts...>;
 
 /// \brief The BLOCK_THIN_TAB class
 template <typename... Ts>
-struct M_TR : Printable<M_TR<Ts...>, Ts...> {
-    using P = Printable<M_TR<Ts...>, Ts...>;
+struct _TR : Printable<_TR<Ts...>, Ts...> {
+    using P = Printable<_TR<Ts...>, Ts...>;
     String name;
-    M_TR(const String& name, Ts&&... ts)
+    _TR(const String& name, Ts&&... ts)
         : P{std::forward<Ts>(ts)...}
         , name{name} { }
-    M_TR(Ts&&... ts)
+    _TR(Ts&&... ts)
         : P{std::forward<Ts>(ts)...} { }
 
-    void begin() const { GP.TR(); }
-    void begin2() { GP.TD(); }
+    void begin() const { GP::GP.TR(); }
+    void begin2() { GP::GP.TD(); }
     void end() const { }
     void end2() const { }
 };
 
 template <typename... Ts>
-M_TR(const String&, Ts&&...) -> M_TR<Ts...>;
+_TR(const String&, Ts&&...) -> _TR<Ts...>;
 template <typename... Ts>
-M_TR(Ts&&...) -> M_TR<Ts...>;
+_TR(Ts&&...) -> _TR<Ts...>;
 
 /// \brief The BLOCK_THIN_TAB class
 template <size_t N, typename... Ts>
-struct M_TABLE : Printable<M_TABLE<N, Ts...>, Ts...> {
-    using P = Printable<M_TABLE<N, Ts...>, Ts...>;
+struct _TABLE : Printable<_TABLE<N, Ts...>, Ts...> {
+    using P = Printable<_TABLE<N, Ts...>, Ts...>;
     String name;
     std::array<Align, N> align;
 
-    M_TABLE(const String& name, Ts&&... ts)
+    constexpr _TABLE(const String& name, Ts&&... ts)
         : P{std::forward<Ts>(ts)...}
         , name{name} { }
 
-    M_TABLE(Ts&&... ts)
+    constexpr _TABLE(Ts&&... ts)
         : P{std::forward<Ts>(ts)...} { }
 
-    M_TABLE(const String& name, const std::array<Align, N>& align, Ts&&... ts)
+    constexpr _TABLE(const String& name, const std::array<Align, N>& align, Ts&&... ts)
         : P{std::forward<Ts>(ts)...}
         , name{name}
         , align{align} { }
 
-    M_TABLE(const std::array<Align, N>& align, Ts&&... ts)
+    constexpr _TABLE(const std::array<Align, N>& align, Ts&&... ts)
         : P{std::forward<Ts>(ts)...}
         , align{align} { }
 
-    void begin() const { GP.TABLE_BEGIN(name, N ? const_cast<Align*>(align.data()) : nullptr); }
-    void begin2() const { GP.TD(); }
-    void end() const { GP.TABLE_END(); }
+    void begin() const { GP::GP.TABLE_BEGIN(name, N ? const_cast<Align*>(align.data()) : nullptr); }
+    void begin2() const { GP::GP.TD(); }
+    void end() const { GP::GP.TABLE_END(); }
     void end2() const { }
 };
 
 template <size_t N, typename... Ts>
-M_TABLE(const String&, std::array<Align, N>, Ts&&...) -> M_TABLE<N, Ts...>;
+_TABLE(const String&, std::array<Align, N>, Ts&&...) -> _TABLE<N, Ts...>;
 template <size_t N, typename... Ts>
-M_TABLE(const char*, std::array<Align, N>, Ts&&...) -> M_TABLE<N, Ts...>;
+_TABLE(const char*, std::array<Align, N>, Ts&&...) -> _TABLE<N, Ts...>;
 template <size_t N, typename... Ts>
-M_TABLE(std::array<Align, N>, Ts&&...) -> M_TABLE<N, Ts...>;
+_TABLE(std::array<Align, N>, Ts&&...) -> _TABLE<N, Ts...>;
 
 template <typename... Ts>
-M_TABLE(const String&, Ts&&...) -> M_TABLE<0, Ts...>;
+_TABLE(const String&, Ts&&...) -> _TABLE<0, Ts...>;
 template <typename... Ts>
-M_TABLE(const char*, Ts&&...) -> M_TABLE<0, Ts...>;
+_TABLE(const char*, Ts&&...) -> _TABLE<0, Ts...>;
 template <typename... Ts>
-M_TABLE(Ts&&...) -> M_TABLE<0, Ts...>;
-
-// template <size_t N, typename... Ts>
-// M_TABLE(const String&, Align (&)[N], Ts&&...) -> M_TABLE<N, Ts...>;
-// template <size_t N, typename... Ts>
-// M_TABLE(const char*, Align (&)[N], Ts&&...) -> M_TABLE<N, Ts...>;
-// template <size_t N, typename... Ts>
-// M_TABLE(Align (&)[N], Ts&&...) -> M_TABLE<N, Ts...>;
-
-// inline struct {
-//     int i{};
-//     operator int() { return i; }
-//     auto& operator=(int i_) { return i = i_, *this; }
-//     auto& operator++() { return ++i, *this; }
-// } I;
+_TABLE(Ts&&...) -> _TABLE<0, Ts...>;
 
 template <typename... Ts>
 struct FOR : Printable<FOR<Ts...>, Ts...> {
@@ -194,13 +180,13 @@ struct FOR : Printable<FOR<Ts...>, Ts...> {
         : P{std::forward<Ts>(ts)...}
         , count{count} { }
     void begin() const {
-        qDebug() << P::i;
-        if (P::i == count) P::i = 0;
+
+        if(P::i == count) P::i = 0;
     }
-    void begin2() const { GP.TD(); }
+    void begin2() const { GP::GP.TD(); }
     void end() const {
-        qDebug() << P::i;
-        if (++P::i == count) return;
+
+        if(++P::i == count) return;
         P::build();
     }
     void end2() const { }
@@ -210,7 +196,6 @@ FOR(int, Ts&&...) -> FOR<Ts...>;
 
 } // namespace GP
 
-#if 0
 // https://stackoverflow.com/a/30566098
 #define OVR_MACRO(M, ...)                                      _OVR(M, _COUNT_ARGS(__VA_ARGS__))(__VA_ARGS__)
 #define _OVR(mName, nArgs)                                     _OVR_EXPAND(mName, nArgs)
@@ -446,5 +431,3 @@ FOR(int, Ts&&...) -> FOR<Ts...>;
 #define GP_MAKE_JQ_UPDATE(...)      M_JQ_UPDATE(__VA_ARGS__)
 #define GP_MAKE_NAV_BLOCK(...)      M_NAV_BLOCK(__VA_ARGS__)
 #define GP_MAKE_SPOILER(...)        M_SPOILER(__VA_ARGS__)
-
-#endif

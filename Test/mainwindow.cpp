@@ -164,61 +164,90 @@ void build() {
 
     GP::GP.TABLE_END();
 
-    //    // делаем таблицу с объединением ячеек
-    //    GP::GP.TITLE("Span Table");
-    //    GP::GP.TABLE_BEGIN();
+    // делаем таблицу с объединением ячеек
+    GP::GP.TITLE("Span Table");
+    GP::GP.TABLE_BEGIN();
 
-    //    GP::GP.TR();
-    //    GP::GP.TD(GP::Align::CENTER, 2);
-    //    GP::GP.LABEL("Big table cell");
+    GP::GP.TR();
+    GP::GP.TD(GP::Align::CENTER, 2);
+    GP::GP.LABEL("Big table cell");
 
-    //    GP::GP.TR();
-    //    GP::GP.TD();
-    //    GP::GP.LABEL("First");
-    //    GP::GP.TD();
-    //    GP::GP.LABEL("Second");
+    GP::GP.TR();
+    GP::GP.TD();
+    GP::GP.LABEL("First");
+    GP::GP.TD();
+    GP::GP.LABEL("Second");
 
-    //    GP::GP.TABLE_END();
+    GP::GP.TABLE_END();
+#if 0
+  // авто таблица 1
+  GP::GP.TITLE("Auto Table 1");
+  M_TABLE(for (int i{}; i < 5; i++) {
+    // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
+    M_TR(
+      GP::GP.LABEL(String("Switch #") + i),
+      GP::GP.SWITCH(""));
+  });
+
+
+  // авто таблица 2
+  // с указанием размеров ячеек
+  GP::GP.TITLE("Auto Table 2");
+  M_TABLE(
+    "30%,20%,50%",
+    for (int i{}; i < 5; i++) {
+      M_TR(
+        GP::GP.LABEL(String("Label #") + i),
+        GP::GP.CHECK(""),
+        GP::GP.BUTTON("", "Btn"));
+    });
+
+  // авто таблица 3
+  // с указанием ориентации ячеек
+  GP::GP.TITLE("Auto Table 3");
+  M_TABLE(
+    "",
+    GP_ALS(GP::Align::LEFT, GP::Align::CENTER, GP::Align::RIGHT),
+    for (int i{}; i < 3; i++) {
+      M_TR(GP::GP.LABEL(String(i)), GP::GP.CHECK(""), GP::GP.LED(""));
+    });
+
+#else
 
     // авто таблица 1
     GP::GP.TITLE("Auto Table 1");
-    GP::M_TABLE(
-        GP::FOR(2, // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
-            GP::M_TR(
-                GP::LABEL("", String("Switch #")), GP::SWITCH(""), GP::SWITCH(""), GP::SWITCH(""), GP::SWITCH(""))))
-        .build();
-
-    GP::GP.TITLE("Auto Table 2");
-    GP::M_TABLE(
-        GP::M_TR( // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
-            GP::LABEL("", String("Switch #")), GP::SWITCH(""), GP::SWITCH("")),
-        GP::M_TR( // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
-            GP::LABEL("", String("Switch #")), GP::SWITCH(""), GP::SWITCH("")),
-        GP::M_TR( // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
-            GP::LABEL("", String("Switch #")), GP::SWITCH(""), GP::SWITCH("")),
-        GP::M_TR( // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
-            GP::LABEL("", String("Switch #")), GP::SWITCH(""), GP::SWITCH("")))
-        .build();
+    GP::_TABLE(
+        GP::FOR {
+            5, // макрос создаёт РЯД таблицы, элементы ЧЕРЕЗ ЗАПЯТУЮ
+                GP::_TR(
+                    GP::LABEL("", String("Switch #")),
+                    GP::SWITCH(""))
+        }).build();
 
     // авто таблица 2
     // с указанием размеров ячеек
     GP::GP.TITLE("Auto Table 2");
-    GP::M_TABLE("30%,20%,50%",
-        GP::FOR{5,
-            GP::M_TR(
-                GP::LABEL("", String("Label #")), GP::CHECK(""), GP::BUTTON("", "Btn"))
-
-        })
-        .build();
+    GP::_TABLE(
+        "30%,20%,50%",
+        GP::FOR {
+            5,
+                GP::_TR(
+                    GP::LABEL("", String("Label #")),
+                    GP::CHECK(""),
+                    GP::BUTTON("", "Btn"))
+        }).build();
 
     // авто таблица 3
     // с указанием ориентации ячеек
     GP::GP.TITLE("Auto Table 3");
-    GP::M_TABLE("", std::array{GP::Align::LEFT, GP::Align::CENTER, GP::Align::RIGHT},
-        GP::FOR{3,
-            GP::M_TR(GP::LABEL("", String("#")), GP::CHECK(""), GP::LED(""))})
-        .build(); //);
+    GP::_TABLE(
+        "", std::array{GP::Align::LEFT, GP::Align::CENTER, GP::Align::RIGHT},
+        GP::FOR {
+            3,
+                GP::_TR(GP::LABEL("", String("#")), GP::CHECK(""), GP::LED(""))
+        }).build();
 
+#endif
     GP::GP.BUILD_END();
 }
 

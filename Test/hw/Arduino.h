@@ -118,7 +118,7 @@ inline int random(int min, int max) {
 // template <typename T>
 // inline decltype(auto) F(T&& S) { return S; }
 
-#define F(STR) STR
+//#define F(STR) STR
 
 inline const void* pgm_read_dword(const void* S) { return S; }
 

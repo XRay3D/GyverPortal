@@ -22,18 +22,15 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
 
 add_definitions(
     -DPROGMEM=/**/
-    "-DPGM_P=const char*"
-    "-DFPSTR=(const char*)"
-    -DPSTR=FPSTR
     -DGP_NO_MDNS
     -DGP_NO_DNS
     -DGP_NO_OTA
-    -Dstrlen_P=strlen
     -DSOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}"
 )
 
 include_directories(
     ../src
+    hw
     QtWebApp-1.8.6/QtWebApp/httpserver
     QtWebApp-1.8.6/QtWebApp
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -68,21 +65,24 @@ set(GPortal
     ../src/utils.cpp
     ../src/utils.h
     ../src/version.h
+    ../src/src.ino
 )
 
 set(PROJECT_SOURCES
-    Arduino.h
-    DNSServer.h
-    ESPmDNS.h
-    FS.h
-    Print.h
-    Print.cpp
-    StreamString.h
-    Update.h
-    WebServer.h
-    WiFi.h
-    WString.cpp
-    WString.h
+    hw/Arduino.h
+    hw/DNSServer.h
+    hw/ESPmDNS.h
+    hw/FS.h
+    hw/Print.h
+    hw/Print.cpp
+    hw/StreamString.h
+    hw/Update.h
+    hw/WebServer.h
+    hw/WiFi.h
+    hw/WString.cpp
+    hw/WString.h
+    hw/xmlhighlighter.h
+    hw/xmlhighlighter.cpp
 
 
     main.cpp
@@ -93,6 +93,7 @@ set(PROJECT_SOURCES
     GP_JS_TOP.js
     DARK.css
     LIGHT.css
+    tests.md
 
 
     ${QtWebApp}
@@ -164,7 +165,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Test
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        xmlhighlighter.h xmlhighlighter.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Test APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
