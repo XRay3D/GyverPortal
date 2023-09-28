@@ -1571,25 +1571,6 @@ struct Builder {
         PASS(name, place, value, width, maxlength, pattern, dis, true);
     }
 
-    void AREA(const String& name, int rows = 1, const String& value = "", const String& width = "", bool dis = false) {
-        *tmpPageBuf += F("<textarea onchange='GP_click(this)' style='height:auto' name='");
-        *tmpPageBuf += name;
-        *tmpPageBuf += F("' id='");
-        *tmpPageBuf += name;
-        *tmpPageBuf += F("' rows='");
-        *tmpPageBuf += rows;
-        if (width.length()) {
-            *tmpPageBuf += F("' style='width:");
-            *tmpPageBuf += width;
-        }
-        *tmpPageBuf += "'";
-        if (dis) *tmpPageBuf += F(" disabled");
-        *tmpPageBuf += ">";
-        if (value.length()) *tmpPageBuf += value;
-        *tmpPageBuf += F("</textarea>\n");
-        send();
-    }
-
     void AREA_LOG_RAW(const String& name, int rows = 5, int prd = 1000, const String& w = "") {
         *tmpPageBuf += F("<div class='inlBlock'><textarea name='_gplog' style='height:auto;");
         if (w.length()) {
@@ -1626,31 +1607,7 @@ struct Builder {
     }
 
     // ======================= НАСТРОЙКА =======================
-    void CHECK(const String& name, bool state = 0, PGM_P st = GREEN, bool dis = false) {
-        if (st != GREEN) {
-            *tmpPageBuf += F("<style>#__");
-            *tmpPageBuf += name;
-            *tmpPageBuf += F(" input:checked+span::before{border-color:");
-            *tmpPageBuf += FPSTR(st);
-            *tmpPageBuf += F(";background-color:");
-            *tmpPageBuf += FPSTR(st);
-            *tmpPageBuf += F("}</style>\n");
-        }
-        *tmpPageBuf += F("<label id='__");
-        *tmpPageBuf += name;
-        *tmpPageBuf += F("' class='check_c'><input type='checkbox' name='");
-        *tmpPageBuf += name;
-        *tmpPageBuf += F("' id='");
-        *tmpPageBuf += name;
-        *tmpPageBuf += "' ";
-        if (state) *tmpPageBuf += F("checked ");
-        if (dis) *tmpPageBuf += F("disabled ");
-        *tmpPageBuf += F("onclick='GP_click(this)'><span></span></label>\n"
-                         "<input type='hidden' value='0' name='");
-        *tmpPageBuf += name;
-        *tmpPageBuf += "'>\n";
-        send();
-    }
+
     void SWITCH(const String& name, bool state = 0, PGM_P st = GREEN, bool dis = false) {
         if (st != GREEN) {
             *tmpPageBuf += F("<style>#__");
@@ -1678,24 +1635,7 @@ struct Builder {
         send();
     }
 
-    void DATE(const String& name, bool dis = false) {
-        GP::Date d;
-        DATE(name, d, dis);
-    }
-    void DATE(const String& name, GP::Date d, bool dis = false) {
-        *tmpPageBuf += F("<input step='any' type='date' name='");
-        *tmpPageBuf += name;
-        *tmpPageBuf += F("' id='");
-        *tmpPageBuf += name;
-        if (d.year) {
-            *tmpPageBuf += F("' value='");
-            *tmpPageBuf += d.encode();
-        }
-        *tmpPageBuf += "' ";
-        if (dis) *tmpPageBuf += F("disabled ");
-        *tmpPageBuf += F("onchange='GP_click(this)'>\n");
-        send();
-    }
+
 
     void TIME(const String& name, bool dis = false) {
         *tmpPageBuf += F("<input step='1' type='time' name='");
@@ -1818,32 +1758,6 @@ struct Builder {
         *tmpPageBuf += ">\n";
         SPIN_BTN(name, step, st, dec, dis);
         *tmpPageBuf += F("</div>\n");
-        send();
-    }
-
-    void COLOR(const String& name, uint32_t value = 0, bool dis = false) {
-        *tmpPageBuf += F("<input type='color' name='");
-        *tmpPageBuf += name;
-        *tmpPageBuf += F("' id='");
-        *tmpPageBuf += name;
-        *tmpPageBuf += F("' value='");
-        GPcolor col(value);
-        *tmpPageBuf += col.encode();
-        *tmpPageBuf += "' ";
-        if (dis) *tmpPageBuf += F("disabled ");
-        *tmpPageBuf += F("onchange='GP_click(this)'>\n");
-        send();
-    }
-    void COLOR(const String& name, GPcolor col, bool dis = false) {
-        *tmpPageBuf += F("<input type='color' name='");
-        *tmpPageBuf += name;
-        *tmpPageBuf += F("' id='");
-        *tmpPageBuf += name;
-        *tmpPageBuf += F("' value='");
-        *tmpPageBuf += col.encode();
-        *tmpPageBuf += "' ";
-        if (dis) *tmpPageBuf += F("disabled ");
-        *tmpPageBuf += F("onchange='GP_click(this)'>\n");
         send();
     }
 
